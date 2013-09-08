@@ -1,0 +1,5 @@
+D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
+D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
+D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
+D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
+D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
