@@ -9,7 +9,7 @@ namespace ReservasWeb.Controllers {
   public class ClienteController : Controller {
     //
     // GET: /Cliente/
-
+    //Listado de Clientes
     public List<Cliente> CrearClientes() {
       Departamento LimaDe = new Departamento() { codigodepartamento = 1, nombredepartamento = "Lima" };
       Departamento Cusco = new Departamento() { codigodepartamento = 2, nombredepartamento = "Cusco" };
