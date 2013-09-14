@@ -34,7 +34,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\Librerias\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate">
+      <HintPath>..\Librerias\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -77,6 +83,10 @@
     <Compile Include="Models\Departamento.cs" />
     <Compile Include="Models\Distrito.cs" />
     <Compile Include="Models\Provincia.cs" />
+    <Compile Include="Persistencia\BaseDAO.cs" />
+    <Compile Include="Persistencia\ClienteDAO.cs" />
+    <Compile Include="Persistencia\ConexionUtil.cs" />
+    <Compile Include="Persistencia\NHibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
