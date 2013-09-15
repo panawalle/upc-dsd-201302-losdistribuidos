@@ -76,10 +76,9 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VehiculoController.cs" />
-    <Compile Include="Dominio\Cliente.cs" />
-    <Compile Include="Dominio\Color.cs" />
-    <Compile Include="Dominio\Modelo.cs" />
-    <Compile Include="Dominio\Vehiculo.cs" />
+    <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\Modelo.cs" />
+    <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -88,10 +87,6 @@
     <Compile Include="Models\Departamento.cs" />
     <Compile Include="Models\Distrito.cs" />
     <Compile Include="Models\Provincia.cs" />
-    <Compile Include="Persistencia\BaseDAO.cs" />
-    <Compile Include="Persistencia\ClienteDAO.cs" />
-    <Compile Include="Persistencia\ConexionUtil.cs" />
-    <Compile Include="Persistencia\NHibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,7 +96,7 @@
     <Content Include="Views\Cliente\Details.aspx" />
     <Content Include="Views\Cliente\Edit.aspx" />
     <Content Include="Views\Cliente\Index.aspx" />
-    <Content Include="Views\Vehiculo\Index.aspx" />
+    <Content Include="Views\Vehiculo\AdmVehiculo.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
