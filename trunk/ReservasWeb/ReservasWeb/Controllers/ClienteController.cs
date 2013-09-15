@@ -26,8 +26,8 @@ namespace ReservasWeb.Controllers {
       Distrito Ollantaytambo = new Distrito() { codigodistrito = 2, nombredistrito = "Ollantaytambo" };
 
       List<Cliente> clientes = new List<Cliente>();
-      clientes.Add(new Cliente() { dnicliente = "44513804", nombrecliente = "Lesly", apellidocliente = "Ormeño", correocliente = "lesly.varillas@gmail.com", sexocliente = "F", fecnacliente = "12/10/1990", distritocliente = "Lima", provinciacliente = "Lima", departamentocliente = "Lima" });
-      clientes.Add(new Cliente() { dnicliente = "43781265", nombrecliente = "Oscar", apellidocliente = "Santillan", correocliente = "oscar@gmail.com", sexocliente = "M", fecnacliente = "15/08/1985", distritocliente = "Ollantaytambo", provinciacliente = "Urubamba", departamentocliente = "Cusco" });
+      clientes.Add(new Cliente() { dnicliente = "44513804", nombrecliente = "Lesly", apellidocliente = "Ormeño", correocliente = "lesly.varillas@gmail.com", sexocliente = "F", fecnacliente = "12/10/1990", distritocliente = LimaDi, provinciacliente = LimaPro, departamentocliente = LimaDe });
+      clientes.Add(new Cliente() { dnicliente = "43781265", nombrecliente = "Oscar", apellidocliente = "Santillan", correocliente = "oscar@gmail.com", sexocliente = "M", fecnacliente = "15/08/1985", distritocliente = LimaDi, provinciacliente = LimaPro, departamentocliente = LimaDe });
       return clientes;
     }
 
