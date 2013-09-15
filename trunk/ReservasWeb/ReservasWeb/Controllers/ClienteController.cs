@@ -6,10 +6,15 @@ using System.Web.Mvc;
 using ReservasWeb.Models;
 
 namespace ReservasWeb.Controllers {
+
+  /// Creado por: Lesly Ormeño
+  /// Modificado por: Lesly Ormeño 
+  /// Fecha de Creación: 07/09/13
+  /// Fedha de Actualización: 07/09/13
+  /// Comentarios: Se realizó la creación de métodos para el CRUD, sin base de datos.
+  
   public class ClienteController : Controller {
-    //
-    // GET: /Cliente/
-    //Listado de Clientes
+
     public List<Cliente> CrearClientes() {
       Departamento LimaDe = new Departamento() { codigodepartamento = 1, nombredepartamento = "Lima" };
       Departamento Cusco = new Departamento() { codigodepartamento = 2, nombredepartamento = "Cusco" };
@@ -44,23 +49,14 @@ namespace ReservasWeb.Controllers {
 
     }
 
-    //
-    // GET: /Cliente/Details/5
-
     public ActionResult Details(string id) {
       Cliente cli = ObtenerCliente(id);
       return View(cli);
     }
 
-    //
-    // GET: /Cliente/Create
-
     public ActionResult Create() {
       return View();
     }
-
-    //
-    // POST: /Cliente/Create
 
     [HttpPost]
     public ActionResult Create(Cliente cliente) {
@@ -73,19 +69,13 @@ namespace ReservasWeb.Controllers {
         return View();
       }
     }
-
-    //
-    // GET: /Cliente/Edit/5
-
+  
     public ActionResult Edit(string id) {
       Cliente cliente = ObtenerCliente(id);
       return View(cliente);
     }
 
-    //
-    // POST: /Cliente/Edit/5
-
-    [HttpPost]
+   [HttpPost]
     public ActionResult Edit(string id, Cliente cliente) {
       try {
         Cliente cli = ObtenerCliente(id);
@@ -99,16 +89,10 @@ namespace ReservasWeb.Controllers {
       }
     }
 
-    //
-    // GET: /Cliente/Delete/5
-
     public ActionResult Delete(string id) {
       Cliente cliente = ObtenerCliente(id);
       return View(cliente);
     }
-
-    //
-    // POST: /Cliente/Delete/5
 
     [HttpPost]
     public ActionResult Delete(string id, FormCollection collection) {
