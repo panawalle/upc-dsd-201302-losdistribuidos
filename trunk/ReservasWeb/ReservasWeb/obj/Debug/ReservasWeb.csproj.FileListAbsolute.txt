@@ -10,3 +10,10 @@ D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\Re
 D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
 D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\obj\Debug\ReservasWeb.dll
 D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\obj\Debug\ReservasWeb.pdb
+C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
+C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
+C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\bin\Iesi.Collections.dll
+C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\bin\NHibernate.dll
+C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
+C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
