@@ -113,8 +113,18 @@
                                                 <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
                                                 <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
                                                 <asp:BoundField DataField="Cliente" HeaderText="Cliente" />
-                                                <asp:TemplateField HeaderText="Editar"></asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Desactivar"></asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Editar">
+                                                
+                                                    <ItemTemplate>
+                                                        <asp:ImageButton ID="btnEditar" runat="server" />
+                                                    </ItemTemplate>
+                                                
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Desactivar">
+                                                    <ItemTemplate>
+                                                        <asp:ImageButton ID="btnDesactivar" runat="server" />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
                                             </Columns>
                                         </asp:GridView>
                                     </td>
