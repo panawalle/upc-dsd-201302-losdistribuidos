@@ -29,16 +29,16 @@ namespace ReservasWeb.Models
       public string fecnacliente { get; set; }
 
       [DisplayName("Distrito")]
-      public string distritocliente { get; set; }
-      //public Distrito distritocliente { get; set; }
+      //public string distritocliente { get; set; }
+      public Distrito distritocliente { get; set; }
 
       [DisplayName("Provincia")]
-      public string provinciacliente { get; set; }
-      //public Provincia provinciacliente { get; set; }
+     //public string provinciacliente { get; set; }
+      public Provincia provinciacliente { get; set; }
 
       [DisplayName("Departamento")]
-      public string departamentocliente { get; set; }
-      //public Departamento departamentocliente { get; set; }
+      //public string departamentocliente { get; set; }
+      public Departamento departamentocliente { get; set; }
 
       //[DisplayName("Contraseña")]
       //public string contrasena { get; set; }
