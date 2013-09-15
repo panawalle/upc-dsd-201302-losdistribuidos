@@ -75,6 +75,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VehiculoController.cs" />
     <Compile Include="Dominio\Cliente.cs" />
     <Compile Include="Dominio\Color.cs" />
     <Compile Include="Dominio\Modelo.cs" />
