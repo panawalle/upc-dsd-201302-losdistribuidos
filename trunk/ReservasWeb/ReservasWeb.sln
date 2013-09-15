@@ -9,6 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias", "Librerias", "{
 		Librerias\NHibernate.dll = Librerias\NHibernate.dll
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BDAUTODROMO", "BDAUTODROMO", "{0F25B74A-D8EC-47E7-AF49-0693CECDE651}"
+	ProjectSection(SolutionItems) = preProject
+		BDAUTODROMO\BDAutodromo.bak = BDAUTODROMO\BDAutodromo.bak
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

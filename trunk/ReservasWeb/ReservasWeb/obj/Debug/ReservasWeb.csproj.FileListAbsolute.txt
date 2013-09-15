@@ -3,3 +3,10 @@ D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
 D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
 D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
 D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\bin\ReservasWeb.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\bin\ReservasWeb.pdb
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\bin\Iesi.Collections.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\bin\NHibernate.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\obj\Debug\ReservasWeb.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\obj\Debug\ReservasWeb.pdb
