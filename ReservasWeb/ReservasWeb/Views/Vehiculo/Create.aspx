@@ -87,7 +87,7 @@
             </div>
 
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.cliente.dnicliente) %>
+                <%: Html.LabelFor(model => model.cliente.dnicliente ) %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.cliente.dnicliente)%>
