@@ -59,7 +59,7 @@ namespace ReservasWeb.Controllers
 
         public ActionResult Index()
         {
-
+            
             if (Session["vehiculos"] == null)
                 Session["vehiculos"] = CrearVehiculos();
             List<Vehiculo> model = (List<Vehiculo>)Session["vehiculos"];
@@ -146,7 +146,7 @@ namespace ReservasWeb.Controllers
                 });
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }

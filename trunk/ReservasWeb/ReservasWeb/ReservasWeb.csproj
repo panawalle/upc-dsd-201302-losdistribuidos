@@ -97,11 +97,11 @@
     <Content Include="Views\Cliente\Details.aspx" />
     <Content Include="Views\Cliente\Edit.aspx" />
     <Content Include="Views\Cliente\Index.aspx" />
-    <Content Include="Views\Vehiculo\DetalleVehiculo.aspx" />
-    <Content Include="Views\Vehiculo\EditarVehiculo.aspx" />
-    <Content Include="Views\Vehiculo\EliminarVehiculo.aspx" />
-    <Content Include="Views\Vehiculo\GestionarVehiculos.aspx" />
-    <Content Include="Views\Vehiculo\RegistrarVehiculo.aspx" />
+    <Content Include="Views\Vehiculo\Details.aspx" />
+    <Content Include="Views\Vehiculo\Edit.aspx" />
+    <Content Include="Views\Vehiculo\Delete.aspx" />
+    <Content Include="Views\Vehiculo\Index.aspx" />
+    <Content Include="Views\Vehiculo\Create.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

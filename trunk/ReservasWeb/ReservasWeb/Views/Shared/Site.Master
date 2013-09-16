@@ -21,7 +21,7 @@
             <div id="menucontainer">
                 <ul id="menu">
                     <li>
-                        <%: Html.ActionLink("Vehículo", "GestionarVehiculos", "Vehiculo")%></li>
+                        <%: Html.ActionLink("Vehículo", "Index", "Vehiculo")%></li>
                     <li>
                         <%: Html.ActionLink("Clientes", "Index", "Cliente")%></li>
                     <li>
