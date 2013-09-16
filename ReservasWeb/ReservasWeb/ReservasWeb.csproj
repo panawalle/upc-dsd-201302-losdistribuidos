@@ -97,7 +97,11 @@
     <Content Include="Views\Cliente\Details.aspx" />
     <Content Include="Views\Cliente\Edit.aspx" />
     <Content Include="Views\Cliente\Index.aspx" />
-    <Content Include="Views\Vehiculo\AdmVehiculo.aspx" />
+    <Content Include="Views\Vehiculo\DetalleVehiculo.aspx" />
+    <Content Include="Views\Vehiculo\EditarVehiculo.aspx" />
+    <Content Include="Views\Vehiculo\EliminarVehiculo.aspx" />
+    <Content Include="Views\Vehiculo\GestionarVehiculos.aspx" />
+    <Content Include="Views\Vehiculo\RegistrarVehiculo.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

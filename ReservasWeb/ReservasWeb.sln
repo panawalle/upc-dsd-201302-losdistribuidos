@@ -16,8 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BDAUTODROMO", "BDAUTODROMO"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPServices", "SOAPServices\SOAPServices.csproj", "{B44878C1-AAB6-4687-9377-D6DFDC58FF39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPServiceTest", "..\..\PRACTICANDO\Practica_01\Practica01\SOAPServiceTest\SOAPServiceTest.csproj", "{A65BB431-720E-40B0-AF46-C34FA60D8D9D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,10 +30,6 @@ Global
 		{B44878C1-AAB6-4687-9377-D6DFDC58FF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B44878C1-AAB6-4687-9377-D6DFDC58FF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B44878C1-AAB6-4687-9377-D6DFDC58FF39}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A65BB431-720E-40B0-AF46-C34FA60D8D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A65BB431-720E-40B0-AF46-C34FA60D8D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A65BB431-720E-40B0-AF46-C34FA60D8D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A65BB431-720E-40B0-AF46-C34FA60D8D9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

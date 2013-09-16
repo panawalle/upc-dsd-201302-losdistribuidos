@@ -1,12 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<ReservasWeb.Dominio.Vehiculo>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<ReservasWeb.Models.Vehiculo>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	AdmVehiculo
+	UPC - Los Distribuidos
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>AdmVehiculo</h2>
+    <h2>Gestionar Vehículos</h2>
 
     <table>
         <tr>
@@ -32,15 +32,25 @@
             <th>
                 fecha
             </th>
+            <th>
+                Color
+            </th>
+            <th>
+                Modelo
+            </th>
+            <th>
+                Cliente
+            </th>
+            
         </tr>
 
     <% foreach (var item in Model) { %>
     
         <tr>
             <td>
-                <%: Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) %> |
-                <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })%> |
-                <%: Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })%>
+                <%: Html.ActionLink("Editar", "Edit", new { placa=item.placa }) %> |
+                <%: Html.ActionLink("Detailles", "Details", new { placa = item.placa })%> |
+                <%: Html.ActionLink("Eliminar", "Delete", new { placa = item.placa })%>
             </td>
             <td>
                 <%: item.placa %>
@@ -63,6 +73,15 @@
             <td>
                 <%: item.fecha %>
             </td>
+            <td>
+                <%: item.color.descripcion %>
+            </td>
+            <td>
+                <%: item.modelo.descripcion %>
+            </td>
+            <td>
+                <%: item.cliente.apellidocliente %>, <%: item.cliente.nombrecliente %>  
+            </td>
         </tr>
     
     <% } %>
@@ -70,7 +89,7 @@
     </table>
 
     <p>
-        <%: Html.ActionLink("Create New", "Create") %>
+        <%: Html.ActionLink("Nuevo Vehículo", "Create") %>
     </p>
 
 </asp:Content>
