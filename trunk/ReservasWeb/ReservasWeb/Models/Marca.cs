@@ -7,5 +7,8 @@ namespace ReservasWeb.Models
 {
     public class Marca
     {
+        public int codigo { get; set; }
+        public string descripcion { get; set; }
+        public string estado { get; set; }
     }
 }
