@@ -17,3 +17,10 @@ C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\bin\NHibernate.dll
 C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
 C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\bin\ReservasWeb.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\bin\ReservasWeb.pdb
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\bin\Iesi.Collections.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\bin\NHibernate.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\obj\Debug\ReservasWeb.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\obj\Debug\ReservasWeb.pdb

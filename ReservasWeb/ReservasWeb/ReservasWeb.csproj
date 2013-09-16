@@ -77,6 +77,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VehiculoController.cs" />
     <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Modelo.cs" />
     <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="Global.asax.cs">
