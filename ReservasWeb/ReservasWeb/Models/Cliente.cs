@@ -10,37 +10,34 @@ namespace ReservasWeb.Models
     public class Cliente : Controller
     {
 
+      [DisplayName("CODIGO")]
+      public int codigocliente { get; set; }
+
       [DisplayName("DNI")]
       public string dnicliente { get; set; }
 
-      [DisplayName("Nombres")]
+      [DisplayName("TIPO")]
+      public int tipo { get; set; }
+
+      [DisplayName("NOMBRE")]
       public string nombrecliente { get; set; }
 
-      [DisplayName("Apellidos")]
-      public string apellidocliente { get; set; }
+      [DisplayName("APELLIDO PATERNO")]
+      public string apellidopaterno { get; set; }
 
-      [DisplayName("Correo")]
-      public string correocliente { get; set; }
+      [DisplayName("APELLIDO MATERNO")]
+      public string apellidomaterno { get; set; }
 
-      [DisplayName("Sexo")]
-      public string sexocliente { get; set; }
+      [DisplayName("DIRECCION")]
+      public string direccioncliente { get; set; }
 
-      [DisplayName("Fecha de Nacimiento")]
-      public string fecnacliente { get; set; }
+      [DisplayName("TELEFONO")]
+      public string telefono { get; set; }
 
-      [DisplayName("Distrito")]
-      //public string distritocliente { get; set; }
-      public Distrito distritocliente { get; set; }
+      [DisplayName("CELULAR")]
+      public string celular { get; set; }
 
-      [DisplayName("Provincia")]
-     //public string provinciacliente { get; set; }
-      public Provincia provinciacliente { get; set; }
-
-      [DisplayName("Departamento")]
-      //public string departamentocliente { get; set; }
-      public Departamento departamentocliente { get; set; }
-
-      //[DisplayName("Contraseña")]
-      //public string contrasena { get; set; }
+      [DisplayName("CORREO")]
+      public string correo { get; set; }
     }
 }

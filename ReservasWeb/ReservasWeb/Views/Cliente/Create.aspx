@@ -1,89 +1,117 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<ReservasWeb.Models.Cliente>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Nuevo Cliente
+	Create
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>
-        NUEVO CLIENTE</h2>
-<%--    <script src="../../Scripts/jquery.validate.min.js" type="text/javascript"></script>
-    <script src="../../Scripts/jquery.validate.unobtrusive.min.js"></script>--%>
-    <% using (Html.BeginForm())
-       {%>
-    <%: Html.ValidationSummary(true) %>
-    <fieldset>
-        <legend>Datos del Cliente</legend>
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.dnicliente) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.TextBoxFor(model => model.dnicliente) %>
-            <%: Html.ValidationMessageFor(model => model.dnicliente) %>
-        </div>
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.nombrecliente) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.TextBoxFor(model => model.nombrecliente) %>
-            <%: Html.ValidationMessageFor(model => model.nombrecliente) %>
-        </div>
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.apellidocliente) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.TextBoxFor(model => model.apellidocliente) %>
-            <%: Html.ValidationMessageFor(model => model.apellidocliente) %>
-        </div>
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.correocliente) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.TextBoxFor(model => model.correocliente) %>
-            <%: Html.ValidationMessageFor(model => model.correocliente) %>
-        </div>
-        <div class="editor-label">
-        </div>
-        <%: Html.LabelFor(model => model.sexocliente)%>
-        <div class="editor-label">
-            <%: Html.RadioButtonFor(model => model.sexocliente,"H") %>
-            <%: Html.Label("Hombre") %>
-            <%: Html.RadioButtonFor(model => model.sexocliente,"M")%>
-            <%: Html.Label("Mujer") %>
-        </div>
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.fecnacliente) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.TextBoxFor(model => model.fecnacliente) %>
-            <%: Html.ValidationMessageFor(model => model.fecnacliente) %>
-        </div>
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.distritocliente) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.TextBoxFor(model => model.distritocliente)%>
-            <%: Html.ValidationMessageFor(model => model.distritocliente)%>
-        </div>
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.provinciacliente) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.TextBoxFor(model => model.provinciacliente)%>
-            <%: Html.ValidationMessageFor(model => model.provinciacliente)%>
-        </div>
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.departamentocliente) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.TextBoxFor(model => model.departamentocliente)%>
-            <%: Html.ValidationMessageFor(model => model.departamentocliente)%>
-        </div>
-        <p>
-            <input type="submit" value="Grabar Cliente" />
-        </p>
-    </fieldset>
+
+    <h2>Create</h2>
+
+    <% using (Html.BeginForm()) {%>
+        <%: Html.ValidationSummary(true) %>
+
+        <fieldset>
+            <legend>Fields</legend>
+            
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.codigocliente) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.codigocliente) %>
+                <%: Html.ValidationMessageFor(model => model.codigocliente) %>
+            </div>
+            
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.dnicliente) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.dnicliente) %>
+                <%: Html.ValidationMessageFor(model => model.dnicliente) %>
+            </div>
+            
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.tipo) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.tipo) %>
+                <%: Html.ValidationMessageFor(model => model.tipo) %>
+            </div>
+            
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.nombrecliente) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.nombrecliente) %>
+                <%: Html.ValidationMessageFor(model => model.nombrecliente) %>
+            </div>
+            
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.apellidopaterno) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.apellidopaterno) %>
+                <%: Html.ValidationMessageFor(model => model.apellidopaterno) %>
+            </div>
+            
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.apellidomaterno) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.apellidomaterno) %>
+                <%: Html.ValidationMessageFor(model => model.apellidomaterno) %>
+            </div>
+            
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.direccioncliente) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.direccioncliente) %>
+                <%: Html.ValidationMessageFor(model => model.direccioncliente) %>
+            </div>
+            
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.telefono) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.telefono) %>
+                <%: Html.ValidationMessageFor(model => model.telefono) %>
+            </div>
+            
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.celular) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.celular) %>
+                <%: Html.ValidationMessageFor(model => model.celular) %>
+            </div>
+            
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.correo) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.correo) %>
+                <%: Html.ValidationMessageFor(model => model.correo) %>
+            </div>
+            
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.ValidateRequest) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.ValidateRequest) %>
+                <%: Html.ValidationMessageFor(model => model.ValidateRequest) %>
+            </div>
+            
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+
     <% } %>
+
     <div>
-        <%: Html.ActionLink("Regresar a la lista", "Index")%>
+        <%: Html.ActionLink("Back to List", "Index") %>
     </div>
+
 </asp:Content>
+
