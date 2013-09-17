@@ -41,6 +41,7 @@ namespace ReservasWeb.Persistencia
                 sesion.Flush();
             }
         }
+
         public ICollection<Entidad> ListarTodos()
         {
             using (ISession sesion = NHibernateHelper.ObtenerSesion())

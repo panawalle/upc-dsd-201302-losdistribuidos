@@ -110,6 +110,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Views\Cliente\ConfirmacionEliminado.aspx" />
+    <Content Include="Views\Cliente\ConfirmacionRegistro.aspx" />
     <Content Include="Views\Cliente\Create.aspx" />
     <Content Include="Views\Cliente\Delete.aspx" />
     <Content Include="Views\Cliente\Details.aspx" />

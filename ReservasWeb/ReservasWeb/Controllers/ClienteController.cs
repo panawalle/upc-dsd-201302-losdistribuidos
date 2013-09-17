@@ -19,6 +19,7 @@ namespace ReservasWeb.Controllers
     {
 
         SOAPClientes.Cliente clienteCreado = null;
+        SOAPClientes.Cliente clienteBuscado = null;
 
         public ActionResult Index()
         {
@@ -85,7 +86,15 @@ namespace ReservasWeb.Controllers
             try
             {
                 SOAPClientes.ClienteServiceClient asesoresWS = new SOAPClientes.ClienteServiceClient();
-                clienteCreado = asesoresWS.RegistrarCliente(int.Parse(collection["codigocliente"]), (string)collection["dniCliente"], int.Parse(collection["tipo"]), (string)(collection["nombrecliente"]), (string)(collection["apellidopaterno"]), (string)(collection["apellidomaterno"]), (string)(collection["correo"]), (string)collection["direccioncliente"], (string)(collection["telefono"]), (string)(collection["celular"]));
+                clienteBuscado = asesoresWS.ObtenerCliente(int.Parse(collection["codigocliente"]));
+                //clienteBuscado = asesoresWS.ObtenerCliente(int.Parse(collection["dnicliente"]));
+                if (clienteBuscado != null)
+                {
+                     ModelState.AddModelError(String.Empty, "Error: Hay datos vacios o nulos.");
+                     
+                }
+                clienteCreado = asesoresWS.RegistrarCliente(int.Parse(collection["codigocliente"]), (string)collection["dniCliente"], 1, (string)(collection["nombrecliente"]), (string)(collection["apellidopaterno"]), (string)(collection["apellidomaterno"]), (string)(collection["correo"]), (string)collection["direccioncliente"], (string)(collection["telefono"]), (string)(collection["celular"]));
+
                 return RedirectToAction("Index");
             }
             catch (Exception e)

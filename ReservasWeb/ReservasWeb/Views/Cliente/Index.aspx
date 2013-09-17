@@ -8,9 +8,7 @@
         LISTA DE CLIENTES</h2>
     <table>
         <tr>
-            <th>
-                OPCIONES
-            </th>
+           
             <th>
                 CODIGO
             </th>
@@ -41,17 +39,14 @@
             <th>
                 CORREO
             </th>
+	     <th>
+                OPCIONES
+            </th>
         </tr>
         <% foreach (var item in Model)
            { %>
         <tr>
-            <td>
-                <%: Html.ActionLink("Editar", "Edit", new { id = item.codigocliente }) %>
-                |
-                <%: Html.ActionLink("Detalle", "Details", new { id = item.codigocliente })%>
-                |
-                <%: Html.ActionLink("Eliminar", "Delete", new { id = item.codigocliente })%>
-            </td>
+
             <td>
                 <%: item.codigocliente %>
             </td>
@@ -81,6 +76,13 @@
             </td>
             <td>
                 <%: item.correo %>
+            </td>
+            <td>
+                <%: Html.ActionLink("Editar", "Edit", new { id = item.codigocliente }) %>
+                |
+                <%: Html.ActionLink("Detalle", "Details", new { id = item.codigocliente })%>
+                |
+                <%: Html.ActionLink("Eliminar", "Delete", new { id = item.codigocliente })%>
             </td>
         </tr>
         <% } %>
