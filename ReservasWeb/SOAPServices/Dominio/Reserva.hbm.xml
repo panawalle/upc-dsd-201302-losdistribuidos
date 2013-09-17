@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SOAPServices"
+                   namespace ="SOAPServices.Dominio"
+                   default-lazy="false">
+  <class name="Reserva" table="RESERVA">
+    <id name="Codigo" column="CODRESERVA">
+      <generator class="increment"></generator>
+    </id>
+
+    <property name="NRORESERVA" column="NRORESERVA" />
+    <property name="PLACA" column="PLACA" />
+    <property name="FECHA" column="FECHA" />
+    <property name="NUMEXPRESS" column="NUMEXPRESS" />
+    <property name="NUMCODIGOASESOR" column="NUMCODIGOASESOR" />
+    <property name="ESTADO" column="ESTADO" />
+  </class>
+
+</hibernate-mapping>
