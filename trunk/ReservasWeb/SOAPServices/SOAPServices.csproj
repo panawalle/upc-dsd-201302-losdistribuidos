@@ -13,6 +13,7 @@
     <RootNamespace>SOAPServices</RootNamespace>
     <AssemblyName>SOAPServices</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClienteService.svc" />
-    <Content Include="Dominio\Cliente.hbm.xml" />
+    <EmbeddedResource Include="Dominio\Cliente.hbm.xml" />
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
