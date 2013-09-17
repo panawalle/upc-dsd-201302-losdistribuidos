@@ -24,7 +24,7 @@
       <th>
         CORREO
       </th>
-      <th>
+<%--      <th>
         SEXO
       </th>
       <th>
@@ -38,7 +38,7 @@
       </th>
       <th>
         DEPARTAMENTO
-      </th>
+      </th>--%>
     </tr>
     <% foreach (var item in Model) { %>
     <tr>
@@ -61,13 +61,13 @@
       <td>
         <%: item.correocliente %>
       </td>
-      <td>
+<%--      <td>
         <%: item.sexocliente %>
       </td>
       <td>
         <%: item.fecnacliente %>
-      </td>
-      <td>
+      </td>--%>
+<%--      <td>
         <%: item.distritocliente.codigodistrito %>
         -
         <%: item.distritocliente.nombredistrito %>
@@ -81,7 +81,7 @@
         <%: item.departamentocliente.codigodepartamento %>
         -
         <%: item.departamentocliente.nombredepartamento%>
-      </td>
+      </td>--%>
     </tr>
     <% } %>
   </table>

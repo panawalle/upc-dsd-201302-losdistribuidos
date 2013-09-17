@@ -40,8 +40,7 @@ namespace SOAPServices.Dominio {
     [DataMember]
     [Email, Required]
     public string correo { get; set; }
-
-
+      
     //[DataMember]
     //[StringLength(50), Required]
     //public string sexocliente { get; set; }
