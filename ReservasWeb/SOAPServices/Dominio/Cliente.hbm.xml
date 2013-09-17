@@ -4,10 +4,9 @@
                    namespace="SOAPServices.Dominio"
                    default-lazy="false">
   <class name="Cliente" table="CLIENTE">
-    <!--<id name="codigocliente" column="CODCLIENTE">
+    <id name="codigocliente" column="CODCLIENTE">
       <generator class="increment" />
-    </id>-->
-    <property name="codigocliente" column="CODIGOCLIENTE" />
+    </id>
     <property name="dnicliente" column="DOCUMENTO" />
     <property name="tipo" column="TIPO" />
     <property name="nombrecliente" column="NOMBRE" />

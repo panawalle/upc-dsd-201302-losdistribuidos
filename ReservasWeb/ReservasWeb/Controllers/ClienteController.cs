@@ -20,30 +20,58 @@ namespace ReservasWeb.Controllers
 
         SOAPClientes.Cliente clienteCreado = null;
 
-     
         public ActionResult Index()
         {
             SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
-            List<SOAPClientes.Cliente> coleccion = proxy.ListarCliente().ToList();
-            return null;
-        }
+            List<Cliente> proxyProductos = proxy.ListarCliente().ToList();
+            List<Models.Cliente> listaProducto = new List<Models.Cliente>();
 
-        private Cliente ObtenerCliente(string dni)
-        {
-            List<Cliente> listClientes = (List<Cliente>)Session["clientes"];
-            Cliente model = listClientes.Single(delegate(Cliente cliente)
+            foreach (Cliente item in proxyProductos)
             {
-                if (cliente.dnicliente == dni) return true;
-                else return false;
-            });
-            return model;
+                Models.Cliente item2 = new Models.Cliente();
+                item2.codigocliente = item.codigocliente;
+                item2.dnicliente = item.dnicliente;
+                item2.nombrecliente = item.nombrecliente;
+                item2.apellidopaterno = item.apellidopaterno;
+                item2.apellidomaterno = item.apellidomaterno;
+                item2.direccioncliente = item.direccioncliente;
+                item2.correo = item.correo;
+                item2.telefono = item.telefono;
+                item2.celular = item.celular;
 
+                listaProducto.Add(item2);
+            }
+            return View(listaProducto);
+
+            //SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
+            //ICollection<Cliente> modelo = proxy.ListarCliente();
+            //return View(modelo);
         }
 
-        public ActionResult Details(string id)
+        private Cliente ObtenerCliente(int collection)
         {
-            Cliente cli = ObtenerCliente(id);
-            return View(cli);
+            SOAPClientes.ClienteServiceClient asesoresWS = new SOAPClientes.ClienteServiceClient();
+            clienteCreado = asesoresWS.ObtenerCliente(collection);
+            return clienteCreado;
+        }
+
+        public ActionResult Details(int id)
+        {
+            SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
+            SOAPClientes.Cliente usuarioBuscado = proxy.ObtenerCliente(id);
+            Models.Cliente cliente = new Models.Cliente()
+            {
+                dnicliente = usuarioBuscado.dnicliente,
+                nombrecliente = usuarioBuscado.nombrecliente,
+                apellidopaterno = usuarioBuscado.apellidopaterno,
+                apellidomaterno = usuarioBuscado.apellidomaterno,
+                direccioncliente = usuarioBuscado.direccioncliente,
+                telefono = usuarioBuscado.telefono,
+                celular = usuarioBuscado.celular,
+                correo = usuarioBuscado.correo
+            };
+
+            return View(cliente);
         }
 
         public ActionResult Create()
@@ -59,7 +87,6 @@ namespace ReservasWeb.Controllers
                 SOAPClientes.ClienteServiceClient asesoresWS = new SOAPClientes.ClienteServiceClient();
                 clienteCreado = asesoresWS.RegistrarCliente(int.Parse(collection["codigocliente"]), (string)collection["dniCliente"], int.Parse(collection["tipo"]), (string)(collection["nombrecliente"]), (string)(collection["apellidopaterno"]), (string)(collection["apellidomaterno"]), (string)(collection["correo"]), (string)collection["direccioncliente"], (string)(collection["telefono"]), (string)(collection["celular"]));
                 return RedirectToAction("Index");
-
             }
             catch (Exception e)
             {
@@ -72,22 +99,34 @@ namespace ReservasWeb.Controllers
             }
         }
 
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
-            Cliente cliente = ObtenerCliente(id);
+            SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
+            SOAPClientes.Cliente clienteBuscado = proxy.ObtenerCliente(id);
+
+            Models.Cliente cliente = new Models.Cliente()
+            {
+                codigocliente = clienteBuscado.codigocliente,
+                dnicliente = clienteBuscado.dnicliente,
+                nombrecliente = clienteBuscado.nombrecliente,
+                apellidopaterno = clienteBuscado.apellidopaterno,
+                apellidomaterno = clienteBuscado.apellidomaterno,
+                direccioncliente = clienteBuscado.direccioncliente,
+                telefono = clienteBuscado.telefono,
+                celular = clienteBuscado.celular,
+                correo = clienteBuscado.correo
+            };
             return View(cliente);
         }
 
         [HttpPost]
-        public ActionResult Edit(string id, Cliente cliente)
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
                 Cliente cli = ObtenerCliente(id);
-                cli.nombrecliente = cliente.nombrecliente;
-                cli.correo = cliente.correo;
-                cli.apellidomaterno = cliente.apellidopaterno;
-
+                SOAPClientes.ClienteServiceClient asesoresWS = new SOAPClientes.ClienteServiceClient();
+                clienteCreado = asesoresWS.ModificarCliente(int.Parse(collection["codigocliente"]), (string)collection["dnicliente"], 1, (string)collection["nombrecliente"], (string)collection["apellidopaterno"], (string)collection["apellidomaterno"], (string)collection["correo"], (string)collection["direccioncliente"], (string)collection["telefono"], (string)collection["celular"]);
                 return RedirectToAction("Index");
             }
             catch
@@ -96,20 +135,33 @@ namespace ReservasWeb.Controllers
             }
         }
 
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
-            Cliente cliente = ObtenerCliente(id);
+            SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
+            SOAPClientes.Cliente usuarioBuscado = proxy.ObtenerCliente(id);
+
+            Models.Cliente cliente = new Models.Cliente()
+            {
+                codigocliente = usuarioBuscado.codigocliente,
+                dnicliente = usuarioBuscado.dnicliente,
+                nombrecliente = usuarioBuscado.nombrecliente,
+                apellidopaterno = usuarioBuscado.apellidopaterno,
+                apellidomaterno = usuarioBuscado.apellidomaterno,
+                direccioncliente = usuarioBuscado.direccioncliente,
+                telefono = usuarioBuscado.telefono,
+                celular = usuarioBuscado.celular,
+                correo = usuarioBuscado.correo
+            };
             return View(cliente);
         }
 
         [HttpPost]
-        public ActionResult Delete(string id, FormCollection collection)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                List<Cliente> listCliente = (List<Cliente>)Session["clientes"];
-                listCliente.Remove(ObtenerCliente(id));
-
+                SOAPClientes.ClienteServiceClient asesoresWS = new SOAPClientes.ClienteServiceClient();
+                asesoresWS.Eliminar(id);
                 return RedirectToAction("Index");
             }
             catch

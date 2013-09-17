@@ -39,7 +39,7 @@ namespace TestProject {
       SOAPServiceTest.ClienteServiceClient proxy = new SOAPServiceTest.ClienteServiceClient();
 
       // 2. Invocar el metodo de prueba
-      Cliente resultado = proxy.ObtenerCliente(1);
+      Cliente resultado = proxy.ObtenerCliente(40256268);
 
       // 3.  Validar el/los resultados
       Assert.IsNotNull(resultado);

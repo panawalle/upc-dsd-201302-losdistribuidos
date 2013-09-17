@@ -9,7 +9,6 @@ namespace ReservasWeb.Models
 {
     public class Cliente : Controller
     {
-
       [DisplayName("CODIGO")]
       public int codigocliente { get; set; }
 

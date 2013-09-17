@@ -15,12 +15,28 @@
             <legend>Datos del Cliente</legend>
             
             <div class="editor-label">
+                <%: Html.LabelFor(model => model.codigocliente) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.codigocliente) %>
+                <%: Html.ValidationMessageFor(model => model.codigocliente) %>
+            </div>
+            
+            <div class="editor-label">
                 <%: Html.LabelFor(model => model.dnicliente) %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.dnicliente) %>
                 <%: Html.ValidationMessageFor(model => model.dnicliente) %>
             </div>
+            
+          <%--  <div class="editor-label">
+                <%: Html.LabelFor(model => model.tipo) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.tipo) %>
+                <%: Html.ValidationMessageFor(model => model.tipo) %>
+            </div>--%>
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.nombrecliente) %>
@@ -31,68 +47,60 @@
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.apellidocliente) %>
+                <%: Html.LabelFor(model => model.apellidopaterno) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.apellidocliente) %>
-                <%: Html.ValidationMessageFor(model => model.apellidocliente) %>
+                <%: Html.TextBoxFor(model => model.apellidopaterno) %>
+                <%: Html.ValidationMessageFor(model => model.apellidopaterno) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.correocliente) %>
+                <%: Html.LabelFor(model => model.apellidomaterno) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.correocliente) %>
-                <%: Html.ValidationMessageFor(model => model.correocliente) %>
+                <%: Html.TextBoxFor(model => model.apellidomaterno) %>
+                <%: Html.ValidationMessageFor(model => model.apellidomaterno) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.sexocliente) %>
+                <%: Html.LabelFor(model => model.direccioncliente) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.sexocliente) %>
-                <%: Html.ValidationMessageFor(model => model.sexocliente) %>
+                <%: Html.TextBoxFor(model => model.direccioncliente) %>
+                <%: Html.ValidationMessageFor(model => model.direccioncliente) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.fecnacliente) %>
+                <%: Html.LabelFor(model => model.telefono) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.fecnacliente) %>
-                <%: Html.ValidationMessageFor(model => model.fecnacliente) %>
+                <%: Html.TextBoxFor(model => model.telefono) %>
+                <%: Html.ValidationMessageFor(model => model.telefono) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.distritocliente) %>
+                <%: Html.LabelFor(model => model.celular) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.distritocliente.nombredistrito) %>
-                <%: Html.ValidationMessageFor(model => model.distritocliente.codigodistrito) %>
+                <%: Html.TextBoxFor(model => model.celular) %>
+                <%: Html.ValidationMessageFor(model => model.celular) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.provinciacliente) %>
+                <%: Html.LabelFor(model => model.correo) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.provinciacliente.nombreprovincia) %>
-                <%: Html.ValidationMessageFor(model => model.provinciacliente.codigoprovincia) %>
+                <%: Html.TextBoxFor(model => model.correo) %>
+                <%: Html.ValidationMessageFor(model => model.correo) %>
             </div>
             
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.departamentocliente) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.departamentocliente.nombredepartamento) %>
-                <%: Html.ValidationMessageFor(model => model.departamentocliente.codigodepartamento) %>
-            </div>
-            
-            <div class="editor-label">
+       <%--     <div class="editor-label">
                 <%: Html.LabelFor(model => model.ValidateRequest) %>
-            </div>
-            <div class="editor-field">
+            </div>--%>
+           <%-- <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.ValidateRequest) %>
                 <%: Html.ValidationMessageFor(model => model.ValidateRequest) %>
-            </div>
+            </div>--%>
             
             <p>
                 <input type="submit" value="Guardar" />
@@ -102,7 +110,7 @@
     <% } %>
 
     <div>
-        <%: Html.ActionLink("Regresar al listado", "Index") %>
+        <%: Html.ActionLink("Regresar a la lista de Clientes", "Index") %>
     </div>
 
 </asp:Content>
