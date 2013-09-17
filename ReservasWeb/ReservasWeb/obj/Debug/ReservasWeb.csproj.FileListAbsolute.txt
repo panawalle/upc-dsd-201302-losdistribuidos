@@ -24,3 +24,10 @@ D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb
 D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
 D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\obj\Debug\ReservasWeb.dll
 D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\obj\Debug\ReservasWeb.pdb
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\Iesi.Collections.dll
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\NHibernate.dll
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.csprojResolveAssemblyReference.cache
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb

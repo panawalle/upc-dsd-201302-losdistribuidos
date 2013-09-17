@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Index
+	Listado de Clientes
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -9,42 +9,41 @@
 
     <table>
         <tr>
-            <th></th>
+            <th>OPCIONES</th>
             <th>
                 DNI
             </th>
             <th>
-                Nombres
+                NOMBRES
             </th>
             <th>
-                Apellidos
+                APELLIDOS
             </th>
             <th>
-                Correo
+                CORREO
             </th>
             <th>
-                Sexo
+                SEXO
             </th>
             <th>
-                Fecha de Nacimiento
+                FECHA DE NACIMIENTO
             </th>
             <th>
-                Distrito
+                DISTRITO
             </th>
             <th>
-                Provincia
+                PROVINCIA
             </th>
             <th>
-                Departamento
+                DEPARTAMENTO
             </th>
         </tr>
 
     <% foreach (var item in Model) { %>
-    
         <tr>
             <td>
                 <%: Html.ActionLink("Editar", "Edit", new { id = item.dnicliente })%> |
-                <%: Html.ActionLink("Detalles", "Details", new { id = item.dnicliente })%> |
+                <%: Html.ActionLink("Detalle", "Details", new { id = item.dnicliente })%> |
                 <%: Html.ActionLink("Eliminar", "Delete", new { id = item.dnicliente })%>
             </td>
             <td>
@@ -66,16 +65,13 @@
                 <%: item.fecnacliente %>
             </td>
             <td>
-                <%: item.distritocliente %> 
-                <%--.distritocliente.codigodistrito %> - <%: item.distritocliente.nombredistrito %>--%>
+                <%: item.distritocliente.codigodistrito %> - <%: item.distritocliente.nombredistrito %>
             </td>
             <td>
-            <%: item.provinciacliente %> 
-               <%-- <%: item.provinciacliente.codigoprovincia %> - <%: item.provinciacliente.nombreprovincia%>--%>
+                <%: item.provinciacliente.codigoprovincia %> - <%: item.provinciacliente.nombreprovincia%>
             </td>
             <td>
-            <%: item.departamentocliente %> 
-               <%--<%: item.departamentocliente.codigodepartamento %> - <%: item.departamentocliente.nombredepartamento%>--%>
+               <%: item.departamentocliente.codigodepartamento %> - <%: item.departamentocliente.nombredepartamento%>
             </td>
         </tr>
     
@@ -84,7 +80,7 @@
     </table>
 
     <p>
-        <%: Html.ActionLink("Crear", "Create")%>
+        <%: Html.ActionLink("Nuevo Cliente", "Create")%>
     </p>
 
 </asp:Content>

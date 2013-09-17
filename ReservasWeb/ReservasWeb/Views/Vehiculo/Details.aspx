@@ -43,7 +43,7 @@
         
     </fieldset>
     <p>
-        <%: Html.ActionLink("Editar", "Edit", new { placa=Model.placa }) %> |
+        <%: Html.ActionLink("Editar Cliente", "Edit", new { placa=Model.placa }) %> |
         <%: Html.ActionLink("Regresar al Listado", "Index") %>
     </p>
 
