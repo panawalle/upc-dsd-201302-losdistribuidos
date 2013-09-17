@@ -31,7 +31,7 @@ namespace SOAPServices
         }
 
 
-        public void EliminarReserva(int codigo)
+        public void AnularReserva(int codigo)
         {
             throw new NotImplementedException();
         }
