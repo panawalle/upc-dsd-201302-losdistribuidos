@@ -8,19 +8,11 @@
 
     <h2>ELIMINAR CLIENTE</h2>
 
-   
     <fieldset>
-        <legend>Datos del Cliente</legend>
-        
-      <%--  <div class="display-label">codigocliente</div>
-        <div class="display-field"><%: Model.codigocliente %></div>
-        --%>
+
         <div class="display-label">Dni</div>
         <div class="display-field"><%: Model.dnicliente %></div>
-        
- <%--       <div class="display-label">tipo</div>
-        <div class="display-field"><%: Model.tipo %></div>
-        --%>
+
         <div class="display-label">Nombre Completo</div>
         <div class="display-field"><%: Model.nombrecliente %></div>
         
