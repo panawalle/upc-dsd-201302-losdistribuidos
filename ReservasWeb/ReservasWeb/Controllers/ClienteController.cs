@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using ReservasWeb.Controllers;
 using ReservasWeb.SOAPClientes;
+using System.Net;
+using SOAPServices.Dominio;
+using System.ServiceModel.Web;
 
 namespace ReservasWeb.Controllers
 {
@@ -87,23 +90,34 @@ namespace ReservasWeb.Controllers
             {
                 SOAPClientes.ClienteServiceClient asesoresWS = new SOAPClientes.ClienteServiceClient();
                 clienteBuscado = asesoresWS.ObtenerCliente(int.Parse(collection["codigocliente"]));
-                //clienteBuscado = asesoresWS.ObtenerCliente(int.Parse(collection["dnicliente"]));
+
                 if (clienteBuscado != null)
                 {
-                     ModelState.AddModelError(String.Empty, "Error: Hay datos vacios o nulos.");
-                     
+                    throw new WebFaultException<Error>(
+                    new Error() { CodError = "BP001", MesError = "Ya existe un cliente con el mismo codigo." },
+                    HttpStatusCode.NotAcceptable);
                 }
-                clienteCreado = asesoresWS.RegistrarCliente(int.Parse(collection["codigocliente"]), (string)collection["dniCliente"], 1, (string)(collection["nombrecliente"]), (string)(collection["apellidopaterno"]), (string)(collection["apellidomaterno"]), (string)(collection["correo"]), (string)collection["direccioncliente"], (string)(collection["telefono"]), (string)(collection["celular"]));
+                else if
+                ((string)collection["dniCliente"] == string.Empty)
+                {
+                    throw new WebFaultException<Error>(
+                    new Error() { CodError = "BP002", MesError = "El campo DNI es obligatorio." },
+                    HttpStatusCode.BadRequest);
+                }
+                else
+                {
+                    clienteCreado = asesoresWS.RegistrarCliente(int.Parse(collection["codigocliente"]), (string)collection["dniCliente"], 1, (string)(collection["nombrecliente"]), (string)(collection["apellidopaterno"]), (string)(collection["apellidomaterno"]), (string)(collection["correo"]), (string)collection["direccioncliente"], (string)(collection["telefono"]), (string)(collection["celular"]));
+                }
 
                 return RedirectToAction("Index");
             }
             catch (Exception e)
             {
                 if (e.Message == "Bad Request")
-                    ModelState.AddModelError(String.Empty, "Error: Hay datos vacios o nulos.");
+                    ModelState.AddModelError(String.Empty, "Error: El campo DNI es obligatorio.");
 
                 if (e.Message == "Not Acceptable")
-                    ModelState.AddModelError(String.Empty, "Error: DNI o EMAil ya esta registrado.");
+                    ModelState.AddModelError(String.Empty, "Error: Ya existe un cliente con el mismo código");
                 return View();
             }
         }
