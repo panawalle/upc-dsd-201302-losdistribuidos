@@ -68,9 +68,8 @@ namespace SOAPServices {
 
     //Eliminar Cliente
     public void Eliminar(int codigo) {
-      Cliente asesorExistente = ClienteDAO.Obtener(1);
+      Cliente asesorExistente = ClienteDAO.Obtener(codigo);
       ClienteDAO.Eliminar(asesorExistente);
     }
-
   }
 }

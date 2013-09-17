@@ -40,23 +40,5 @@ namespace SOAPServices.Dominio {
     [DataMember]
     [Email, Required]
     public string correo { get; set; }
-      
-    //[DataMember]
-    //[StringLength(50), Required]
-    //public string sexocliente { get; set; }
-
-    //[DataMember]
-    //[StringLength(50), Required]
-    //public string fechaNacimientoCliente { get; set; }
-
-    //[DataMember]
-    //public Distrito distritocliente { get; set; }
-
-    //[DataMember]
-    //public Provincia provinciacliente { get; set; }
-
-    //[DataMember]
-    //public Departamento departamentocliente { get; set; }
-
   }
 }

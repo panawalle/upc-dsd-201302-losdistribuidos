@@ -11,40 +11,43 @@
     <fieldset>
         <legend>Datos del Cliente</legend>
         
-        <div class="display-label">Dni</div>
+<%--        <div class="display-label">codigocliente</div>
+        <div class="display-field"><%: Model.codigocliente %></div>
+        --%>
+        <div class="display-label">DNI</div>
         <div class="display-field"><%: Model.dnicliente %></div>
         
-        <div class="display-label">Nombre</div>
+<%--        <div class="display-label">tipo</div>
+        <div class="display-field"><%: Model.tipo %></div>
+        --%>
+        <div class="display-label">Nombre del Cliente</div>
         <div class="display-field"><%: Model.nombrecliente %></div>
         
-        <div class="display-label">Apellidos</div>
-        <div class="display-field"><%: Model.apellidocliente %></div>
+        <div class="display-label">Apellido Paterno</div>
+        <div class="display-field"><%: Model.apellidopaterno %></div>
+        
+        <div class="display-label">Apellido Materno</div>
+        <div class="display-field"><%: Model.apellidomaterno %></div>
+        
+        <div class="display-label">Dirección del Cliente</div>
+        <div class="display-field"><%: Model.direccioncliente %></div>
+        
+        <div class="display-label">Teléfono</div>
+        <div class="display-field"><%: Model.telefono %></div>
+        
+        <div class="display-label">Celular</div>
+        <div class="display-field"><%: Model.celular %></div>
         
         <div class="display-label">Correo</div>
-        <div class="display-field"><%: Model.correocliente %></div>
+        <div class="display-field"><%: Model.correo %></div>
         
-        <div class="display-label">Sexo</div>
-        <div class="display-field"><%: Model.sexocliente %></div>
-        
-        <div class="display-label">Fecha de Nacimiento</div>
-        <div class="display-field"><%: Model.fecnacliente %></div>
-        
-        <div class="display-label">Distrito</div>
-        <div class="display-field"><%: Model.distritocliente.nombredistrito%></div>
-        
-        <div class="display-label">Provincia</div>
-        <div class="display-field"><%: Model.provinciacliente.nombreprovincia %></div>
-        
-        <div class="display-label">Departamento</div>
-        <div class="display-field"><%: Model.departamentocliente.nombredepartamento %></div>
-        
-        <div class="display-label">ValidateRequest</div>
+       <%-- <div class="display-label">ValidateRequest</div>
         <div class="display-field"><%: Model.ValidateRequest %></div>
-        
+        --%>
     </fieldset>
     <p>
-        <%: Html.ActionLink("Editar Cliente", "Edit", new { /* id=Model.PrimaryKey */ }) %> |
-        <%: Html.ActionLink("Regresar al listado", "Index") %>
+        <%: Html.ActionLink("Editar", "Edit", new { id = Model.codigocliente })%> |
+        <%: Html.ActionLink("Regresar a la lista de Clientes", "Index") %>
     </p>
 
 </asp:Content>
