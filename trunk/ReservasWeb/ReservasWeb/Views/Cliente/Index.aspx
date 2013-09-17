@@ -6,9 +6,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
         LISTA DE CLIENTES</h2>
+        
     <table>
-        <tr>
-           
+
+        <tr>           
             <th>
                 CODIGO
             </th>
@@ -43,6 +44,7 @@
                 OPCIONES
             </th>
         </tr>
+
         <% foreach (var item in Model)
            { %>
         <tr>
@@ -80,7 +82,7 @@
             <td>
                 <%: Html.ActionLink("Editar", "Edit", new { id = item.codigocliente }) %>
                 |
-                <%: Html.ActionLink("Detalle", "Details", new { id = item.codigocliente })%>
+                <%: Html.ActionLink("Ver Detalle", "Details", new { id = item.codigocliente })%>
                 |
                 <%: Html.ActionLink("Eliminar", "Delete", new { id = item.codigocliente })%>
             </td>

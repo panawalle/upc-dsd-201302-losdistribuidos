@@ -7,12 +7,11 @@
     <h2>
         DETALLE DEL CLIENTE</h2>
     <fieldset>
-        <legend>Datos del Cliente</legend>
-        <table>
+        <table border="0;">
             <tr>
                 <td>
                     <div class="display-label">
-                        DNI</div>
+                        DNI:</div>
                 </td>
                 <td>
                     <div class="display-field">
@@ -22,7 +21,7 @@
             <tr>
                 <td>
                     <div class="display-label">
-                        Nombre del Cliente</div>
+                        Nombre del Cliente:</div>
                 </td>
                 <td>
                     <div class="display-field">
@@ -32,7 +31,7 @@
             <tr>
                 <td>
                     <div class="display-label">
-                        Apellido Paterno</div>
+                        Apellido Paterno:</div>
                 </td>
                 <td>
                     <div class="display-field">
@@ -42,7 +41,7 @@
             <tr>
                 <td>
                     <div class="display-label">
-                        Apellido Materno</div>
+                        Apellido Materno:</div>
                 </td>
                 <td>
                     <div class="display-field">
@@ -52,7 +51,7 @@
             <tr>
                 <td>
                     <div class="display-label">
-                        Dirección del Cliente</div>
+                        Dirección del Cliente:</div>
                 </td>
                 <td>
                     <div class="display-field">
@@ -62,7 +61,7 @@
             <tr>
                 <td>
                     <div class="display-label">
-                        Teléfono</div>
+                        Teléfono:</div>
                 </td>
                 <td>
                     <div class="display-field">
@@ -72,7 +71,7 @@
             <tr>
                 <td>
                     <div class="display-label">
-                        Celular</div>
+                        Celular:</div>
                 </td>
                 <td>
                     <div class="display-field">
@@ -82,7 +81,7 @@
             <tr>
                 <td>
                     <div class="display-label">
-                        Correo</div>
+                        Correo:</div>
                 </td>
                 <td>
                     <div class="display-field">
@@ -90,7 +89,6 @@
                 </td>
             </tr>
         </table>
-    
     </fieldset>
     <p>
         <%: Html.ActionLink("Editar", "Edit", new { id = Model.codigocliente })%>
