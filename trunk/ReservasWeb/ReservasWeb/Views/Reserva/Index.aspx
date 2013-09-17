@@ -40,10 +40,10 @@
             </td>
         </tr>
         <tr>
-            <th style="width: 5%">
+            <th style="width: 3%">
                 Código
             </th>
-            <th style="width: 5%">
+            <th style="width: 3%">
                 Nro. Reserva
             </th>
             <th style="width: 5%">
@@ -64,7 +64,7 @@
             <th style="width: 5%">
                 Estado
             </th>
-            <th style="width: 25%">
+            <th style="width: 29%">
                 Opciones
             </th>
         </tr>
@@ -73,10 +73,10 @@
             <% foreach (var item in Model)
                { %>
             <tr>
-                <td style="width: 5%">
+                <td style="width: 3%">
                     <%: item.codigo %>
                 </td>
-                <td style="width: 5%">
+                <td style="width: 3%">
                     <%: item.nroreserva %>
                 </td>
                 <td style="width: 5%">
@@ -106,10 +106,10 @@
                 <td style="width: 5%">
                     <%: item.estado %>
                 </td>
-                <td style="width: 25%">
+                <td style="width: 29%">
                     <%: Html.ActionLink("Ver Detalle", "Details", new { codigo=item.codigo }) %>
                     |
-                    <%: Html.ActionLink("Reserva Atendida", "OrdenServicio", new { codigo=item.codigo }) %>
+                    <%: Html.ActionLink("Orden de Servicio", "OrdenServicio", new { codigo=item.codigo }) %>
                     |
                     <%: Html.ActionLink("Cancelar", "Cancelar", new { codigo = item.codigo })%>
                 </td>
