@@ -12,7 +12,7 @@ namespace SOAPServices
     public interface IReserva
     {
         [OperationContract]
-        void EliminarReserva(int codigo);
+        void AnularReserva(int codigo);
         [OperationContract]
         List<Reserva> ListarReservas();
     }
