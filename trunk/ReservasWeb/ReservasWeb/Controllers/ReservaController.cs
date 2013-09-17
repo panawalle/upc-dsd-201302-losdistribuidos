@@ -68,7 +68,7 @@ namespace ReservasWeb.Controllers
             Reserva model = reservas.Single(delegate(Reserva reserva)
             {
                 //if (reserva.codigo == Convert.ToInt32(codigo) || reserva.nroreserva == nroreserva || reserva.vehiculo.placa == placa)
-                if ((reserva.codigo == Convert.ToInt32(codigo) || Convert.ToInt32(codigo) == 0) && (reserva.nroreserva == nroreserva || nroreserva.Equals("")) && (reserva.vehiculo.placa == placa || placa.Equals("")))
+                if ((reserva.codigo == Convert.ToInt32(codigo) || Convert.ToInt32(codigo) == 0) && (reserva.nroreserva == nroreserva || nroreserva.Equals("")) && (reserva.vehiculo.placa == placa || placa.Equals("")) && (reserva.estado =="P"))
                 {
                     reservasResult.Add(reserva);
                     return true;
