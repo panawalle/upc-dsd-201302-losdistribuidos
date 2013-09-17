@@ -12,7 +12,7 @@ namespace SOAPServices {
   public interface IClienteService {
 
     [OperationContract]
-    Cliente RegistrarCliente(int codigo, string dni, int tipo, string nombre, string apellidopaterno, string apellidomaterno, string correo, string direccion, string telefono, string celular);
+      Cliente RegistrarCliente(int codigo, string dni, int tipo, string nombre, string apellidopaterno, string apellidomaterno, string correo, string direccion, string telefono, string celular);
 
     [OperationContract]
     Cliente ObtenerCliente(int codigo);
@@ -25,5 +25,6 @@ namespace SOAPServices {
 
     [OperationContract]
     List<Cliente> ListarCliente();
+
   }
 }
