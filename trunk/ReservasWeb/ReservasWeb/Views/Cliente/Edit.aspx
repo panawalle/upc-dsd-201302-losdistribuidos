@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<ReservasWeb.Models.Cliente>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Edit
+	Editar Cliente
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Edit</h2>
+    <h2>EDITAR CLIENTE</h2>
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
@@ -66,24 +66,24 @@
                 <%: Html.LabelFor(model => model.distritocliente) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.distritocliente) %>
-                <%: Html.ValidationMessageFor(model => model.distritocliente) %>
+                <%: Html.TextBoxFor(model => model.distritocliente.nombredistrito) %>
+                <%: Html.ValidationMessageFor(model => model.distritocliente.codigodistrito) %>
             </div>
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.provinciacliente) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.provinciacliente) %>
-                <%: Html.ValidationMessageFor(model => model.provinciacliente) %>
+                <%: Html.TextBoxFor(model => model.provinciacliente.nombreprovincia) %>
+                <%: Html.ValidationMessageFor(model => model.provinciacliente.codigoprovincia) %>
             </div>
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.departamentocliente) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.departamentocliente) %>
-                <%: Html.ValidationMessageFor(model => model.departamentocliente) %>
+                <%: Html.TextBoxFor(model => model.departamentocliente.nombredepartamento) %>
+                <%: Html.ValidationMessageFor(model => model.departamentocliente.codigodepartamento) %>
             </div>
             
             <div class="editor-label">
@@ -95,14 +95,14 @@
             </div>
             
             <p>
-                <input type="submit" value="Save" />
+                <input type="submit" value="Guardar" />
             </p>
         </fieldset>
 
     <% } %>
 
     <div>
-        <%: Html.ActionLink("Back to List", "Index") %>
+        <%: Html.ActionLink("Regresar al listado", "Index") %>
     </div>
 
 </asp:Content>

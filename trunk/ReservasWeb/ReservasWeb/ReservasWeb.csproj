@@ -91,7 +91,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\jquery.dataTables.css" />
+    <Content Include="Content\Site2.css" />
+    <Content Include="Content\ui.jqgrid.css" />
     <Content Include="Global.asax" />
+    <Content Include="jquery.validate.js" />
+    <Content Include="jquery.validate.min.js" />
+    <Content Include="jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Views\Cliente\Create.aspx" />
     <Content Include="Views\Cliente\Delete.aspx" />
     <Content Include="Views\Cliente\Details.aspx" />
