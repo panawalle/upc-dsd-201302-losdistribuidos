@@ -75,10 +75,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReservaController.cs" />
     <Compile Include="Controllers\VehiculoController.cs" />
+    <Compile Include="Models\Asesor.cs" />
     <Compile Include="Models\Color.cs" />
     <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Modelo.cs" />
+    <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -104,6 +107,7 @@
     <Content Include="Views\Cliente\Details.aspx" />
     <Content Include="Views\Cliente\Edit.aspx" />
     <Content Include="Views\Cliente\Index.aspx" />
+    <Content Include="Views\Reserva\Index.aspx" />
     <Content Include="Views\Vehiculo\Details.aspx" />
     <Content Include="Views\Vehiculo\Edit.aspx" />
     <Content Include="Views\Vehiculo\Delete.aspx" />
