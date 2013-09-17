@@ -9,7 +9,7 @@ namespace ReservasWeb.Persistencia
     {
         public static string ObtenerCadena()
         {
-            return "Data Source=(local);Initial Catalog=NOMBREBASEDEDATOS;Integrated Security=SSPI;";
+            return "Data Source=LESLY-VAIO\\SQLEXPRESS;Initial Catalog=AUTODROMO;Integrated Security= SSPI;";
         }
     }
 }
