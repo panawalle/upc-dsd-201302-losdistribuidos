@@ -14,17 +14,8 @@ namespace ReservasWeb.Controllers
             Asesor  asesor1 = new Asesor() { codigo = 1, nombre ="Lorena Cermeño" };
             Asesor asesor2 = new Asesor() { codigo = 2, nombre = "Luis Cabañas" };
 
-            Departamento LimaDe = new Departamento() { codigodepartamento = 1, nombredepartamento = "Lima" };
-            Departamento Cusco = new Departamento() { codigodepartamento = 2, nombredepartamento = "Cusco" };
-
-            Provincia LimaPro = new Provincia() { codigoprovincia = 1, nombreprovincia = "Lima" };
-            Provincia Urubamba = new Provincia() { codigoprovincia = 2, nombreprovincia = "Urubamba" };
-
-            Distrito LimaDi = new Distrito() { codigodistrito = 1, nombredistrito = "Lima" };
-            Distrito Ollantaytambo = new Distrito() { codigodistrito = 2, nombredistrito = "Ollantaytambo" };
-
-            Cliente cliente1 = new Cliente() { dnicliente = "44513804", nombrecliente = "Lesly", apellidocliente = "Ormeño", correocliente = "lesly.varillas@gmail.com", sexocliente = "F", fecnacliente = "12/10/1990", distritocliente = LimaDi  , provinciacliente = LimaPro , departamentocliente = LimaDe  };
-            Cliente cliente2 = new Cliente() { dnicliente = "43781265", nombrecliente = "Oscar", apellidocliente = "Santillan", correocliente = "oscar@gmail.com", sexocliente = "M", fecnacliente = "15/08/1985", distritocliente = Ollantaytambo, provinciacliente = Urubamba, departamentocliente = Cusco  };
+            Cliente cliente1 = new Cliente() { codigocliente = 1, dnicliente = "45921955", tipo=1, nombrecliente = "Lorena", apellidopaterno  = "Cermeño", apellidomaterno ="Negrón", direccioncliente ="Direccion 1", telefono ="1234567", celular ="1212523", correo = "lcermenon@gmail.com"};
+            Cliente cliente2 = new Cliente() { codigocliente = 2, dnicliente = "43781265", tipo=1, nombrecliente = "Luis", apellidopaterno = "Cabañas", apellidomaterno ="Valdiviezo", direccioncliente ="Direccion 2", telefono ="23534634", celular ="1352434", correo = "luis.cabanasv@gmail.com"};
 
             Color color1 = new Color() { codigo = 1, descripcion = "Ladrillo", estado = "A" };
             Color color2 = new Color() { codigo = 2, descripcion = "Azul", estado = "A" };
@@ -47,48 +38,96 @@ namespace ReservasWeb.Controllers
 
         }
 
+        //private List<Reserva> obtenerReserva(int codigo, string nroreserva, int codigoAsesor)
+        //{
 
-        private List<Reserva> obtenerReserva(int codigo, string nroreserva, int codigoAsesor)
-        {
+        //    List<Reserva> reservas = (List<Reserva>)Session["reservas"];
+        //    List<Reserva> reservasResult = null;
+        //    //foreach(Reserva reserva in reservas){
 
-            List<Reserva> reservas = (List<Reserva>)Session["reservas"];
-            List<Reserva> reservasResult = null;
-            //foreach(Reserva reserva in reservas){
+        //        Reserva model = reservas.Single(delegate(Reserva reserva)
+        //        {
+        //            if (reserva.codigo == codigo || reserva.nroreserva == nroreserva || reserva.asesor.codigo == codigoAsesor )
+        //            {
+        //                reservasResult.Add(reserva);
+        //                return true;
+        //            }
+        //            else {
+        //                return false;
+        //            } 
+        //        });
 
-                Reserva model = reservas.Single(delegate(Reserva reserva)
-                {
-                    if (reserva.codigo == codigo || reserva.nroreserva == nroreserva || reserva.asesor.codigo == codigoAsesor )
-                    {
-                        reservasResult.Add(reserva);
-                        return true;
-                    }
-                    else {
-                        return false;
-                    } 
-                });
-
-            //}
+        //    //}
 
             
-            return reservasResult ;
-        }
+        //    return reservasResult ;
+        //}
 
         //
         // GET: /Reserva/
 
+        //public ActionResult Index(int codigo = 0, string nroreserva = "", int codigoAsesor = 0)
+        //{
+        //    List<Reserva> model = null;
+        //    if (Session["reservas"] == null)
+        //    {
+        //        Session["reservas"] = CrearReservas();
+        //        model = (List<Reserva>)Session["reservas"];
+        //    }
+        //    else {
+        //        model = obtenerReserva(codigo, nroreserva, codigoAsesor);
+        //    }
+            
+        //    return View(model);
+        //}
+
         public ActionResult Index(int codigo = 0, string nroreserva = "", int codigoAsesor = 0)
         {
-            List<Reserva> model = null;
             if (Session["reservas"] == null)
-            {
                 Session["reservas"] = CrearReservas();
-                model = (List<Reserva>)Session["reservas"];
-            }
-            else {
-                model = obtenerReserva(codigo, nroreserva, codigoAsesor);
-            }
-            
+            List<Vehiculo> model = (List<Vehiculo>)Session["reservas"];
             return View(model);
+        }
+
+        public ActionResult BuscarReserva()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ConsultarReservas(FormCollection form)
+        {
+            if ((form["codigo"] == null || form["codigo"].Trim().Equals("")) && (form["nroreserva"] == null || form["nroreserva"].Trim().Equals("")))
+            {
+                TempData["mensaje"] = "Ingrese código o Nro de Reserva por favor!!!";
+                return View("BuscarReserva");
+            }
+            try
+            {
+                Reserva model = new Reserva();
+                model = obtenerReserva(form["codigo"], form["nroreserva"]);
+                return View(model);
+            }
+            catch (Exception e)
+            {
+                if (e.Message == "Bad Request")
+                    ModelState.AddModelError(String.Empty, "Error: Hay datos vacios o nulos.");
+
+                if (e.Message == "Not Found")
+                    ModelState.AddModelError(String.Empty, "Error: Lector no esta registrado.");
+                return View("Buscarlector");
+            }
+        }
+
+        private Reserva obtenerReserva(string codigo, string nroreserva)
+        {
+            List<Reserva> reservas = (List<Reserva>)Session["reservas"];
+            Reserva model = reservas.Single(delegate(Reserva reserva)
+            {
+                if (reserva.codigo == Convert.ToInt32(codigo) || reserva.nroreserva == nroreserva) return true;
+                else return false;
+            });
+            return model;
         }
 
         //[HttpPost]
