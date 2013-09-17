@@ -274,5 +274,16 @@ namespace ReservasWeb.Controllers
                 return View();
             }
         }
+
+
+
+        [HttpPost]
+        public void AnularReserva(int codigo)
+        {
+            Reserva model = obtenerReserva(codigo);
+        }
+
+
+
     }
 }
