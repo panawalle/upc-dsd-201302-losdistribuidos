@@ -76,6 +76,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OportunidadController.cs" />
     <Compile Include="Controllers\ReservaController.cs" />
     <Compile Include="Controllers\VehiculoController.cs" />
     <Compile Include="Models\Asesor.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Modelo.cs" />
+    <Compile Include="Models\Oportunidad.cs" />
     <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="Global.asax.cs">
