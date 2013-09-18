@@ -91,23 +91,23 @@ namespace ReservasWeb.Controllers
                 SOAPClientes.ClienteServiceClient asesoresWS = new SOAPClientes.ClienteServiceClient();
                 clienteBuscado = asesoresWS.ObtenerCliente(int.Parse(collection["codigocliente"]));
 
-                if (clienteBuscado != null)
-                {
-                    throw new WebFaultException<Error>(
-                    new Error() { CodError = "BP001", MesError = "Ya existe un cliente con el mismo codigo." },
-                    HttpStatusCode.NotAcceptable);
-                }
-                else if
-                ((string)collection["dniCliente"] == string.Empty)
-                {
-                    throw new WebFaultException<Error>(
-                    new Error() { CodError = "BP002", MesError = "El campo DNI es obligatorio." },
-                    HttpStatusCode.BadRequest);
-                }
-                else
-                {
-                    clienteCreado = asesoresWS.RegistrarCliente(int.Parse(collection["codigocliente"]), (string)collection["dniCliente"], 1, (string)(collection["nombrecliente"]), (string)(collection["apellidopaterno"]), (string)(collection["apellidomaterno"]), (string)(collection["correo"]), (string)collection["direccioncliente"], (string)(collection["telefono"]), (string)(collection["celular"]));
-                }
+                //if (clienteBuscado != null)
+                //{
+                //    throw new WebFaultException<Error>(
+                //    new Error() { CodError = "BP001", MesError = "Ya existe un cliente con el mismo codigo." },
+                //    HttpStatusCode.NotAcceptable);
+                //}
+                //else if
+                //((string)collection["dniCliente"] == string.Empty)
+                //{
+                //    throw new WebFaultException<Error>(
+                //    new Error() { CodError = "BP002", MesError = "El campo DNI es obligatorio." },
+                //    HttpStatusCode.BadRequest);
+                //}
+                //else
+                //{
+                clienteCreado = asesoresWS.RegistrarCliente(int.Parse(collection["codigocliente"]), (string)collection["dniCliente"], 1, (string)(collection["nombrecliente"]), (string)(collection["apellidopaterno"]), (string)(collection["apellidomaterno"]), (string)(collection["correo"]), (string)collection["direccioncliente"], (string)(collection["telefono"]), (string)(collection["celular"]));
+                //}
 
                 return RedirectToAction("Index");
             }

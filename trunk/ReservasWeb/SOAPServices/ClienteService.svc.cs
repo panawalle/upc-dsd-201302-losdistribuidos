@@ -8,6 +8,7 @@ using ReservasWeb.Persistencia;
 using SOAPServices.Dominio;
 using System.ServiceModel.Web;
 using System.Net;
+using System.ComponentModel.DataAnnotations;
 
 namespace SOAPServices
 {
@@ -35,21 +36,36 @@ namespace SOAPServices
         //Registro de clientes
         public Cliente RegistrarCliente(int codigo, string dni, int tipo, string nombre, string apellidopaterno, string apellidomaterno, string correo, string direccion, string telefono, string celular)
         {
-
-            Cliente entCliente = new Cliente()
+            try
             {
-                codigocliente = codigo,
-                dnicliente = dni,
-                tipo = tipo,
-                nombrecliente = nombre,
-                apellidopaterno = apellidopaterno,
-                apellidomaterno = apellidomaterno,
-                direccioncliente = direccion,
-                telefono = telefono,
-                celular = celular,
-                correo = correo
-            };
-            return ClienteDAO.Crear(entCliente);
+                if (ClienteDAO.Obtener(codigo) != null)
+                {
+                    throw new WebFaultException<Error>(new Error() { CodError = "US001", MesError = "DNI ya esta registrado." }, HttpStatusCode.NotAcceptable);
+                }
+                else
+                {
+                    Cliente entCliente = new Cliente()
+                                  {
+                                      codigocliente = codigo,
+                                      dnicliente = dni,
+                                      tipo = tipo,
+                                      nombrecliente = nombre,
+                                      apellidopaterno = apellidopaterno,
+                                      apellidomaterno = apellidomaterno,
+                                      direccioncliente = direccion,
+                                      telefono = telefono,
+                                      celular = celular,
+                                      correo = correo
+                                  };
+
+                    return ClienteDAO.Crear(entCliente);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;         
+            }
+
         }
 
         //Obtener Cliente
@@ -83,6 +99,14 @@ namespace SOAPServices
             Cliente asesorExistente = ClienteDAO.Obtener(codigo);
             ClienteDAO.Eliminar(asesorExistente);
         }
-     
+
+        //#region IClienteService Members
+
+        //public int ValidarClienteExistemte(int id)
+        //{
+        //    return 0;
+        //}
+
+        //#endregion
     }
 }

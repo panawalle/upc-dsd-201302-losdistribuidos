@@ -18,7 +18,7 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:1636/ClienteService.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address=" http://localhost:1636/ClienteService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="ClienteService.xsd" MetadataType="Schema" ID="1f5ffbf3-a0dc-4aa3-ac6c-cb77364f7033" SourceId="1" SourceUrl="http://localhost:1636/ClienteService.svc?xsd=xsd0" />

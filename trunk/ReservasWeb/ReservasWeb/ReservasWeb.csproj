@@ -108,6 +108,12 @@
     <Content Include="Global.asax" />
     <Content Include="jquery.validate.js" />
     <Content Include="jquery.validate.min.js" />
+    <None Include="Service References\SOAPClientes\ClienteService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPClientes\ClienteService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\SOAPClientes\configuration91.svcinfo" />
     <None Include="Service References\SOAPClientes\configuration.svcinfo" />
     <None Include="Service References\SOAPClientes\Reference.svcmap">
