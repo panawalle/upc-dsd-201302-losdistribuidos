@@ -27,6 +27,8 @@
                         <%: Html.ActionLink("Vehículo", "Index", "Vehiculo")%></li>
                     <li>
                         <%: Html.ActionLink("Clientes", "Index", "Cliente")%></li>
+                      <li>
+                        <%: Html.ActionLink("Oportunidad Venta", "Index", "OportunidadVenta")%></li>
                     <li>
                         <%: Html.ActionLink("Home", "Index", "Home")%></li>
                     <li>

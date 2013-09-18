@@ -31,3 +31,10 @@ C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\NHibernate.dll
 C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.csprojResolveAssemblyReference.cache
 C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
 C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
+E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
+E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
+E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\bin\Iesi.Collections.dll
+E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\bin\NHibernate.dll
+E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.csprojResolveAssemblyReference.cache
+E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
+E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
