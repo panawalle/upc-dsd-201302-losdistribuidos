@@ -48,3 +48,10 @@ E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.csprojRe
 E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
 E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
 >>>>>>> .r67
+E:\New folder\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
+E:\New folder\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
+E:\New folder\ReservasWeb\ReservasWeb\bin\Iesi.Collections.dll
+E:\New folder\ReservasWeb\ReservasWeb\bin\NHibernate.dll
+E:\New folder\ReservasWeb\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
+E:\New folder\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
+E:\New folder\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
