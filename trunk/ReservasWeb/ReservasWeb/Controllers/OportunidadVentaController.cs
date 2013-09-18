@@ -7,7 +7,7 @@ using ReservasWeb.Models;
 
 namespace ReservasWeb.Controllers
 {
-    public class OportunidadController : Controller {
+    public class OportunidadVentaController : Controller {
         public List<OportunidadVenta> CrearOportunidad()
         {
   

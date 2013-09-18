@@ -76,7 +76,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OportunidadController.cs" />
+    <Compile Include="Controllers\OportunidadVentaController.cs" />
     <Compile Include="Controllers\ReservaController.cs" />
     <Compile Include="Controllers\VehiculoController.cs" />
     <Compile Include="Models\Asesor.cs" />
