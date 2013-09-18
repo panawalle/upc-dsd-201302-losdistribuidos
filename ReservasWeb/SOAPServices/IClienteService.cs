@@ -5,26 +5,33 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using SOAPServices.Dominio;
+using System.ComponentModel.DataAnnotations;
 
-namespace SOAPServices {
+namespace SOAPServices
+{
 
-  [ServiceContract]
-  public interface IClienteService {
+    [ServiceContract]
+    public interface IClienteService
+    {
 
-    [OperationContract]
-      Cliente RegistrarCliente(int codigo, string dni, int tipo, string nombre, string apellidopaterno, string apellidomaterno, string correo, string direccion, string telefono, string celular);
+        [OperationContract]
+        Cliente RegistrarCliente(int codigo, string dni, int tipo, string nombre, string apellidopaterno, string apellidomaterno, string correo, string direccion, string telefono, string celular);
 
-    [OperationContract]
-    Cliente ObtenerCliente(int codigo);
+        [OperationContract]
+        Cliente ObtenerCliente(int codigo);
 
-    [OperationContract]
-    Cliente ModificarCliente(int codigo, string dni, int tipo, string nombre, string apellidopaterno, string apellidomaterno, string correo, string direccion, string telefono, string celular);
+        [OperationContract]
+        Cliente ModificarCliente(int codigo, string dni, int tipo, string nombre, string apellidopaterno, string apellidomaterno, string correo, string direccion, string telefono, string celular);
 
-    [OperationContract]
-    void Eliminar(int codigo);
+        [OperationContract]
+        void Eliminar(int codigo);
 
-    [OperationContract]
-    List<Cliente> ListarCliente();
+        [OperationContract]
+        List<Cliente> ListarCliente();
 
-  }
+        //[FaultContract(typeof(ValidationException))]
+        //[OperationContract]
+        //int ValidarClienteExistemte(int id);
+
+    }
 }

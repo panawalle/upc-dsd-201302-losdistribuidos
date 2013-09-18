@@ -15,9 +15,10 @@ namespace TestProject {
       SOAPServiceTest.ClienteServiceClient proxy = new SOAPServiceTest.ClienteServiceClient();
 
       // 2. Invocar el metodo de prueba
-      Cliente resultado = proxy.RegistrarCliente(1, "44513800", 1, "Lesly", "Ormeño", "Varillas", "lesly.varillas@gmail.com", "Av. Los Pinos 666", "3428320", "96574-6210");
+      Cliente resultado = proxy.RegistrarCliente(11427, "44513800", 1, "Lesly", "Ormeño", "Varillas", "lesly.varillas@gmail.com", "Av. Los Pinos 666", "3428320", "96574-6210");
       
       // 3.  Validar el/los resultados
+      
       Assert.IsNotNull(resultado);
     }
 
@@ -27,7 +28,7 @@ namespace TestProject {
       SOAPServiceTest.ClienteServiceClient proxy = new SOAPServiceTest.ClienteServiceClient();
 
       // 2. Invocar el metodo de prueba
-      Cliente resultado = proxy.ModificarCliente(1, "44513800", 1, "Leslys", "Ormeño", "Varillas", "lesly.varillas@gmail.com", "Av. Los Pinos 666", "3428320", "96574-6210");
+      Cliente resultado = proxy.ModificarCliente(11427, "44513800", 1, "Leslysssss", "Ormeño", "Varillas", "lesly.varillas@gmail.com", "Av. Los Pinos 666", "3428320", "96574-6210");
 
       // 3.  Validar el/los resultados
       Assert.IsNotNull(resultado);
@@ -39,7 +40,7 @@ namespace TestProject {
       SOAPServiceTest.ClienteServiceClient proxy = new SOAPServiceTest.ClienteServiceClient();
 
       // 2. Invocar el metodo de prueba
-      Cliente resultado = proxy.ObtenerCliente(40256268);
+      Cliente resultado = proxy.ObtenerCliente(11427);
 
       // 3.  Validar el/los resultados
       Assert.IsNotNull(resultado);
@@ -51,7 +52,7 @@ namespace TestProject {
       SOAPServiceTest.ClienteServiceClient proxy = new SOAPServiceTest.ClienteServiceClient();
 
       // 2. Invocar el metodo de prueba
-      proxy.Eliminar(1);
+      proxy.Eliminar(11427);
 
       // 3.  Validar el/los resultados
       //Assert.();
