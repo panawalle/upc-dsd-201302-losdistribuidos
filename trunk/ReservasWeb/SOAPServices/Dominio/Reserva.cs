@@ -10,7 +10,7 @@ namespace SOAPServices.Dominio
     public class Reserva
     {
         [DataMember]
-        public int Codigo { get; set; }
+        public int Codigo { get; set; } 
         [DataMember]
         public string NroReserva { get; set; }
         [DataMember]
