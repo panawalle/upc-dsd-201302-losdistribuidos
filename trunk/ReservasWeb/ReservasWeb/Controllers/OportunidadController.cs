@@ -8,19 +8,19 @@ using ReservasWeb.Models;
 namespace ReservasWeb.Controllers
 {
     public class OportunidadController : Controller {
-        public List<Oportunidad> CrearOportunidad()
+        public List<OportunidadVenta> CrearOportunidad()
         {
   
-      List<Oportunidad> oportunidades = new List<Oportunidad>();
-      oportunidades.Add(new Oportunidad() { codServicio = "SER0001", nombreServicio = "Arandela de tapón", cantidadServicio = "1", precioServicio = "12.45" });
-      oportunidades.Add(new Oportunidad() { codServicio = "SER0002", nombreServicio = "Filtro de aceite", cantidadServicio = "2", precioServicio = "15.45" });
+      List<OportunidadVenta> oportunidades = new List<OportunidadVenta>();
+      oportunidades.Add(new OportunidadVenta() { codServicio = "SER0001", nombreServicio = "Arandela de tapón", cantidadServicio = "1", precioServicio = "12.45" });
+      oportunidades.Add(new OportunidadVenta() { codServicio = "SER0002", nombreServicio = "Filtro de aceite", cantidadServicio = "2", precioServicio = "15.45" });
       return oportunidades;
     }
 
-     private Oportunidad ObtenerCliente(string codServic)
+     private OportunidadVenta ObtenerCliente(string codServic)
         {
-        List<Oportunidad> listClientes = (List<Oportunidad>)Session["oportunidades"];
-        Oportunidad model = listClientes.Single(delegate(Oportunidad cliente)
+        List<OportunidadVenta> listClientes = (List<OportunidadVenta>)Session["oportunidades"];
+        OportunidadVenta model = listClientes.Single(delegate(OportunidadVenta cliente)
         {
             if (cliente.codServicio == codServic) return true;
         else return false;
@@ -32,13 +32,13 @@ namespace ReservasWeb.Controllers
     public ActionResult Index() {
       if (Session["oportunidades"] == null)
           Session["oportunidades"] = CrearOportunidad();
-      List<Oportunidad> model = (List<Oportunidad>)Session["oportunidades"];
+      List<OportunidadVenta> model = (List<OportunidadVenta>)Session["oportunidades"];
       return View(model);
 
     }
 
     public ActionResult Details(string id) {
-        Oportunidad cli = ObtenerCliente(id);
+        OportunidadVenta cli = ObtenerCliente(id);
       return View(cli);
     }
 
@@ -47,10 +47,10 @@ namespace ReservasWeb.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Oportunidad oport)
+    public ActionResult Create(OportunidadVenta oport)
     {
       try {
-          List<Oportunidad> listOport = (List<Oportunidad>)Session["oportunidades"];
+          List<OportunidadVenta> listOport = (List<OportunidadVenta>)Session["oportunidades"];
           listOport.Add(oport);
 
         return RedirectToAction("Index");
@@ -60,15 +60,15 @@ namespace ReservasWeb.Controllers
     }
   
     public ActionResult Edit(string id) {
-        Oportunidad oport = ObtenerCliente(id);
+        OportunidadVenta oport = ObtenerCliente(id);
       return View(oport);
     }
 
    [HttpPost]
-    public ActionResult Edit(string id, Oportunidad cliente)
+    public ActionResult Edit(string id, OportunidadVenta cliente)
     {
       try {
-          Oportunidad cli = ObtenerCliente(id);
+          OportunidadVenta cli = ObtenerCliente(id);
           cli.nombreServicio = cliente.nombreServicio;
           cli.cantidadServicio = cliente.cantidadServicio;
           cli.precioServicio = cliente.precioServicio;
@@ -80,14 +80,14 @@ namespace ReservasWeb.Controllers
     }
 
     public ActionResult Delete(string id) {
-        Oportunidad cliente = ObtenerCliente(id);
+        OportunidadVenta cliente = ObtenerCliente(id);
       return View(cliente);
     }
 
     [HttpPost]
     public ActionResult Delete(string id, FormCollection collection) {
       try {
-          List<Oportunidad> listCliente = (List<Oportunidad>)Session["oportunidades"];
+          List<OportunidadVenta> listCliente = (List<OportunidadVenta>)Session["oportunidades"];
         listCliente.Remove(ObtenerCliente(id));
 
         return RedirectToAction("Index");

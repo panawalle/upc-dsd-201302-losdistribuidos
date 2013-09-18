@@ -84,7 +84,7 @@
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Modelo.cs" />
-    <Compile Include="Models\Oportunidad.cs" />
+    <Compile Include="Models\OportunidadVenta.cs" />
     <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="Global.asax.cs">
@@ -121,6 +121,11 @@
     <Content Include="Views\Cliente\Details.aspx" />
     <Content Include="Views\Cliente\Edit.aspx" />
     <Content Include="Views\Cliente\Index.aspx" />
+    <Content Include="Views\OportunidadVenta\Create.aspx" />
+    <Content Include="Views\OportunidadVenta\Delete.aspx" />
+    <Content Include="Views\OportunidadVenta\Details.aspx" />
+    <Content Include="Views\OportunidadVenta\Edit.aspx" />
+    <Content Include="Views\OportunidadVenta\Index.aspx" />
     <Content Include="Views\Reserva\Index.aspx" />
     <Content Include="Views\Vehiculo\Details.aspx" />
     <Content Include="Views\Vehiculo\Edit.aspx" />
