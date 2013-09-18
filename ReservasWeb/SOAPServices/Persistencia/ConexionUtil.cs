@@ -9,7 +9,7 @@ namespace ReservasWeb.Persistencia
     {
         public static string ObtenerCadena()
         {
-            return "Data Source=10.10.113.28;Initial Catalog=AUTODROMO;Integrated Security= True;";
+            return "Data Source=localhost;Initial Catalog=AUTODROMO;Integrated Security= True;";
         }
     }
 }
