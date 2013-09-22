@@ -14,7 +14,7 @@
     <property name="NUMEXPRESS" column="NUMEXPRESS" />
     <property name="NUMCODIGOASESOR" column="NUMCODIGOASESOR" />
     <property name="ESTADO" column="ESTADO" />
-    
+
   </class>
 
 </hibernate-mapping>
