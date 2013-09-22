@@ -64,6 +64,7 @@
     <EmbeddedResource Include="Dominio\Cliente.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Content Include="Dominio\Reserva.hbm.xml" />
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -80,6 +81,7 @@
     <Compile Include="Dominio\Cliente.cs" />
     <Compile Include="Dominio\EmailAttribute.cs" />
     <Compile Include="Dominio\Error.cs" />
+    <Compile Include="Dominio\Reserva.cs" />
     <Compile Include="IClienteService.cs" />
     <Compile Include="Persistencia\BaseDAO.cs" />
     <Compile Include="Persistencia\ClienteDAO.cs" />
