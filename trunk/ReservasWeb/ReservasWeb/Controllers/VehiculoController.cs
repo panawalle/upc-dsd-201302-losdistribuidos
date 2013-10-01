@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ReservasWeb.Models;
+using System.Net;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace ReservasWeb.Controllers
 {
@@ -56,14 +60,49 @@ namespace ReservasWeb.Controllers
 
         //
         // GET: /Vehiculo/
-
         public ActionResult Index()
         {
-
+            
+            /*
             if (Session["vehiculos"] == null)
                 Session["vehiculos"] = CrearVehiculos();
             List<Vehiculo> model = (List<Vehiculo>)Session["vehiculos"];
             return View(model);
+            */
+
+            HttpWebRequest req = (HttpWebRequest)WebRequest
+            .Create("http://localhost:60712/VehiculoService.svc/VehiculosListar");
+            req.Method = "GET";
+            HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+            //-------
+            StreamReader reader = new StreamReader(res.GetResponseStream());
+            string vehiculoJson = reader.ReadToEnd();
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            List<Vehiculo> list = js.Deserialize<List<Vehiculo>>(vehiculoJson);
+
+            return View(list);
+            /*SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
+            List<Cliente> proxyProductos = proxy.ListarCliente().ToList();
+            List<Models.Cliente> listaProducto = new List<Models.Cliente>();
+
+            foreach (Cliente item in proxyProductos)
+            {
+                Models.Cliente item2 = new Models.Cliente();
+                item2.codigocliente = item.codigocliente;
+                item2.dnicliente = item.dnicliente;
+                item2.nombrecliente = item.nombrecliente;
+                item2.apellidopaterno = item.apellidopaterno;
+                item2.apellidomaterno = item.apellidomaterno;
+                item2.direccioncliente = item.direccioncliente;
+                item2.correo = item.correo;
+                item2.telefono = item.telefono;
+                item2.celular = item.celular;
+
+                listaProducto.Add(item2);
+            }
+            return View(listaProducto);
+            */
         }
 
         //
@@ -89,8 +128,55 @@ namespace ReservasWeb.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            string v_placa = (string)collection["placa"];
+            string v_vin = "ABCDEFGHIJ";
+            string v_motor = "YYYYYYYY";
+            string v_anio = "2013";
+            string v_contacto = "karen Swartchz";
+            string v_usuario = "Luis Suarez";
+            string v_codColor = "P118";
+            string v_codModelo = "SUB125";
+            string v_codCliente = "15969";
+
+            string postdata = "{\"placa\":\"" + v_placa + "\",\"vin\":\"" + v_vin + "\",\"motor\":\"" + v_motor + "\",\"anio\":\"" + v_anio + "\",\"contacto\":\"" + v_contacto + "\",\"usuario\":\"" + v_usuario + "\",\"codColor\":\"" + v_codColor + "\",\"codModelo\":\"" + v_codModelo + "\",\"codCliente\":\"" + v_codCliente + "\"}"; //JSON
+            byte[] data = Encoding.UTF8.GetBytes(postdata);
+            HttpWebRequest req = (HttpWebRequest)WebRequest
+                .Create("http://localhost:60712/VehiculoService.svc/VehiculosCrear");
+            req.Method = "POST";
+            req.ContentLength = data.Length;
+            req.ContentType = "application/json";
+            var reqStream = req.GetRequestStream();
+            reqStream.Write(data, 0, data.Length);
+            HttpWebResponse res = null;
+            
             try
             {
+                res = (HttpWebResponse)req.GetResponse();
+                StreamReader reader = new StreamReader(res.GetResponseStream());
+                string vehiculoJson = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Vehiculo vehiculo = js.Deserialize<Vehiculo>(vehiculoJson);
+                //Assert.AreEqual("AOM913", vehiculo.placa);
+                //Assert.AreEqual(v_vin, vehiculoCreado.vin);
+                //Console.WriteLine("Placa: " + v_placa);
+            }
+            catch (WebException e)
+            {
+                HttpWebResponse resError = (HttpWebResponse)e.Response;
+                StreamReader reader2 = new StreamReader(resError.GetResponseStream());
+                string error = reader2.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                string errorMessage = js.Deserialize<string>(error);
+
+                ModelState.AddModelError(String.Empty, errorMessage +"Error: Placa Incorrecta (Solo 6 digitos)");
+                //Assert.AreEqual("Vehiculo Errado", errorMessage);
+            }
+            
+            return RedirectToAction("Index");
+
+            /*
+            try
+            {    
                 List<Vehiculo> vehiculos = (List<Vehiculo>)Session["vehiculos"];
                 vehiculos.Add(new Vehiculo()
                 {
@@ -131,6 +217,7 @@ namespace ReservasWeb.Controllers
             {
                 return View();
             }
+            */
         }
 
         //
