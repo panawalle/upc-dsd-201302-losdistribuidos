@@ -30,9 +30,6 @@
                 usuario
             </th>
             <th>
-                fecha
-            </th>
-            <th>
                 Color
             </th>
             <th>
@@ -70,17 +67,17 @@
             <td>
                 <%: item.usuario %>
             </td>
+
             <td>
-                <%: item.fecha %>
+                <%: item.descColor %>
             </td>
+
             <td>
-                <%: item.color.descripcion %>
+                <%: item.descModelo %>
             </td>
+
             <td>
-                <%: item.modelo.descripcion %>
-            </td>
-            <td>
-                <%: item.cliente.apellidocliente %>, <%: item.cliente.nombrecliente %>  
+                <%: item.nomCliente %>
             </td>
         </tr>
     
