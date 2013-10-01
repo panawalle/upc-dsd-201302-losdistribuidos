@@ -39,7 +39,7 @@
         <div class="display-field"><%: Model.modelo.descripcion %></div>
 
         <div class="display-label">Cliente</div>
-        <div class="display-field"><%: Model.cliente.apellidocliente %>, <%: Model.cliente.nombrecliente %></div>
+        <div class="display-field"> <%: Model.cliente.nombrecliente %></div>
         
     </fieldset>
     <p>
