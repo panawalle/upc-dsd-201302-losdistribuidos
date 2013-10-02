@@ -38,7 +38,7 @@ namespace SOAPServices.Persistencia
                     {
                         objMarca.codMarca = Convert.ToInt32(dr["codMarca"]);
                         objMarca.descripcion = (string)dr["descripcion"].ToString();
-                        objMarca.estado = (string)dr["esstado"].ToString();
+                        objMarca.estado = (string)dr["estado"].ToString();
                     }
                 }
 
