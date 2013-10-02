@@ -5,8 +5,6 @@
       <xsd:import schemaLocation="http://localhost:1636/ClienteService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:1636/ClienteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:1636/ClienteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" />
-      <xsd:import schemaLocation="http://localhost:1636/ClienteService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.ComponentModel.DataAnnotations" />
-      <xsd:import schemaLocation="http://localhost:1636/ClienteService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IClienteService_RegistrarCliente_InputMessage">
@@ -39,15 +37,6 @@
   <wsdl:message name="IClienteService_ListarCliente_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListarClienteResponse" />
   </wsdl:message>
-  <wsdl:message name="IClienteService_ValidarClienteExistemte_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarClienteExistemte" />
-  </wsdl:message>
-  <wsdl:message name="IClienteService_ValidarClienteExistemte_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarClienteExistemteResponse" />
-  </wsdl:message>
-  <wsdl:message name="IClienteService_ValidarClienteExistemte_ValidationExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System.ComponentModel.DataAnnotations" name="detail" element="q1:ValidationException" />
-  </wsdl:message>
   <wsdl:portType name="IClienteService">
     <wsdl:operation name="RegistrarCliente">
       <wsdl:input wsaw:Action="http://tempuri.org/IClienteService/RegistrarCliente" message="tns:IClienteService_RegistrarCliente_InputMessage" />
@@ -68,11 +57,6 @@
     <wsdl:operation name="ListarCliente">
       <wsdl:input wsaw:Action="http://tempuri.org/IClienteService/ListarCliente" message="tns:IClienteService_ListarCliente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClienteService/ListarClienteResponse" message="tns:IClienteService_ListarCliente_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ValidarClienteExistemte">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClienteService/ValidarClienteExistemte" message="tns:IClienteService_ValidarClienteExistemte_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClienteService/ValidarClienteExistemteResponse" message="tns:IClienteService_ValidarClienteExistemte_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IClienteService/ValidarClienteExistemteValidationExceptionFault" name="ValidationExceptionFault" message="tns:IClienteService_ValidarClienteExistemte_ValidationExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IClienteService" type="tns:IClienteService">
@@ -121,18 +105,6 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ValidarClienteExistemte">
-      <soap:operation soapAction="http://tempuri.org/IClienteService/ValidarClienteExistemte" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-      <wsdl:fault name="ValidationExceptionFault">
-        <soap:fault use="literal" name="ValidationExceptionFault" namespace="" />
-      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ClienteService">
