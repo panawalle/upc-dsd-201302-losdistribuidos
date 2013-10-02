@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
-namespace MVC.Models
+namespace ReservasWeb.Models
 {
     public class Reserva
     {
