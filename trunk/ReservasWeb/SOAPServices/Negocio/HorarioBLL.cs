@@ -15,5 +15,11 @@ namespace SOAPServices.Negocio
             return objHorarioDAO.fnObtenerHorario(fecha);
 
         }
+
+        public List<Dominio.Horario> fnObtenerRangoHorario()
+        {
+            return objHorarioDAO.fnObtenerRangoHorario();
+
+        }
     }
 }

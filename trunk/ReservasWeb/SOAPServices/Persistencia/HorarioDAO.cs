@@ -88,5 +88,56 @@ namespace SOAPServices.Persistencia
             return objHorario;
         }
 
+        public List<Dominio.Horario> fnObtenerRangoHorario()
+        {
+
+            SqlConnection objSqlCon = new SqlConnection();
+            objSqlCon = objConUtil.fnObtenerConexion();
+            objSqlCon.Open();
+            List<Dominio.Horario> objListHorario = new List<Dominio.Horario>();
+
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dtRangoHora = new DataTable();
+
+                SqlDataAdapter cmd = new SqlDataAdapter("sp_listarRangoHorarios", objSqlCon);
+                cmd.SelectCommand.CommandType = CommandType.StoredProcedure;
+                cmd.SelectCommand.ExecuteNonQuery();
+                cmd.Fill(ds);
+                dtRangoHora = ds.Tables[0];
+
+                if (dtRangoHora.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dtRangoHora.Rows)
+                    {
+                        Dominio.Horario objHorario = new Dominio.Horario();
+                        objHorario.dia1 = (string)dr["hora"].ToString();
+                        objHorario.header = (string)dr["horario"].ToString();
+
+                        objListHorario.Add(objHorario);
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                if (objSqlCon.State == ConnectionState.Open)
+                {
+                    objSqlCon.Close();
+                }
+                throw;
+            }
+            finally
+            {
+
+                if (objSqlCon.State == ConnectionState.Open)
+                {
+                    objSqlCon.Close();
+                }
+            }
+            return objListHorario;
+        }
     }
 }

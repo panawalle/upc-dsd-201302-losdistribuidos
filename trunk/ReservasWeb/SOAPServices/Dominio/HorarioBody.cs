@@ -9,7 +9,6 @@ namespace SOAPServices.Dominio
     [DataContract]
     public class HorarioBody
     {
-
         [DataMember]
         public string header { get; set; }
 

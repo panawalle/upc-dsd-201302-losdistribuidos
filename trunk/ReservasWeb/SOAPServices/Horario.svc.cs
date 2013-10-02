@@ -20,5 +20,15 @@ namespace SOAPServices
 
             return objHorario;
         }
+
+
+        public List<Dominio.Horario> fnObtenerRangoHorario()
+        {
+            List<Dominio.Horario> objListHorario = new List<Dominio.Horario>();
+
+            objListHorario = objHorarioBLL.fnObtenerRangoHorario();
+
+            return objListHorario;
+        }
     }
 }

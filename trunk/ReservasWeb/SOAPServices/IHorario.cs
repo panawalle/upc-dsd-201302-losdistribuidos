@@ -13,5 +13,8 @@ namespace SOAPServices
     {
         [OperationContract]
         Dominio.Horario fnObtenerHorario(DateTime fecha);
+
+        [OperationContract]
+        List<Dominio.Horario> fnObtenerRangoHorario();
     }
 }
