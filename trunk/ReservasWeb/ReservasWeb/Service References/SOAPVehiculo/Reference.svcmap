@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="01d36a37-49df-4fe9-8bda-628b77ebf369" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e1e6e232-ac91-48f2-8904-e79aed4639b1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,10 +21,10 @@
     <MetadataSource Address="http://localhost:1636/Vehiculo.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Vehiculo.xsd" MetadataType="Schema" ID="a772ebf8-dd4f-43ab-a940-35f06f0ecdc7" SourceId="1" SourceUrl="http://localhost:1636/Vehiculo.svc?xsd=xsd1" />
-    <MetadataFile FileName="Vehiculo1.xsd" MetadataType="Schema" ID="fdabc731-9b3e-42c3-9ede-c8cc749acfc5" SourceId="1" SourceUrl="http://localhost:1636/Vehiculo.svc?xsd=xsd2" />
-    <MetadataFile FileName="Vehiculo2.xsd" MetadataType="Schema" ID="c5cea86c-6d4d-4be7-aff3-fd274cd0a859" SourceId="1" SourceUrl="http://localhost:1636/Vehiculo.svc?xsd=xsd0" />
-    <MetadataFile FileName="Vehiculo.wsdl" MetadataType="Wsdl" ID="c39699f2-5bf1-4806-b573-135c365dbd47" SourceId="1" SourceUrl="http://localhost:1636/Vehiculo.svc?wsdl" />
+    <MetadataFile FileName="Vehiculo.xsd" MetadataType="Schema" ID="5727999c-882d-4dcb-afe6-f3c80b8932af" SourceId="1" SourceUrl="http://localhost:1636/Vehiculo.svc?xsd=xsd1" />
+    <MetadataFile FileName="Vehiculo1.xsd" MetadataType="Schema" ID="0a19be6a-b0cd-4ebb-ae0a-9afeb2fb8902" SourceId="1" SourceUrl="http://localhost:1636/Vehiculo.svc?xsd=xsd2" />
+    <MetadataFile FileName="Vehiculo2.xsd" MetadataType="Schema" ID="37748398-8451-4bd1-8c06-a6aa9652a6ff" SourceId="1" SourceUrl="http://localhost:1636/Vehiculo.svc?xsd=xsd0" />
+    <MetadataFile FileName="Vehiculo.wsdl" MetadataType="Wsdl" ID="5c9416f6-8a06-432c-871a-110e85036930" SourceId="1" SourceUrl="http://localhost:1636/Vehiculo.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

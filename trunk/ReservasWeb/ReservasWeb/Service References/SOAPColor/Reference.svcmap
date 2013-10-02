@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cbc0c9cb-ac6a-4c2d-b867-1021f08af4b9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c85a8827-3c26-4b18-ab15-3b17e1a82fe5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,10 +21,10 @@
     <MetadataSource Address="http://localhost:1636/Color.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Color.wsdl" MetadataType="Wsdl" ID="a1ca5972-ca65-4b09-b9d1-4ac25bf62627" SourceId="1" SourceUrl="http://localhost:1636/Color.svc?wsdl" />
-    <MetadataFile FileName="Color.xsd" MetadataType="Schema" ID="c17242e3-804e-4736-9e11-df42f0ba2a7f" SourceId="1" SourceUrl="http://localhost:1636/Color.svc?xsd=xsd2" />
-    <MetadataFile FileName="Color1.xsd" MetadataType="Schema" ID="2b8c3869-b0b1-4db8-b254-536b45c2bad7" SourceId="1" SourceUrl="http://localhost:1636/Color.svc?xsd=xsd0" />
-    <MetadataFile FileName="Color2.xsd" MetadataType="Schema" ID="0ae3c465-6820-4e4c-b939-cc2d6f661e3f" SourceId="1" SourceUrl="http://localhost:1636/Color.svc?xsd=xsd1" />
+    <MetadataFile FileName="Color.wsdl" MetadataType="Wsdl" ID="8064d9a8-afb5-4284-af3a-7bec709500dc" SourceId="1" SourceUrl="http://localhost:1636/Color.svc?wsdl" />
+    <MetadataFile FileName="Color.xsd" MetadataType="Schema" ID="6505e3b0-735b-489e-bf9e-f32c7fbcf927" SourceId="1" SourceUrl="http://localhost:1636/Color.svc?xsd=xsd2" />
+    <MetadataFile FileName="Color1.xsd" MetadataType="Schema" ID="d83c0821-e808-4d3c-bcc5-3ee653852c75" SourceId="1" SourceUrl="http://localhost:1636/Color.svc?xsd=xsd0" />
+    <MetadataFile FileName="Color2.xsd" MetadataType="Schema" ID="7bda7ddb-c836-4b4a-ac8c-e21813e9cb34" SourceId="1" SourceUrl="http://localhost:1636/Color.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

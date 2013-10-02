@@ -9,77 +9,14 @@
 //------------------------------------------------------------------------------
 
 namespace ReservasWeb.SOAPAsesor {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Asesor", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
-    [System.SerializableAttribute()]
-    public partial class Asesor : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int numCodigoAsesorField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nombreField, value) != true)) {
-                    this.nombreField = value;
-                    this.RaisePropertyChanged("nombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int numCodigoAsesor {
-            get {
-                return this.numCodigoAsesorField;
-            }
-            set {
-                if ((this.numCodigoAsesorField.Equals(value) != true)) {
-                    this.numCodigoAsesorField = value;
-                    this.RaisePropertyChanged("numCodigoAsesor");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SOAPAsesor.IAsesor")]
     public interface IAsesor {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAsesor/fnObtenerAsesor", ReplyAction="http://tempuri.org/IAsesor/fnObtenerAsesorResponse")]
-        ReservasWeb.SOAPAsesor.Asesor fnObtenerAsesor(int numCodigoAsesor);
+        SOAPServices.Dominio.Asesor fnObtenerAsesor(int numCodigoAsesor);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -109,7 +46,7 @@ namespace ReservasWeb.SOAPAsesor {
                 base(binding, remoteAddress) {
         }
         
-        public ReservasWeb.SOAPAsesor.Asesor fnObtenerAsesor(int numCodigoAsesor) {
+        public SOAPServices.Dominio.Asesor fnObtenerAsesor(int numCodigoAsesor) {
             return base.Channel.fnObtenerAsesor(numCodigoAsesor);
         }
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="eebea04b-bc0f-4957-a4ce-67bce219f72d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c47a17c1-3e72-40f3-9bca-a7cc22aa0ec6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,10 +21,10 @@
     <MetadataSource Address="http://localhost:1636/Asesor.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Asesor.xsd" MetadataType="Schema" ID="8537de3e-47f5-4320-b081-7c09d5539e7e" SourceId="1" SourceUrl="http://localhost:1636/Asesor.svc?xsd=xsd2" />
-    <MetadataFile FileName="Asesor.wsdl" MetadataType="Wsdl" ID="d04a400a-1c5d-400b-9ecc-02810446baf3" SourceId="1" SourceUrl="http://localhost:1636/Asesor.svc?wsdl" />
-    <MetadataFile FileName="Asesor1.xsd" MetadataType="Schema" ID="437b23f0-e4e2-44ee-b6f4-fa586f80a12a" SourceId="1" SourceUrl="http://localhost:1636/Asesor.svc?xsd=xsd0" />
-    <MetadataFile FileName="Asesor2.xsd" MetadataType="Schema" ID="753702f8-989c-45dc-826d-dcaaad4d55a6" SourceId="1" SourceUrl="http://localhost:1636/Asesor.svc?xsd=xsd1" />
+    <MetadataFile FileName="Asesor.xsd" MetadataType="Schema" ID="3c378ec8-37c2-4255-83c3-9eecf605e3e3" SourceId="1" SourceUrl="http://localhost:1636/Asesor.svc?xsd=xsd2" />
+    <MetadataFile FileName="Asesor.wsdl" MetadataType="Wsdl" ID="f8c8fb6c-e688-40df-80a4-4287a8d64067" SourceId="1" SourceUrl="http://localhost:1636/Asesor.svc?wsdl" />
+    <MetadataFile FileName="Asesor1.xsd" MetadataType="Schema" ID="9b79414c-fb03-49dc-aca9-dd9ce58bd615" SourceId="1" SourceUrl="http://localhost:1636/Asesor.svc?xsd=xsd0" />
+    <MetadataFile FileName="Asesor2.xsd" MetadataType="Schema" ID="93b116fb-78b5-4827-a982-987bb0675f57" SourceId="1" SourceUrl="http://localhost:1636/Asesor.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

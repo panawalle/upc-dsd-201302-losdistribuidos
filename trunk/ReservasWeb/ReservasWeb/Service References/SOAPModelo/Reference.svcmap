@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4517ddf6-a498-4948-b496-0119d2df361b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7c886d39-a9ac-4b76-a810-9c4ea7a1fc50" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,10 +21,10 @@
     <MetadataSource Address="http://localhost:1636/Modelo.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Modelo.xsd" MetadataType="Schema" ID="7f34bd71-07bc-4831-9e61-f1b030d2ce71" SourceId="1" SourceUrl="http://localhost:1636/Modelo.svc?xsd=xsd2" />
-    <MetadataFile FileName="Modelo.wsdl" MetadataType="Wsdl" ID="1dea3136-be9e-41aa-9852-031a9b6d992e" SourceId="1" SourceUrl="http://localhost:1636/Modelo.svc?wsdl" />
-    <MetadataFile FileName="Modelo1.xsd" MetadataType="Schema" ID="46e74bef-f1a9-4826-9e11-6291b79b0f73" SourceId="1" SourceUrl="http://localhost:1636/Modelo.svc?xsd=xsd0" />
-    <MetadataFile FileName="Modelo2.xsd" MetadataType="Schema" ID="8a82f563-f7df-4c0b-b33c-790457f85847" SourceId="1" SourceUrl="http://localhost:1636/Modelo.svc?xsd=xsd1" />
+    <MetadataFile FileName="Modelo.xsd" MetadataType="Schema" ID="fcb2f96c-ca7d-4ea9-afde-b7da2af17ba5" SourceId="1" SourceUrl="http://localhost:1636/Modelo.svc?xsd=xsd2" />
+    <MetadataFile FileName="Modelo.wsdl" MetadataType="Wsdl" ID="bbd58c51-e072-4b7b-aa20-ca4cd0198b87" SourceId="1" SourceUrl="http://localhost:1636/Modelo.svc?wsdl" />
+    <MetadataFile FileName="Modelo1.xsd" MetadataType="Schema" ID="d4719f4b-bec2-4fe5-9165-5398cc5c9f6d" SourceId="1" SourceUrl="http://localhost:1636/Modelo.svc?xsd=xsd0" />
+    <MetadataFile FileName="Modelo2.xsd" MetadataType="Schema" ID="2ebf8c34-0517-47c3-a4a4-569468771b52" SourceId="1" SourceUrl="http://localhost:1636/Modelo.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

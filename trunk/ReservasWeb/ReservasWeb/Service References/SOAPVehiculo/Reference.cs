@@ -9,205 +9,14 @@
 //------------------------------------------------------------------------------
 
 namespace ReservasWeb.SOAPVehiculo {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Vehiculo", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
-    [System.SerializableAttribute()]
-    public partial class Vehiculo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string anioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int codClienteField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string codcolorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string codmodeloField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string contactoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime fechaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string motorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string placaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string usuarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string vinField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string anio {
-            get {
-                return this.anioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.anioField, value) != true)) {
-                    this.anioField = value;
-                    this.RaisePropertyChanged("anio");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int codCliente {
-            get {
-                return this.codClienteField;
-            }
-            set {
-                if ((this.codClienteField.Equals(value) != true)) {
-                    this.codClienteField = value;
-                    this.RaisePropertyChanged("codCliente");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string codcolor {
-            get {
-                return this.codcolorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.codcolorField, value) != true)) {
-                    this.codcolorField = value;
-                    this.RaisePropertyChanged("codcolor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string codmodelo {
-            get {
-                return this.codmodeloField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.codmodeloField, value) != true)) {
-                    this.codmodeloField = value;
-                    this.RaisePropertyChanged("codmodelo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string contacto {
-            get {
-                return this.contactoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.contactoField, value) != true)) {
-                    this.contactoField = value;
-                    this.RaisePropertyChanged("contacto");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime fecha {
-            get {
-                return this.fechaField;
-            }
-            set {
-                if ((this.fechaField.Equals(value) != true)) {
-                    this.fechaField = value;
-                    this.RaisePropertyChanged("fecha");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string motor {
-            get {
-                return this.motorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.motorField, value) != true)) {
-                    this.motorField = value;
-                    this.RaisePropertyChanged("motor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string placa {
-            get {
-                return this.placaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.placaField, value) != true)) {
-                    this.placaField = value;
-                    this.RaisePropertyChanged("placa");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string usuario {
-            get {
-                return this.usuarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.usuarioField, value) != true)) {
-                    this.usuarioField = value;
-                    this.RaisePropertyChanged("usuario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string vin {
-            get {
-                return this.vinField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.vinField, value) != true)) {
-                    this.vinField = value;
-                    this.RaisePropertyChanged("vin");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SOAPVehiculo.IVehiculo")]
     public interface IVehiculo {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehiculo/fnObtenerVehiculo", ReplyAction="http://tempuri.org/IVehiculo/fnObtenerVehiculoResponse")]
-        ReservasWeb.SOAPVehiculo.Vehiculo fnObtenerVehiculo(string placa);
+        SOAPServices.Dominio.Vehiculo fnObtenerVehiculo(string placa);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -237,7 +46,7 @@ namespace ReservasWeb.SOAPVehiculo {
                 base(binding, remoteAddress) {
         }
         
-        public ReservasWeb.SOAPVehiculo.Vehiculo fnObtenerVehiculo(string placa) {
+        public SOAPServices.Dominio.Vehiculo fnObtenerVehiculo(string placa) {
             return base.Channel.fnObtenerVehiculo(placa);
         }
     }
