@@ -5,7 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace ReservasWeb.Persistencia
+namespace SOAPServices.Persistencia
 {
     public class ConexionUtil
     {
