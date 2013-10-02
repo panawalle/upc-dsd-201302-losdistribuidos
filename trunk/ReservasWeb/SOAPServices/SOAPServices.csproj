@@ -117,10 +117,25 @@
     <Compile Include="Modelo.svc.cs">
       <DependentUpon>Modelo.svc</DependentUpon>
     </Compile>
+    <Compile Include="Negocio\AsesorBLL.cs" />
+    <Compile Include="Negocio\ColorBLL.cs" />
+    <Compile Include="Negocio\HorarioBLL.cs" />
+    <Compile Include="Negocio\ModeloBLL.cs" />
+    <Compile Include="Negocio\ReservaBLL.cs" />
+    <Compile Include="Negocio\ServicioBLL.cs" />
+    <Compile Include="Negocio\VehiculoBLL.cs" />
+    <Compile Include="Persistencia\AsesorDAO.cs" />
     <Compile Include="Persistencia\BaseDAO.cs" />
     <Compile Include="Persistencia\ClienteDAO.cs" />
+    <Compile Include="Persistencia\ColorDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
+    <Compile Include="Persistencia\HorarioDAO.cs" />
+    <Compile Include="Persistencia\MarcaDAO.cs" />
+    <Compile Include="Persistencia\ModeloDAO.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
+    <Compile Include="Persistencia\ReservaDAO.cs" />
+    <Compile Include="Persistencia\ServicioDAO.cs" />
+    <Compile Include="Persistencia\VehiculoDAO.cs" />
     <Compile Include="Reserva.svc.cs">
       <DependentUpon>Reserva.svc</DependentUpon>
     </Compile>

@@ -7,7 +7,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using System.Data;
 
-namespace SOAPService
+namespace SOAPServices
 {
     public class Reserva : IReserva
     {
