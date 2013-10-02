@@ -132,6 +132,7 @@
     <Content Include="Views\OportunidadVenta\Details.aspx" />
     <Content Include="Views\OportunidadVenta\Edit.aspx" />
     <Content Include="Views\OportunidadVenta\Index.aspx" />
+    <Content Include="Views\Reserva\Create.aspx" />
     <Content Include="Views\Reserva\Index.aspx" />
     <Content Include="Views\Vehiculo\Details.aspx" />
     <Content Include="Views\Vehiculo\Edit.aspx" />
