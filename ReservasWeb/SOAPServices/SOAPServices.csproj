@@ -67,6 +67,7 @@
     </EmbeddedResource>
     <Content Include="Color.svc" />
     <Content Include="Horario.svc" />
+    <Content Include="Marca.svc" />
     <Content Include="Modelo.svc" />
     <Content Include="Reserva.svc" />
     <Content Include="Service1.svc" />
@@ -110,16 +111,21 @@
     <Compile Include="IClienteService.cs" />
     <Compile Include="IColor.cs" />
     <Compile Include="IHorario.cs" />
+    <Compile Include="IMarca.cs" />
     <Compile Include="IModelo.cs" />
     <Compile Include="IReserva.cs" />
     <Compile Include="IServicio.cs" />
     <Compile Include="IVehiculo.cs" />
+    <Compile Include="Marca.svc.cs">
+      <DependentUpon>Marca.svc</DependentUpon>
+    </Compile>
     <Compile Include="Modelo.svc.cs">
       <DependentUpon>Modelo.svc</DependentUpon>
     </Compile>
     <Compile Include="Negocio\AsesorBLL.cs" />
     <Compile Include="Negocio\ColorBLL.cs" />
     <Compile Include="Negocio\HorarioBLL.cs" />
+    <Compile Include="Negocio\MarcaBLL.cs" />
     <Compile Include="Negocio\ModeloBLL.cs" />
     <Compile Include="Negocio\ReservaBLL.cs" />
     <Compile Include="Negocio\ServicioBLL.cs" />
