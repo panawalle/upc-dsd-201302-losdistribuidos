@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 
-namespace SOAPService.Negocio
+namespace SOAPServices.Negocio
 {
     public class ReservaBLL
     {
