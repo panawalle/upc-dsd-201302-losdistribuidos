@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cc5edc5c-61a3-41a6-b5c3-f66ae66f20a2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1636/Horario.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Horario.xsd" MetadataType="Schema" ID="261d4e65-06dc-4c98-b87b-aec7db8d7de3" SourceId="1" SourceUrl="http://localhost:1636/Horario.svc?xsd=xsd1" />
+    <MetadataFile FileName="Horario1.xsd" MetadataType="Schema" ID="62a8cb56-ced9-45d4-b6bc-c9b3cded6a86" SourceId="1" SourceUrl="http://localhost:1636/Horario.svc?xsd=xsd0" />
+    <MetadataFile FileName="Horario.wsdl" MetadataType="Wsdl" ID="0fabefdd-5de9-4f11-a319-aa4777c815d5" SourceId="1" SourceUrl="http://localhost:1636/Horario.svc?wsdl" />
+    <MetadataFile FileName="Horario2.xsd" MetadataType="Schema" ID="4acca535-166e-4cad-a39b-d20c876af0b4" SourceId="1" SourceUrl="http://localhost:1636/Horario.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

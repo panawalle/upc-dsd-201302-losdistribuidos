@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="31963506-37d3-4782-9884-b51b56f6bdea" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1636/Reserva.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Reserva.wsdl" MetadataType="Wsdl" ID="047f82ad-434b-4d1f-af69-398c430bebac" SourceId="1" SourceUrl="http://localhost:1636/Reserva.svc?wsdl" />
+    <MetadataFile FileName="Reserva.xsd" MetadataType="Schema" ID="a50f78fe-a668-4b22-9a43-c89cd0527a50" SourceId="1" SourceUrl="http://localhost:1636/Reserva.svc?xsd=xsd0" />
+    <MetadataFile FileName="Reserva1.xsd" MetadataType="Schema" ID="5ff894b0-586b-4958-9473-ce970a8b56fa" SourceId="1" SourceUrl="http://localhost:1636/Reserva.svc?xsd=xsd2" />
+    <MetadataFile FileName="Reserva2.xsd" MetadataType="Schema" ID="7159f18a-c7a6-4768-9279-c5fc127f0c88" SourceId="1" SourceUrl="http://localhost:1636/Reserva.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
