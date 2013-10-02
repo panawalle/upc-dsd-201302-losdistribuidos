@@ -3,37 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
-using SOAPServices.Persistencia;
+using System.Data;
 
-namespace SOAPServices
+namespace SOAPService
 {
-   
-    public class Reserva : IReserva{
+    public class Reserva : IReserva
+    {
 
-        private ReservaDAO reservaDAO = null;
+        Negocio.ReservaBLL objReservaBLL = new Negocio.ReservaBLL();
 
-        private ReservaDAO ReservaDAO{
+        public Dominio.Reserva fnObtenerReserva(int codReserva)
+        {
+            Dominio.Reserva objReserva = new Dominio.Reserva();
 
-            get
-            {
-                if (reservaDAO == null)
-                    reservaDAO = new ReservaDAO();
-                return reservaDAO;
-            }
+            objReserva = objReservaBLL.fnObtenerReserva(codReserva);
+
+            return objReserva;
         }
 
-
-        public List<Reserva> ListarReservas()
+        public Dominio.Reserva fnGuardarReserva(Dominio.Reserva objReserva)
         {
-            //return ReservaDAO.ListarTodos().ToList();
-            return null;
+            Dominio.Reserva objReservaRegistrado = new Dominio.Reserva();
+
+            objReservaRegistrado = objReservaBLL.fnGuardarReserva(objReserva);
+
+            return objReservaRegistrado;
+
         }
 
-
-        public void AnularReserva(int codigo)
+        public List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa)
         {
-            throw new NotImplementedException();
+            List<Dominio.Reserva> objListReserva = new List<Dominio.Reserva>();
+
+            objListReserva = objReservaBLL.fnListarReserva(codReserva, nroReserva, placa);
+
+            return objListReserva;
         }
     }
 }
