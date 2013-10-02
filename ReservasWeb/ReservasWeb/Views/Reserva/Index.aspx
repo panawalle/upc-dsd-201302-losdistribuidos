@@ -1,12 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<ReservasWeb.Models.Reserva>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<MVC.Models.Reserva>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Index
+	Index
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>
-        Consultar Reserva
-    </h2>
+
+    <h2>Consultar Reserva</h2>
+
     <% using (Html.BeginForm("Index", "Reserva")) %>
     <% { %>
     <table>
@@ -39,6 +40,8 @@
                 <input type="submit" value="Buscar" />
             </td>
         </tr>
+    </table>
+    <table width="100%">
         <tr>
             <th style="width: 3%">
                 Código
@@ -68,7 +71,7 @@
                 Opciones
             </th>
         </tr>
-        <% if (Model != null)
+        <% if (Model != null )
            { %>
             <% foreach (var item in Model)
                { %>
@@ -128,4 +131,59 @@
         <%: Html.ActionLink("Nueva Reserva", "Create") %>
     </p>
     <% } %>
+
+    <%--<table>
+        <tr>
+            <th></th>
+            <th>
+                codigo
+            </th>
+            <th>
+                nroreserva
+            </th>
+            <th>
+                fecha
+            </th>
+            <th>
+                numexpress
+            </th>
+            <th>
+                estado
+            </th>
+        </tr>
+
+    <% foreach (var item in Model) { %>
+    
+        <tr>
+            <td>
+                <%: Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) %> |
+                <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })%> |
+                <%: Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })%>
+            </td>
+            <td>
+                <%: item.codigo %>
+            </td>
+            <td>
+                <%: item.nroreserva %>
+            </td>
+            <td>
+                <%: String.Format("{0:g}", item.fecha) %>
+            </td>
+            <td>
+                <%: item.numexpress %>
+            </td>
+            <td>
+                <%: item.estado %>
+            </td>
+        </tr>
+    
+    <% } %>
+
+    </table>
+
+    <p>
+        <%: Html.ActionLink("Create New", "Create") %>
+    </p>--%>
+
 </asp:Content>
+
