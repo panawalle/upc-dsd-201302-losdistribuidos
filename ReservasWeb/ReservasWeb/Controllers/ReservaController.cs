@@ -163,6 +163,7 @@ namespace ReservasWeb.Controllers
         {   //string nroreserva, string fecha, int numexpress, string hora, int codAsesor, string placa
             try
             {
+                FillDropDownList();
                 Models.Reserva model = null;
                 model = (Models.Reserva)Session["reserva"];
 
@@ -215,7 +216,8 @@ namespace ReservasWeb.Controllers
                 objReserva.fecha = Convert.ToDateTime(collection["fecha"]);
                 objReserva.numExpress = Convert.ToInt32(collection["numExpress"]);
                 objReserva.numCodigoAsesor = Convert.ToInt32(collection["asesor.codigo"]);
-                objReserva.hora = (string)collection["hora"];
+                objReserva.hora = (string)collection["ddlHorarios"];
+                
 
                 Models.Reserva reservaSesion = (Models.Reserva)Session["reserva"];
 
@@ -398,7 +400,6 @@ namespace ReservasWeb.Controllers
             return View();
         }
 
-        
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -434,6 +435,30 @@ namespace ReservasWeb.Controllers
             {
                 return View();
             }
+        }
+
+        private void FillDropDownList()
+        {
+            //int? CountryId = 0
+            SOAPHorario.HorarioClient proxyHorario = new SOAPHorario.HorarioClient();
+            //TestDataContext db = new TestDataContext();
+            List<Horario> objListHorarios = new List<Horario>();
+            objListHorarios = proxyHorario.fnObtenerRangoHorario().ToList();
+            
+            List<SelectListItem> ddlHorarios = new List<SelectListItem>();
+            ddlHorarios.Add(new SelectListItem() { Value = "0", Text = "-", Selected = false });
+
+
+            foreach (Horario objHorario in objListHorarios)
+                ddlHorarios.Add(
+                    new SelectListItem() {
+                        Value = objHorario.dia1.ToString().Trim(), 
+                        Text = objHorario.header.ToString().Trim()//, 
+                        //Selected = CountryId == country.CountryId ? true : false
+                    });
+
+            ViewData["Horarios"] = ddlHorarios;
+
         }
     }
 }
