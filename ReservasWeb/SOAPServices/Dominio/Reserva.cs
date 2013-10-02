@@ -4,25 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
 
-namespace SOAPServices.Dominio
+namespace SOAPService.Dominio
 {
-     [DataContract]
+    [DataContract]
     public class Reserva
     {
+       [DataMember]
+        public int codReserva { get; set; }
         [DataMember]
-        public int Codigo { get; set; } 
+        public string nroReserva { get; set; }
         [DataMember]
-        public string NroReserva { get; set; }
+        public string placa { get; set; }
         [DataMember]
-        public string Placa { get; set; }
+        public DateTime fecha { get; set; }
         [DataMember]
-        public string Fecha { get; set; }
+        public int numExpress { get; set; }
         [DataMember]
-        public int NumExpress { get; set; }
+        public int numCodigoAsesor { get; set; }
         [DataMember]
-        public int CodAsesor { get; set; }
+        public string estado { get; set; }
         [DataMember]
-        public int Estado { get; set; }
+        public string hora { get; set; }
+        [DataMember]
+        public List<ReservaDetalle> reservaDetalle { get; set; }
 
+        
     }
 }
