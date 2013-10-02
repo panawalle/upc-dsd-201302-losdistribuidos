@@ -1,57 +1,9 @@
-D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
-D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
-D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
-D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
-D:\UPC\Sistemas Distribuidos\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\bin\ReservasWeb.dll
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\bin\ReservasWeb.pdb
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\bin\Iesi.Collections.dll
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\bin\NHibernate.dll
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\obj\Debug\ReservasWeb.dll
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_FINAL\LosDistribuidosDSD\ReservasWeb\obj\Debug\ReservasWeb.pdb
-C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
-C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
-C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\bin\Iesi.Collections.dll
-C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\bin\NHibernate.dll
-C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
-C:\Users\Lesly\Desktop\RESERVAS WEB\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\bin\ReservasWeb.dll
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\bin\ReservasWeb.pdb
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\bin\Iesi.Collections.dll
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\bin\NHibernate.dll
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\obj\Debug\ReservasWeb.dll
-D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTO\LosDistribuidosDSD\ReservasWeb\obj\Debug\ReservasWeb.pdb
-C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
-C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
-C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\Iesi.Collections.dll
-C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\NHibernate.dll
-C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.csprojResolveAssemblyReference.cache
-C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
-C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
-<<<<<<< .mine
-E:\dsd\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
-E:\dsd\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
-E:\dsd\ReservasWeb\ReservasWeb\bin\Iesi.Collections.dll
-E:\dsd\ReservasWeb\ReservasWeb\bin\NHibernate.dll
-E:\dsd\ReservasWeb\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
-E:\dsd\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
-E:\dsd\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
-=======
-E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
-E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
-E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\bin\Iesi.Collections.dll
-E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\bin\NHibernate.dll
-E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.csprojResolveAssemblyReference.cache
-E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
-E:\BK DISTRIBUIDAS_ORIGEN\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
->>>>>>> .r67
-E:\New folder\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
-E:\New folder\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
-E:\New folder\ReservasWeb\ReservasWeb\bin\Iesi.Collections.dll
-E:\New folder\ReservasWeb\ReservasWeb\bin\NHibernate.dll
-E:\New folder\ReservasWeb\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
-E:\New folder\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
-E:\New folder\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasWeb\ReservasWeb\bin\Iesi.Collections.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasWeb\ReservasWeb\bin\NHibernate.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasWeb\ReservasWeb\bin\SOAPServices.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasWeb\ReservasWeb\bin\SOAPServices.pdb
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasWeb\ReservasWeb\obj\Debug\ResolveAssemblyReference.cache
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
+D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
