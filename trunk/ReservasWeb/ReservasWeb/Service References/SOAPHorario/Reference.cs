@@ -17,6 +17,9 @@ namespace ReservasWeb.SOAPHorario {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHorario/fnObtenerHorario", ReplyAction="http://tempuri.org/IHorario/fnObtenerHorarioResponse")]
         SOAPServices.Dominio.Horario fnObtenerHorario(System.DateTime fecha);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHorario/fnObtenerRangoHorario", ReplyAction="http://tempuri.org/IHorario/fnObtenerRangoHorarioResponse")]
+        SOAPServices.Dominio.Horario[] fnObtenerRangoHorario();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -48,6 +51,10 @@ namespace ReservasWeb.SOAPHorario {
         
         public SOAPServices.Dominio.Horario fnObtenerHorario(System.DateTime fecha) {
             return base.Channel.fnObtenerHorario(fecha);
+        }
+        
+        public SOAPServices.Dominio.Horario[] fnObtenerRangoHorario() {
+            return base.Channel.fnObtenerRangoHorario();
         }
     }
 }
