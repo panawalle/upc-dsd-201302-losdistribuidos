@@ -15,4 +15,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="fnObtenerRangoHorario">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fnObtenerRangoHorarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" minOccurs="0" name="fnObtenerRangoHorarioResult" nillable="true" type="q2:ArrayOfHorario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
