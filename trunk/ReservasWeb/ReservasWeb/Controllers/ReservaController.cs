@@ -17,6 +17,8 @@ namespace ReservasWeb.Controllers
             SOAPVehiculo.VehiculoClient proxyVehiculo = new SOAPVehiculo.VehiculoClient();
             SOAPColor.ColorClient proxyColor = new SOAPColor.ColorClient();
             SOAPModelo.ModeloClient proxyModelo = new SOAPModelo.ModeloClient();
+            SOAPMarca.MarcaClient proxyMarca = new SOAPMarca.MarcaClient();
+            SOAPClientes.ClienteServiceClient proxyCliente = new SOAPClientes.ClienteServiceClient();
 
             List<Reserva> objListReservas = new List<Reserva>();
             objListReservas = proxy.fnListarReserva(codigo, nroreserva, placa).ToList();
@@ -52,12 +54,12 @@ namespace ReservasWeb.Controllers
 
                 //Modelo - Marca
                 Marca objMarca = new Marca();
-                objMarca = null;
+                objMarca = proxyMarca.fnObtenerMarca(objModelo.codMarca);
 
                 Models.Marca objMarcaModel = new Models.Marca();
-                objMarcaModel.codigo = 6;
-                objMarcaModel.descripcion = "Alfa Romeo";
-                objMarcaModel.estado = "0";
+                objMarcaModel.codigo = objMarca.codMarca ;
+                objMarcaModel.descripcion = objMarca.descripcion;
+                objMarcaModel.estado = objMarca.estado;
 
                 Models.Modelo objModeloModel = new Models.Modelo();
                 objModeloModel.codigo = objModelo.codModelo ;
@@ -66,9 +68,14 @@ namespace ReservasWeb.Controllers
                 objModeloModel.estado = objModelo.estado;
 
                 //Vehiculo - Cliente
+                Cliente objCliente = new Cliente();
+                objCliente = proxyCliente.ObtenerCliente(objVehiculo.codCliente);
+
                 Models.Cliente objClienteModel = new Models.Cliente();
-                objClienteModel.nombrecliente = "Lorena";
-                objClienteModel.apellidopaterno = "Cermeño";
+                objClienteModel.codigocliente = objCliente.codigocliente;
+                objClienteModel.nombrecliente = objCliente.nombrecliente;
+                objClienteModel.apellidopaterno = objCliente.apellidopaterno;
+                objClienteModel.apellidomaterno = objCliente.apellidomaterno;
 
                 Models.Vehiculo objVehiculoModel = new Models.Vehiculo();
                 objVehiculoModel.placa = objVehiculo.placa;
