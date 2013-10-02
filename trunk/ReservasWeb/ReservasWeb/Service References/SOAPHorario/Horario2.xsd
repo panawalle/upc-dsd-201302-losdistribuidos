@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Horario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dia1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dia2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dia3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dia4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dia5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dia6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="header" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="horarioBody" nillable="true" type="tns:ArrayOfHorarioBody" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Horario" nillable="true" type="tns:Horario" />
+  <xs:complexType name="ArrayOfHorarioBody">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HorarioBody" nillable="true" type="tns:HorarioBody" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHorarioBody" nillable="true" type="tns:ArrayOfHorarioBody" />
+  <xs:complexType name="HorarioBody">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dia1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dia2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dia3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dia4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dia5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dia6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="header" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HorarioBody" nillable="true" type="tns:HorarioBody" />
+</xs:schema>
