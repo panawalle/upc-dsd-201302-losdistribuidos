@@ -3,115 +3,122 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ReservasWeb.Models;
+using SOAPService.Dominio;
 
-namespace ReservasWeb.Controllers
+namespace MVC.Controllers
 {
     public class ReservaController : Controller
     {
 
-        private List<Reserva> CrearReservas()
+        private List<Models.Reserva> ListarReservas(int codigo, string nroreserva, string placa)
         {
-            Asesor asesor1 = new Asesor() { codigo = 1, nombre = "Juan La Cruza" };
-            Asesor asesor2 = new Asesor() { codigo = 2, nombre = "José Figueroa" };
+            SOAPReservas.ReservaClient proxy = new SOAPReservas.ReservaClient();
+            SOAPAsesor.AsesorClient proxyAsesor = new SOAPAsesor.AsesorClient();
+            SOAPVehiculo.VehiculoClient proxyVehiculo = new SOAPVehiculo.VehiculoClient();
+            SOAPColor.ColorClient proxyColor = new SOAPColor.ColorClient();
+            SOAPModelo.ModeloClient proxyModelo = new SOAPModelo.ModeloClient();
 
-            Cliente cliente1 = new Cliente() { codigocliente = 1, dnicliente = "45921955", tipo = 1, nombrecliente = "Lorena", apellidopaterno = "Cermeño", apellidomaterno = "Negrón", direccioncliente = "Direccion 1", telefono = "1234567", celular = "1212523", correo = "lcermenon@gmail.com" };
-            Cliente cliente2 = new Cliente() { codigocliente = 2, dnicliente = "43781265", tipo = 1, nombrecliente = "Luis", apellidopaterno = "Cabañas", apellidomaterno = "Valdiviezo", direccioncliente = "Direccion 2", telefono = "23534634", celular = "1352434", correo = "luis.cabanasv@gmail.com" };
-            Cliente cliente3 = new Cliente() { codigocliente = 2, dnicliente = "10070970011", tipo = 2, nombrecliente = "ROSATEL S.A", apellidopaterno = "", apellidomaterno = "", direccioncliente = "Direccion 3", telefono = "124114", celular = "", correo = "admrosatel@rosatel.com.pe" };
-            Cliente cliente4 = new Cliente() { codigocliente = 2, dnicliente = "10372374012", tipo =2, nombrecliente = "GRUAS MIURA S.A.C", apellidopaterno = "", apellidomaterno = "", direccioncliente = "Direccion 4", telefono = "121412", celular = "", correo = "gruiasmiura@hotmail.com" };
-            
-            Color color1 = new Color() { codigo = 1, descripcion = "Ladrillo", estado = "A" };
-            Color color2 = new Color() { codigo = 2, descripcion = "Azul", estado = "A" };
-            Color color3 = new Color() { codigo = 3, descripcion = "Rojo", estado = "A" };
-            Color color4 = new Color() { codigo = 4, descripcion = "Negro", estado = "A" };
+            List<Reserva> objListReservas = new List<Reserva>();
+            objListReservas = proxy.fnListarReserva(codigo, nroreserva, placa).ToList();
 
-            Marca marca1 = new Marca() { codigo = 1, descripcion = "Hyundai", estado = "A" };
-            Marca marca2 = new Marca() { codigo = 2, descripcion = "Kia", estado = "A" };
-            Marca marca3 = new Marca() { codigo = 3, descripcion = "Toyota", estado = "A" };
-            Marca marca4 = new Marca() { codigo = 4, descripcion = "Nissan", estado = "A" };
+            List<Models.Reserva> listReservas = new List<Models.Reserva>();
 
-            Modelo modelo1 = new Modelo() { codigo = 1, descripcion = "i10", marca = marca1, estado = "A" };
-            Modelo modelo2 = new Modelo() { codigo = 2, descripcion = "Rio", marca = marca2, estado = "A" };
-            Modelo modelo3 = new Modelo() { codigo = 3, descripcion = "Sedan", marca = marca3, estado = "A" };
-            Modelo modelo4 = new Modelo() { codigo = 4, descripcion = "Sentra", marca = marca4, estado = "A" };
-
-            Vehiculo vehiculo1 = new Vehiculo() { placa = "D3R-400", vin = "LCV010787", color = color1, modelo = modelo1, anio = "2013", motor = "1.1", contacto = "Lorena Cermeño", usuario = "LCERMENO", fecha = "15/09/2013", cliente = cliente1 };
-            Vehiculo vehiculo2 = new Vehiculo() { placa = "D3R-092", vin = "LCN100789", color = color2, modelo = modelo2, anio = "2010", motor = "1.6", contacto = "Luis Cabañas", usuario = "LCABANAS", fecha = "15/09/2013", cliente = cliente2 };
-            Vehiculo vehiculo3 = new Vehiculo() { placa = "ADQ-345", vin = "LCN100790", color = color3, modelo = modelo3, anio = "2000", motor = "1.5", contacto = "Diana Hugarte", usuario = "DHUGARTE", fecha = "15/09/2013", cliente = cliente3 };
-            Vehiculo vehiculo4 = new Vehiculo() { placa = "LME-768", vin = "LCN100791", color = color4, modelo = modelo4, anio = "2006", motor = "1.4", contacto = "Carolina Centeno", usuario = "CCENTENO", fecha = "15/09/2013", cliente = cliente4 };
-            Vehiculo vehiculo5 = new Vehiculo() { placa = "RMT-345", vin = "LCN100792", color = color4, modelo = modelo2, anio = "2012", motor = "1.6", contacto = "Jose Luis Ormeño", usuario = "JLORMENO", fecha = "15/09/2013", cliente = cliente3 };
-            Vehiculo vehiculo6 = new Vehiculo() { placa = "D56-234", vin = "LCN100793", color = color4, modelo = modelo3, anio = "2011", motor = "1.6", contacto = "Dante Espinoza", usuario = "DESPINOZA", fecha = "15/09/2013", cliente = cliente4 };
-
-            List<Reserva> reservas = new List<Reserva>();
-            reservas.Add(new Reserva() { codigo = 1, nroreserva = "R000001", vehiculo = vehiculo1, fecha = Convert.ToDateTime("16/09/2013"), numexpress = 1, asesor = asesor1, estado = "P" });
-            reservas.Add(new Reserva() { codigo = 2, nroreserva = "R000002", vehiculo = vehiculo2, fecha = Convert.ToDateTime("15/09/2013"), numexpress = 2, asesor = asesor2, estado = "P" });
-            reservas.Add(new Reserva() { codigo = 3, nroreserva = "R000003", vehiculo = vehiculo3, fecha = Convert.ToDateTime("10/09/2013"), numexpress = 3, asesor = asesor1, estado = "P" });
-            reservas.Add(new Reserva() { codigo = 4, nroreserva = "R000004", vehiculo = vehiculo4, fecha = Convert.ToDateTime("09/09/2013"), numexpress = 4, asesor = asesor2, estado = "P" });
-            reservas.Add(new Reserva() { codigo = 5, nroreserva = "R000005", vehiculo = vehiculo5, fecha = Convert.ToDateTime("09/09/2013"), numexpress = 5, asesor = asesor1, estado = "P" });
-            reservas.Add(new Reserva() { codigo = 6, nroreserva = "R000006", vehiculo = vehiculo6, fecha = Convert.ToDateTime("11/09/2013"), numexpress = 6, asesor = asesor2, estado = "P" });
-
-
-            return reservas;
-
-        }
-
-        private List<Reserva> obtenerReservaxFiltros(string codigo, string nroreserva, string placa)
-        {
-
-            List<Reserva> reservas = (List<Reserva>)Session["reservas"];
-            var reservasResult = new List<Reserva>();
-
-            //Reserva model = new Reserva();
-            //model = obtenerReserva(codigo, nroreserva, placa);
-            //reservasResult.Add(model);
-                       
-            Reserva model = reservas.Single(delegate(Reserva reserva)
+            foreach (Reserva item in objListReservas)
             {
-                //if (reserva.codigo == Convert.ToInt32(codigo) || reserva.nroreserva == nroreserva || reserva.vehiculo.placa == placa)
-                if ((reserva.codigo == Convert.ToInt32(codigo) || Convert.ToInt32(codigo) == 0) && (reserva.nroreserva == nroreserva || nroreserva.Equals("")) && (reserva.vehiculo.placa == placa || placa.Equals("")) && (reserva.estado =="P"))
-                {
-                    reservasResult.Add(reserva);
-                    return true;
-                }
-                else return false;
-            });
-            
-            Session["reservas"] = reservasResult;
-            return reservasResult;
-        }
+                //Asesor
+                Asesor objAsesor = new Asesor();
+                objAsesor = proxyAsesor.fnObtenerAsesor(item.numCodigoAsesor);
 
+                Models.Asesor objAsesorModel = new Models.Asesor();
+                objAsesorModel.codigo = objAsesor.numCodigoAsesor ;
+                objAsesorModel.nombre = objAsesor.nombre ;
+
+                //Vehiculo
+                Vehiculo objVehiculo = new Vehiculo();
+                objVehiculo = proxyVehiculo.fnObtenerVehiculo(item.placa);
+
+                //Vehiculo - Color
+                Color objColor = new Color();
+                objColor = proxyColor.fnObtenerColor(objVehiculo.codcolor);
+
+                Models.Color objColorModel = new Models.Color();
+                objColorModel.codigo = objColor.codColor;
+                objColorModel.descripcion = objColor.descripcion;
+                objColorModel.estado = objColor.estado;
+
+                // Vehiculo - Modelo
+                Modelo objModelo = new Modelo();
+                objModelo = proxyModelo.fnObtenerModelo(objVehiculo.codmodelo);
+
+                //Modelo - Marca
+                Marca objMarca = new Marca();
+                objMarca = null;
+
+                Models.Marca objMarcaModel = new Models.Marca();
+                objMarcaModel.codigo = 6;
+                objMarcaModel.descripcion = "Alfa Romeo";
+                objMarcaModel.estado = "0";
+
+                Models.Modelo objModeloModel = new Models.Modelo();
+                objModeloModel.codigo = objModelo.codModelo ;
+                objModeloModel.marca = objMarcaModel;
+                objModeloModel.descripcion = objModelo.descripcion;
+                objModeloModel.estado = objModelo.estado;
+
+                //Vehiculo - Cliente
+                Models.Cliente objClienteModel = new Models.Cliente();
+                objClienteModel.nombrecliente = "Lorena";
+                objClienteModel.apellidopaterno = "Cermeño";
+
+                Models.Vehiculo objVehiculoModel = new Models.Vehiculo();
+                objVehiculoModel.placa = objVehiculo.placa;
+                objVehiculoModel.color = objColorModel;
+                objVehiculoModel.modelo = objModeloModel;
+                objVehiculoModel.vin = objVehiculo.vin;
+                objVehiculoModel.anio = objVehiculo.anio;
+                objVehiculoModel.motor = objVehiculo.motor;
+                objVehiculoModel.contacto = objVehiculo.contacto;
+                objVehiculoModel.usuario = objVehiculo.usuario;
+                objVehiculoModel.fecha = objVehiculo.fecha;
+                objVehiculoModel.cliente = objClienteModel;
+
+
+                Models.Reserva item2 = new Models.Reserva();
+                item2.codigo = item.codReserva;
+                item2.nroreserva = item.nroReserva;
+                item2.vehiculo = objVehiculoModel;
+                item2.fecha = item.fecha;
+                item2.numexpress = item.numExpress ;
+                item2.asesor = objAsesorModel;
+                item2.estado = item.estado;
+
+                listReservas.Add(item2);
+            }
+
+            
+
+            return listReservas;
+
+        }
 
         public ActionResult Index(string codigo, string nroreserva, string placa)
         {
-
-            //if (Session["reservas"] == null)
-            //    Session["reservas"] = CrearReservas();
-            //List<Reserva> model = (List<Reserva>)Session["reservas"];
-            //return View(model);
             try
             {
-                List<Reserva> model = null;
-                if (Session["reservas"] == null)
-                {
-                    Session["reservas"] = CrearReservas();
-                    model = (List<Reserva>)Session["reservas"];
-                }
-                else
-                {
+                List<Models.Reserva> model = null;
 
-                    if ((codigo == null || codigo.Trim().Equals("")) && (nroreserva == null || nroreserva.Trim().Equals("")) && (placa == null || placa.Trim().Equals("")))
-                    {
-                        Session["reservas"] = CrearReservas();
-                        model = (List<Reserva>)Session["reservas"];
-                    }
-                    else
-                    {
-                        if (codigo == null || codigo.Trim().Equals("")) {
-                            codigo = "0";
-                        }
-                        model = obtenerReservaxFiltros(codigo, nroreserva, placa);
-                    }
+                if (codigo == null || codigo.Equals("")) {
+                    codigo = "0";
                 }
+                if (nroreserva == null) {
+                    nroreserva = "";
+                }
+                if (placa == null) {
+                    placa = "";
+                }
+
+                Session["reservas"] = ListarReservas(Convert.ToInt32(codigo),nroreserva, placa);
+                model = (List<Models.Reserva>)Session["reservas"];
 
                 if (model == null)
                 {
@@ -125,122 +132,273 @@ namespace ReservasWeb.Controllers
             }
             catch (Exception e)
             {
-                if (e.Message == "Bad Request") {
+                if (e.Message == "Bad Request")
+                {
                     ModelState.AddModelError(String.Empty, "Error: Hay datos vacios o nulos.");
-                    
+
                 }
-                if (e.Message == "Not Found") {
+                if (e.Message == "Not Found")
+                {
                     ModelState.AddModelError(String.Empty, "Error: Reserva no encontrada");
                     //ViewData["Message"] = "Error: Hay datos vacios o nulos.";
                 }
                 return View();
             }
-            
-
+         
         }
-
-        //private Reserva obtenerReserva(string codigo, string nroreserva, string placa)
-        //{
-        //    List<Reserva> reservas = (List<Reserva>)Session["reservas"];
-        //    Reserva model = reservas.Single(delegate(Reserva reserva)
-        //    {
-        //        if ((reserva.codigo == Convert.ToInt32(codigo) || Convert.ToInt32(codigo) == 0) && (reserva.nroreserva == nroreserva || nroreserva.Equals("")) && (reserva.vehiculo.placa == placa || placa.Equals(""))) return true;
-        //        else return false;
-        //    });
-        //    return model;
-        //}
-
-        //public ActionResult ConsultarReservas(string codigo, string nroreserva)
-        //{
-        //    //if ((form["codigo"] == null || form["codigo"].Trim().Equals("")) && (form["nroreserva"] == null || form["nroreserva"].Trim().Equals("")))
-        //    if ((codigo == null || codigo.Trim().Equals("")) && (nroreserva == null || nroreserva.Trim().Equals("")))
-        //    {
-        //        TempData["mensaje"] = "Ingrese código o Nro de Reserva por favor!!!";
-        //        return View();
-        //    }
-        //    try
-        //    {
-        //        List<Reserva> model = null;
-        //        model = obtenerListaReserva(codigo, nroreserva);
-        //        return View();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        if (e.Message == "Bad Request")
-        //            ModelState.AddModelError(String.Empty, "Error: Hay datos vacios o nulos.");
-
-        //        if (e.Message == "Not Found")
-        //            ModelState.AddModelError(String.Empty, "Error: Lector no esta registrado.");
-        //        return View("Buscarlector");
-        //    }
-        //}
-
-    
-        //
-        // GET: /Reserva/Details/5
-
-        private Reserva obtenerReserva(int codigo)
-        {
-
-            List<Reserva> reservas = (List<Reserva>)Session["reservas"];
-            Reserva model = reservas.Single(delegate(Reserva reserva)
-            {
-                if (reserva.codigo == codigo) return true;
-                else return false;
-            });
-            return model;
-        }
-
-        public ActionResult Details(int codigo)
-        {
-            Reserva model = obtenerReserva(codigo);
-            return View(model);
-        }
-
-        //
-        // GET: /Reserva/Create
-
-        public ActionResult Create()
+        
+        public ActionResult Details(int id)
         {
             return View();
         }
 
-        //
-        // POST: /Reserva/Create
+        public ActionResult Create()
+        {   //string nroreserva, string fecha, int numexpress, string hora, int codAsesor, string placa
+            try
+            {
+                Models.Reserva model = null;
+                model = (Models.Reserva)Session["reserva"];
 
+                if (model == null)
+                {
+                    //Traer horario de la semana de la fecha actual
+                    //Models.Reserva model = new Models.Reserva();
+                    model = consultarHorario(DateTime.Now.Date);
+                    model.fecha = DateTime.Now.Date;
+                    Session["reserva"] = model;
+                }
+                else
+                {
+                    //Pintar el horario de la fecha seleccionada
+                    Session["reserva"] = model;
+                    
+                }
+
+                return View(model);
+            }
+            catch (Exception e)
+            {
+                if (e.Message == "Bad Request")
+                {
+                    ModelState.AddModelError(String.Empty, "Error: Hay datos vacios o nulos.");
+
+                }
+                if (e.Message == "Not Found")
+                {
+                    ModelState.AddModelError(String.Empty, "Error: Reserva no encontrada");
+                    //ViewData["Message"] = "Error: Hay datos vacios o nulos.";
+                }
+                return View();
+            }
+          
+        } 
+        
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
             {
-                // TODO: Add insert logic here
+                SOAPReservas.ReservaClient proxyReserva = new SOAPReservas.ReservaClient();
+
+                Reserva objReserva = new Reserva();
+                
+                //objReserva.codReserva = Convert.ToInt32(collection["codigo"]);
+                objReserva.nroReserva = (string)collection["nroReserva"];
+                objReserva.placa = (string)collection["vehiculo.placa"];
+                objReserva.fecha = Convert.ToDateTime(collection["fecha"]);
+                objReserva.numExpress = Convert.ToInt32(collection["numExpress"]);
+                objReserva.numCodigoAsesor = Convert.ToInt32(collection["asesor.codigo"]);
+                objReserva.hora = (string)collection["hora"];
+
+                Models.Reserva reservaSesion = (Models.Reserva)Session["reserva"];
+
+
+                List<ReservaDetalle> objListReservaDetalle = new List<ReservaDetalle>();
+                if (reservaSesion.reservaDetalle != null) {
+                    foreach (Models.ReservaDetalle obj in reservaSesion.reservaDetalle)
+                    {
+                        ReservaDetalle objReservaDetalle = new ReservaDetalle();
+                        objReservaDetalle.codOper = obj.servicio.codOper;
+                        objReservaDetalle.codOperSer = obj.servicio.codOperSer;
+                        objReservaDetalle.estado = obj.estado;
+                        objListReservaDetalle.Add(objReservaDetalle);
+                    }
+
+                }
+                objReserva.reservaDetalle = objListReservaDetalle;
+               
+                //ReservaDetalle objReservaDetalle = new ReservaDetalle();
+
+
+                proxyReserva.fnGuardarReserva(objReserva);
+                
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception e)
             {
+                if (e.Message == "Bad Request")
+                    ModelState.AddModelError(String.Empty, "Error: El campo DNI es obligatorio.");
+
+                if (e.Message == "Not Acceptable")
+                    ModelState.AddModelError(String.Empty, "Error: Ya existe un cliente con el mismo código");
                 return View();
             }
         }
 
-        //
-        // GET: /Reserva/Edit/5
+        private Models.Reserva consultarHorario(DateTime fecha)
+        {
 
+            SOAPHorario.HorarioClient proxyHorario = new SOAPHorario.HorarioClient();
+            Horario objHorario = new Horario();
+            objHorario = proxyHorario.fnObtenerHorario(fecha);
+
+            Models.Reserva model = new Models.Reserva();
+
+
+            Models.Horario modelHorario = new Models.Horario();
+            modelHorario.horario = objHorario.header;
+            modelHorario.dia1 = objHorario.dia1;
+            modelHorario.dia2 = objHorario.dia2;
+            modelHorario.dia3 = objHorario.dia3;
+            modelHorario.dia4 = objHorario.dia4;
+            modelHorario.dia5 = objHorario.dia5;
+            modelHorario.dia6 = objHorario.dia6;
+
+            List<Models.HorarioBody> objListHorarioBody = new List<Models.HorarioBody>();
+            //HorarioBody
+            foreach (HorarioBody dr in objHorario.horarioBody)
+            {
+                Models.HorarioBody objHorarioBody = new Models.HorarioBody();
+
+                objHorarioBody.horario = (string)dr.header;
+                objHorarioBody.dia1 = (string)dr.dia1;
+                objHorarioBody.dia2 = (string)dr.dia2;
+                objHorarioBody.dia3 = (string)dr.dia3;
+                objHorarioBody.dia4 = (string)dr.dia4;
+                objHorarioBody.dia5 = (string)dr.dia5;
+                objHorarioBody.dia6 = (string)dr.dia6;
+
+                objListHorarioBody.Add(objHorarioBody);
+
+            }
+            modelHorario.horarioBody = objListHorarioBody;
+
+            model.horario = modelHorario;
+
+            return model;
+
+        }
+
+        public ActionResult consultar(string fecha) {
+
+            try
+            {
+                if (fecha != null && fecha != "")
+                {
+                    Models.Reserva model = null;
+                    model = consultarHorario(Convert.ToDateTime(fecha));
+                    model.fecha = Convert.ToDateTime(fecha);
+                    Session["reserva"] = model;
+
+                    return RedirectToAction("Create");
+                }
+                else
+                {
+                    return RedirectToAction("Create");
+                }
+
+            }
+            catch (Exception e)
+            {
+                if (e.Message == "Bad Request")
+                {
+                    ModelState.AddModelError(String.Empty, "Error: Hay datos vacios o nulos.");
+
+                }
+                if (e.Message == "Not Found")
+                {
+                    ModelState.AddModelError(String.Empty, "Error: Reserva no encontrada");
+                    //ViewData["Message"] = "Error: Hay datos vacios o nulos.";
+                }
+                return View();
+            }
+                //return View(model);
+                //return RedirectToAction("Create");
+            
+        }
+
+        public ActionResult agregarServicio(string codOperSer) {
+            try
+            {
+                if (codOperSer != null && codOperSer != "")
+                {
+
+                    SOAPServicio .ServicioClient proxy = new SOAPServicio.ServicioClient();
+
+                    Servicio objServicio = new Servicio();
+                    objServicio = proxy.fnObtenerServicio("1X",codOperSer);
+
+                    if (objServicio.codOper != null) {
+
+                        Models.Servicio modelServicio = new Models.Servicio();
+                        modelServicio.codOper = objServicio.codOper;
+                        modelServicio.codOperSer = objServicio.codOperSer;
+                        modelServicio.descripcion = objServicio.descripcion;
+                        modelServicio.precio = objServicio.precio;
+
+                        List<Models.ReservaDetalle> ListaReservaDetalle = new List<Models.ReservaDetalle>();
+                        Models.ReservaDetalle objReservaDetalle = new Models.ReservaDetalle();
+
+                        objReservaDetalle.servicio = modelServicio;
+                        objReservaDetalle.estado = "0";
+
+                        if (Session["detalle"] != null)
+                        {
+                            ListaReservaDetalle = (List<Models.ReservaDetalle>)Session["detalle"];
+                            ListaReservaDetalle.Add(objReservaDetalle);
+                            Session["detalle"] = ListaReservaDetalle;
+                        }
+                        else {
+                            ListaReservaDetalle.Add(objReservaDetalle);
+                            Session["detalle"] = ListaReservaDetalle;
+                        }
+
+                        //Recupero sesion de reserva y seteo el detalle
+                        Models.Reserva model = null;
+                        model = (Models.Reserva)Session["reserva"];
+                        model.reservaDetalle = (List<Models.ReservaDetalle>)Session["detalle"];
+
+                        Session["reserva"] = model;
+                    }
+                    return RedirectToAction("Create");
+                }
+                else
+                {
+                    return RedirectToAction("Create");
+                }
+
+            }
+            catch (Exception e)
+            {
+                //dasdafafsafa
+                return View();
+            }
+        }
+        
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        //
-        // POST: /Reserva/Edit/5
-
+        
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
-
+ 
                 return RedirectToAction("Index");
             }
             catch
@@ -249,24 +407,20 @@ namespace ReservasWeb.Controllers
             }
         }
 
-        //
-        // GET: /Reserva/Delete/5
-
+        
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        //
-        // POST: /Reserva/Delete/5
-
+        
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
-
+ 
                 return RedirectToAction("Index");
             }
             catch
@@ -274,16 +428,5 @@ namespace ReservasWeb.Controllers
                 return View();
             }
         }
-
-
-
-        [HttpPost]
-        public void AnularReserva(int codigo)
-        {
-            Reserva model = obtenerReserva(codigo);
-        }
-
-
-
     }
 }
