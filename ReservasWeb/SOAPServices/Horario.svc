@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="SOAPService.Horario" CodeBehind="Horario.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SOAPServices.Horario" CodeBehind="Horario.svc.cs" %>
