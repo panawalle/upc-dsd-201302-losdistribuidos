@@ -5,11 +5,9 @@ using System.Web;
 
 namespace MVC.Models
 {
-    public class Modelo
+    public class ReservaDetalle
     {
-        public string codigo { get; set; }
-        public string descripcion { get; set; }
+        public Servicio servicio { get; set; }
         public string estado { get; set; }
-        public Marca marca { get; set; }
     }
 }
