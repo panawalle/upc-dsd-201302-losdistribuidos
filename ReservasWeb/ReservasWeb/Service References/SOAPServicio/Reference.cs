@@ -9,109 +9,14 @@
 //------------------------------------------------------------------------------
 
 namespace ReservasWeb.SOAPServicio {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Servicio", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
-    [System.SerializableAttribute()]
-    public partial class Servicio : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string codOperField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string codOperSerField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string descripcionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double precioField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string codOper {
-            get {
-                return this.codOperField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.codOperField, value) != true)) {
-                    this.codOperField = value;
-                    this.RaisePropertyChanged("codOper");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string codOperSer {
-            get {
-                return this.codOperSerField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.codOperSerField, value) != true)) {
-                    this.codOperSerField = value;
-                    this.RaisePropertyChanged("codOperSer");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string descripcion {
-            get {
-                return this.descripcionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.descripcionField, value) != true)) {
-                    this.descripcionField = value;
-                    this.RaisePropertyChanged("descripcion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double precio {
-            get {
-                return this.precioField;
-            }
-            set {
-                if ((this.precioField.Equals(value) != true)) {
-                    this.precioField = value;
-                    this.RaisePropertyChanged("precio");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SOAPServicio.IServicio")]
     public interface IServicio {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/fnObtenerServicio", ReplyAction="http://tempuri.org/IServicio/fnObtenerServicioResponse")]
-        ReservasWeb.SOAPServicio.Servicio fnObtenerServicio(string codOper, string codOperSer);
+        SOAPServices.Dominio.Servicio fnObtenerServicio(string codOper, string codOperSer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -141,7 +46,7 @@ namespace ReservasWeb.SOAPServicio {
                 base(binding, remoteAddress) {
         }
         
-        public ReservasWeb.SOAPServicio.Servicio fnObtenerServicio(string codOper, string codOperSer) {
+        public SOAPServices.Dominio.Servicio fnObtenerServicio(string codOper, string codOperSer) {
             return base.Channel.fnObtenerServicio(codOper, codOperSer);
         }
     }
