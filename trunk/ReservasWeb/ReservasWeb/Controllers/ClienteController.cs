@@ -21,13 +21,13 @@ namespace ReservasWeb.Controllers
     public class ClienteController : Controller
     {
 
-        SOAPClientes.Cliente clienteCreado = null;
-        SOAPClientes.Cliente clienteBuscado = null;
+        SOAPServices.Dominio.Cliente clienteCreado = null;
+        SOAPServices.Dominio.Cliente clienteBuscado = null;
 
         public ActionResult Index()
         {
             SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
-            List<Cliente> proxyProductos = proxy.ListarCliente().ToList();
+            List<SOAPServices.Dominio.Cliente> proxyProductos = proxy.ListarCliente().ToList();
             List<Models.Cliente> listaProducto = new List<Models.Cliente>();
 
             foreach (Cliente item in proxyProductos)
@@ -62,7 +62,7 @@ namespace ReservasWeb.Controllers
         public ActionResult Details(int id)
         {
             SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
-            SOAPClientes.Cliente usuarioBuscado = proxy.ObtenerCliente(id);
+            SOAPServices.Dominio.Cliente usuarioBuscado = proxy.ObtenerCliente(id);
             Models.Cliente cliente = new Models.Cliente()
             {
                 dnicliente = usuarioBuscado.dnicliente,
@@ -125,7 +125,7 @@ namespace ReservasWeb.Controllers
         public ActionResult Edit(int id)
         {
             SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
-            SOAPClientes.Cliente clienteBuscado = proxy.ObtenerCliente(id);
+            SOAPServices.Dominio.Cliente clienteBuscado = proxy.ObtenerCliente(id);
 
             Models.Cliente cliente = new Models.Cliente()
             {
@@ -161,7 +161,7 @@ namespace ReservasWeb.Controllers
         public ActionResult Delete(int id)
         {
             SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
-            SOAPClientes.Cliente usuarioBuscado = proxy.ObtenerCliente(id);
+            SOAPServices.Dominio.Cliente usuarioBuscado = proxy.ObtenerCliente(id);
 
             Models.Cliente cliente = new Models.Cliente()
             {
