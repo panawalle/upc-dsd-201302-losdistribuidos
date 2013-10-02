@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
-using SOAPService.Dominio;
+using SOAPServices.Dominio;
 
-namespace SOAPService.Persistencia
+namespace SOAPServices.Persistencia
 {
     public class AsesorDAO
     {

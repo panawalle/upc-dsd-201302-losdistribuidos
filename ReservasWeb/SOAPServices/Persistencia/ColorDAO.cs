@@ -5,7 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace SOAPService.Persistencia
+namespace SOAPServices.Persistencia
 {
     public class ColorDAO
     {
