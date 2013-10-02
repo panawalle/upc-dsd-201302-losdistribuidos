@@ -10,7 +10,7 @@
 
     <% using (Html.BeginForm("Index", "Reserva")) %>
     <% { %>
-    <table>
+    <table style="font-family:Verdana; font-size:10px">
         <tr>
             <td>
                 Código:
@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <td>
-                <input type="submit" value="Buscar" />
+                <input type="submit" value="Buscar" style="font-family:Verdana; font-size:10px"/>
             </td>
         </tr>
     </table>

@@ -144,8 +144,9 @@
                                 <b>Hora: </b>
                             </td>
                             <td>
-                                <%: Html.TextBoxFor(model => model.hora) %>
-                                <%: Html.ValidationMessageFor(model => model.hora) %>
+                                <%: Html.DropDownList("ddlHorarios", ViewData["Horarios"] as List<SelectListItem>)%>
+                                <%--<%: Html.TextBoxFor(model => model.hora) %>
+                                <%: Html.ValidationMessageFor(model => model.hora) %>--%>
                             </td>
                         </tr>
                         <tr>
