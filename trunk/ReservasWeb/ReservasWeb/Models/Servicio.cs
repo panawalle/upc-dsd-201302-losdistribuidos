@@ -5,11 +5,12 @@ using System.Web;
 
 namespace MVC.Models
 {
-    public class Modelo
+    public class Servicio
     {
-        public string codigo { get; set; }
+        public string codOper { get; set; }
+        public string codOperSer { get; set; }
         public string descripcion { get; set; }
-        public string estado { get; set; }
-        public Marca marca { get; set; }
+        public double precio { get; set; }
+
     }
 }
