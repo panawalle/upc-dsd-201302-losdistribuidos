@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SOAPService.Dominio;
+using SOAPServices.Dominio;
 
-namespace MVC.Controllers
+namespace ReservasWeb.Controllers
 {
     public class ReservaController : Controller
     {
