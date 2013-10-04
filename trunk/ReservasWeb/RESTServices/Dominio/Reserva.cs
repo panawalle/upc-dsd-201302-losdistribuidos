@@ -27,6 +27,10 @@ namespace RESTServices.Dominio
         public string hora { get; set; }
         [DataMember]
         public List<ReservaDetalle> reservaDetalle { get; set; }
+        [DataMember]
+        public Boolean blnResultado { get; set; }
+        [DataMember]
+        public string strMensaje { get; set; }
 
 
     }
