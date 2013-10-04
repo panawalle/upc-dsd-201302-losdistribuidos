@@ -88,6 +88,8 @@ namespace SOAPServices.Persistencia
 
         public Dominio.Reserva fnGuardarReserva(Dominio.Reserva objReserva)
         {
+            Dominio.Reserva objReservaEncontrada = new Dominio.Reserva();
+
             try
             {
                 SqlConnection objSqlCon = new SqlConnection();
@@ -95,6 +97,8 @@ namespace SOAPServices.Persistencia
                 objSqlCon = objConUtil.fnObtenerConexion();
                 objSqlCon.Open();
                 objSqlTran = objSqlCon.BeginTransaction();
+                int intCodReserva = 0;
+                
 
                 try
                 {
@@ -104,6 +108,7 @@ namespace SOAPServices.Persistencia
                     cmd = new SqlCommand("sp_guardarReservaCab", objSqlCon, objSqlTran);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@codReserva", SqlDbType.Int).Value = 0;
+                    cmd.Parameters["@codReserva"].Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@nroReserva", SqlDbType.VarChar,20).Value = objReserva.nroReserva;
                     cmd.Parameters.Add("@placa", SqlDbType.Char,6).Value = objReserva.placa;
                     cmd.Parameters.Add("@fecha", SqlDbType.DateTime).Value = objReserva.fecha;
@@ -112,6 +117,9 @@ namespace SOAPServices.Persistencia
                     cmd.Parameters.Add("@estado", SqlDbType.Char, 1).Value = "0";
                     cmd.Parameters.Add("@hora", SqlDbType.VarChar, 5).Value = objReserva.hora;
                     cmd.ExecuteNonQuery();
+
+                    intCodReserva = (int)cmd.Parameters["@codReserva"].Value;
+
                     if (objReserva.reservaDetalle != null)
                     {
 
@@ -124,7 +132,7 @@ namespace SOAPServices.Persistencia
                             foreach (Dominio.ReservaDetalle obj in objReserva.reservaDetalle)
                             {
                                 cmd.Parameters.Add("@codDetalle", SqlDbType.Int).Value = 0;
-                                cmd.Parameters.Add("@codReserva", SqlDbType.Int).Value = 1; // POR MIENTRASSSS
+                                cmd.Parameters.Add("@codReserva", SqlDbType.Int).Value = intCodReserva;
                                 cmd.Parameters.Add("@codOper", SqlDbType.Char,2).Value = obj.codOper;
                                 cmd.Parameters.Add("@codOperSer", SqlDbType.Char,5).Value = obj.codOperSer;
                                 cmd.Parameters.Add("@estado", SqlDbType.Char, 1).Value = "0";
@@ -135,6 +143,8 @@ namespace SOAPServices.Persistencia
                     }
                     cmd.Dispose();
                     objSqlTran.Commit();
+                    
+                    objReservaEncontrada = (Dominio.Reserva)fnObtenerReserva(intCodReserva);
                 }
                 catch (Exception)
                 {
@@ -160,8 +170,9 @@ namespace SOAPServices.Persistencia
                 throw;
             }
 
-            return objReserva;
+            return objReservaEncontrada;
         }
+
 
         public List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa)
         {
