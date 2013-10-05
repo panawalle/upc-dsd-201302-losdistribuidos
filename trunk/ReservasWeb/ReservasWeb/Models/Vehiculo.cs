@@ -17,6 +17,9 @@ namespace ReservasWeb.Models
         public string usuario { get; set; }
         public DateTime fecha { get; set; }
         public Cliente cliente { get; set; }
+        public string descColor { get; set; }
+        public string descModelo { get; set; }
+        public string nomCliente { get; set; }
 
     }
 }
