@@ -33,5 +33,11 @@ namespace SOAPServices.Dominio
 
         [DataMember]
         public List<HorarioBody> horarioBody { get; set; }
+        
+        [DataMember]
+        public Boolean blnResultado { get; set; }
+        [DataMember]
+        public string strMensaje { get; set; }
+
     }
 }
