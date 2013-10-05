@@ -21,6 +21,6 @@ namespace RESTServices
 
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "ReservasList/{codReserva},{nroReserva},{placa}", ResponseFormat = WebMessageFormat.Json)]
-        List<Dominio.Reserva> fnListarReserva(string codReserva, string nroReserva, string placa);
+        List<Dominio.Reserva> fnListarReserva(string codReserva="0", string nroReserva="0", string placa="0");
     }
 }

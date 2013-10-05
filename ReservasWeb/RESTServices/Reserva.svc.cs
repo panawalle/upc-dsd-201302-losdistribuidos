@@ -48,7 +48,7 @@ namespace RESTServices
             return objReservaResult;
         }
 
-        public List<Dominio.Reserva> fnListarReserva(string codReserva, string nroReserva, string placa)
+        public List<Dominio.Reserva> fnListarReserva(string codReserva="0", string nroReserva="0", string placa="0")
         {
             List<Dominio.Reserva> objReservaResult = new List<Dominio.Reserva>();
             int intCodReserva = Convert.ToInt32(codReserva);

@@ -49,6 +49,8 @@ namespace RESTServices.Persistencia
                         objReserva.numCodigoAsesor = Convert.ToInt32(dr["numCodigoAsesor"]);
                         objReserva.estado = dr["estado"].ToString();
                         objReserva.hora = dr["hora"].ToString();
+                        objReserva.blnResultado = true;
+                        objReserva.strMensaje = "";
                     }
 
                     if (dtDetalle.Rows.Count > 0)
@@ -148,14 +150,17 @@ namespace RESTServices.Persistencia
 
                     objReservaEncontrada = (Dominio.Reserva)fnObtenerReserva(intCodReserva);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     objSqlTran.Rollback();
                     if (objSqlCon.State == ConnectionState.Open)
                     {
                         objSqlCon.Close();
                     }
-                    throw;
+                    
+
+                    objReservaEncontrada.blnResultado = false;
+                    objReservaEncontrada.strMensaje = e.Message;
                 }
                 finally
                 {
@@ -176,7 +181,7 @@ namespace RESTServices.Persistencia
         }
 
 
-        public List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa)
+        public List<Dominio.Reserva> fnListarReserva(int codReserva=0, string nroReserva = "0", string placa="0")
         {
             SqlConnection objSqlCon = new SqlConnection();
             objSqlCon = objConUtil.fnObtenerConexion();
