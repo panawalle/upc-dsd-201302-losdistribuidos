@@ -4,7 +4,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using System.ServiceModel;
 using System.ServiceModel.Web;
 using RESTServices.Dominio;
 
