@@ -98,7 +98,7 @@ namespace SOAPServices.Persistencia
                 objSqlCon.Open();
                 objSqlTran = objSqlCon.BeginTransaction();
                 int intCodReserva = 0;
-                
+
 
                 try
                 {
@@ -109,8 +109,8 @@ namespace SOAPServices.Persistencia
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@codReserva", SqlDbType.Int).Value = 0;
                     cmd.Parameters["@codReserva"].Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("@nroReserva", SqlDbType.VarChar,20).Value = objReserva.nroReserva;
-                    cmd.Parameters.Add("@placa", SqlDbType.Char,6).Value = objReserva.placa;
+                    cmd.Parameters.Add("@nroReserva", SqlDbType.VarChar, 20).Value = objReserva.nroReserva;
+                    cmd.Parameters.Add("@placa", SqlDbType.Char, 6).Value = objReserva.placa;
                     cmd.Parameters.Add("@fecha", SqlDbType.DateTime).Value = objReserva.fecha;
                     cmd.Parameters.Add("@numExpress", SqlDbType.Int).Value = objReserva.numExpress;
                     cmd.Parameters.Add("@numCodigoAsesor", SqlDbType.Int).Value = objReserva.numCodigoAsesor;
@@ -133,8 +133,8 @@ namespace SOAPServices.Persistencia
                             {
                                 cmd.Parameters.Add("@codDetalle", SqlDbType.Int).Value = 0;
                                 cmd.Parameters.Add("@codReserva", SqlDbType.Int).Value = intCodReserva;
-                                cmd.Parameters.Add("@codOper", SqlDbType.Char,2).Value = obj.codOper;
-                                cmd.Parameters.Add("@codOperSer", SqlDbType.Char,5).Value = obj.codOperSer;
+                                cmd.Parameters.Add("@codOper", SqlDbType.Char, 2).Value = obj.codOper;
+                                cmd.Parameters.Add("@codOperSer", SqlDbType.Char, 5).Value = obj.codOperSer;
                                 cmd.Parameters.Add("@estado", SqlDbType.Char, 1).Value = "0";
                                 cmd.ExecuteNonQuery();
                                 cmd.Parameters.Clear();
@@ -143,17 +143,20 @@ namespace SOAPServices.Persistencia
                     }
                     cmd.Dispose();
                     objSqlTran.Commit();
-                    
+
                     objReservaEncontrada = (Dominio.Reserva)fnObtenerReserva(intCodReserva);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     objSqlTran.Rollback();
                     if (objSqlCon.State == ConnectionState.Open)
                     {
                         objSqlCon.Close();
                     }
-                    throw;
+
+
+                    objReservaEncontrada.blnResultado = false;
+                    objReservaEncontrada.strMensaje = e.Message;
                 }
                 finally
                 {
