@@ -1,10 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<ReservasWeb.Models.Reserva>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <link rel="stylesheet" href="/resources/demos/style.css" />
@@ -12,7 +11,7 @@
 
         $(function () {
             $(function () {
-                $("#fecha1").datepicker({ dateFormat: 'dd/mm/yy',minDate:0 }).val();
+                $("#fecha1").datepicker({ dateFormat: 'dd/mm/yy', minDate: 0 }).val();
             });
             $(function () {
                 $("#fecha2").datepicker({ dateFormat: 'dd/mm/yy', minDate: 0 }).val();
@@ -20,14 +19,13 @@
         });
 
     </script>
-
     <h2>
         Registrar Reserva</h2>
     <% using (Html.BeginForm("consultar", "Reserva")) %>
     <% { %>
-    <fieldset style="font-family:Verdana; font-size:10px">
+    <fieldset style="font-family: Verdana; font-size: 10px">
         <legend>Disponibilidad de Reserva</legend>
-        <table width="100%" style="font-family:Verdana; font-size:10px">
+        <table width="100%" style="font-family: Verdana; font-size: 10px">
             <tr>
                 <td>
                     Fecha:
@@ -37,39 +35,47 @@
                     <%--<input type="text" id="fechaConsulta" />--%>
                 </td>
                 <td>
-                    <input type="submit" value="Buscar" style="font-family:Verdana; font-size:11px" />
+                    <input type="submit" value="Buscar" style="font-family: Verdana; font-size: 11px" />
                 </td>
             </tr>
             <% if (Model.horario != null)
                { %>
-            <tr style ="background-color:#CEE3F6">
-                <td style="width: 10%" align="center"><b>
-                    <%: Model.horario.horario %></b>
+            <tr style="background-color: #CEE3F6">
+                <td style="width: 10%" align="center">
+                    <b>
+                        <%: Model.horario.horario %></b>
                 </td>
-                <td style="width: 15%" align="center"><b>
-                    <%: Model.horario.dia1 %></b>
+                <td style="width: 15%" align="center">
+                    <b>
+                        <%: Model.horario.dia1 %></b>
                 </td>
-                <td style="width: 15%" align="center"><b>
-                    <%: Model.horario.dia2 %></b>
+                <td style="width: 15%" align="center">
+                    <b>
+                        <%: Model.horario.dia2 %></b>
                 </td>
-                <td style="width: 15%" align="center"><b>
-                    <%: Model.horario.dia3 %></b>
+                <td style="width: 15%" align="center">
+                    <b>
+                        <%: Model.horario.dia3 %></b>
                 </td>
-                <td style="width: 15%" align="center"><b>
-                    <%: Model.horario.dia4 %></b>
+                <td style="width: 15%" align="center">
+                    <b>
+                        <%: Model.horario.dia4 %></b>
                 </td>
-                <td style="width: 15%" align="center"><b>
-                    <%: Model.horario.dia5 %></b>
+                <td style="width: 15%" align="center">
+                    <b>
+                        <%: Model.horario.dia5 %></b>
                 </td>
-                <td style="width: 15%" align="center"><b>
-                    <%: Model.horario.dia6 %></b>
+                <td style="width: 15%" align="center">
+                    <b>
+                        <%: Model.horario.dia6 %></b>
                 </td>
             </tr>
             <% foreach (var item2 in Model.horario.horarioBody)
                { %>
             <tr>
-                <td style="width: 10%;background-color:#CEE3F6"><b>
-                    <%: item2.horario %></b>
+                <td style="width: 10%; background-color: #CEE3F6">
+                    <b>
+                        <%: item2.horario %></b>
                 </td>
                 <td style="width: 15%">
                     <%: item2.dia1 %>
@@ -93,7 +99,7 @@
             <% } %>
             <% } %>
             <% else
-               { %>
+                { %>
             <tr>
                 <td colspan="7">
                     <b>Ingrese una fecha para consultar la disponibilidad.</b>
@@ -106,9 +112,9 @@
     <% using (Html.BeginForm())
        {%>
     <%: Html.ValidationSummary(true) %>
-    <fieldset style="font-family:Verdana; font-size:10px">
+    <fieldset style="font-family: Verdana; font-size: 10px">
         <legend>Datos de Reserva</legend>
-        <table width="100%" style="font-family:Verdana; font-size:10px">
+        <table width="100%" style="font-family: Verdana; font-size: 10px">
             <tr>
                 <td width="40%">
                     <table width="100%">
@@ -182,7 +188,7 @@
                                 <%= Html.TextBox("codOperSer")%>
                             </td>
                             <td width="80%">
-                                <input type="submit" value="Agregar Servicio" style="font-family:Verdana; font-size:11px"/>
+                                <input type="submit" value="Agregar Servicio" style="font-family: Verdana; font-size: 11px" />
                             </td>
                         </tr>
                         <tr>
@@ -206,7 +212,7 @@
                                     <% } %>
                                     <% } %>
                                     <% else
-                                       { %>
+                                        { %>
                                     <tr>
                                         <td colspan="3">
                                             <b>Ingrese un código de servicio para consultar.</b>
@@ -222,7 +228,12 @@
             </tr>
             <tr>
                 <td colspan="2" align="left">
-                    <input type="submit" value="Guardar" style="font-family:Verdana; font-size:11px" />
+                    <input type="submit" value="Guardar" style="font-family: Verdana; font-size: 11px" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan ="2" style="font-weight:bold; color:red; font-size:11px" align ="left">
+                    <%: Model.strMensaje %>
                 </td>
             </tr>
         </table>
