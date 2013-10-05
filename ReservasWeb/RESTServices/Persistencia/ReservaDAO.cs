@@ -50,7 +50,6 @@ namespace RESTServices.Persistencia
                         objReserva.estado = dr["estado"].ToString();
                         objReserva.hora = dr["hora"].ToString();
                         objReserva.blnResultado = true;
-                        objReserva.strMensaje = "";
                     }
 
                     if (dtDetalle.Rows.Count > 0)
@@ -70,14 +69,15 @@ namespace RESTServices.Persistencia
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 if (objSqlCon.State == ConnectionState.Open)
                 {
                     objSqlCon.Close();
                 }
-                throw;
+                objReserva.blnResultado = false;
+                objReserva.strMensaje = e.Message;
             }
             finally
             {
@@ -157,7 +157,7 @@ namespace RESTServices.Persistencia
                     {
                         objSqlCon.Close();
                     }
-                    
+
 
                     objReservaEncontrada.blnResultado = false;
                     objReservaEncontrada.strMensaje = e.Message;
@@ -171,17 +171,18 @@ namespace RESTServices.Persistencia
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                objReservaEncontrada.blnResultado = false;
+                objReservaEncontrada.strMensaje = e.Message;
             }
 
             return objReservaEncontrada;
         }
 
 
-        public List<Dominio.Reserva> fnListarReserva(int codReserva=0, string nroReserva = "0", string placa="0")
+        public List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa)
         {
             SqlConnection objSqlCon = new SqlConnection();
             objSqlCon = objConUtil.fnObtenerConexion();
@@ -213,6 +214,7 @@ namespace RESTServices.Persistencia
                     objReserva.numCodigoAsesor = (int)dr["numCodigoAsesor"];
                     objReserva.estado = (string)dr["estado"];
                     objReserva.hora = (string)dr["hora"];
+                    objReserva.blnResultado = true;
 
                     List<Dominio.ReservaDetalle> objListDetalleReserva = new List<Dominio.ReservaDetalle>();
 
