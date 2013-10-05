@@ -129,11 +129,11 @@ namespace ReservasWeb.Controllers
         public ActionResult Create(FormCollection collection)
         {
             string v_placa = (string)collection["placa"];
-            string v_vin = "ABCDEFGHIJ";
-            string v_motor = "YYYYYYYY";
-            string v_anio = "2013";
-            string v_contacto = "karen Swartchz";
-            string v_usuario = "Luis Suarez";
+            string v_vin = (string)collection["vin"];
+            string v_motor = (string)collection["motor"];
+            string v_anio = (string)collection["anio"];
+            string v_contacto = (string)collection["contacto"];
+            string v_usuario = (string)collection["usuario"];
             string v_codColor = "P118";
             string v_codModelo = "SUB125";
             string v_codCliente = "15969";
@@ -240,7 +240,7 @@ namespace ReservasWeb.Controllers
                 Vehiculo model = obtenerVehiculo(placa);
                 model.color = new Color()
                 {
-                    codigo = int.Parse(collection["Color.codigo"]),
+                    codigo = collection["Color.codigo"],
                     descripcion = collection["Color.descripcion"],
                     estado = collection["Color.estado"]
                 };
