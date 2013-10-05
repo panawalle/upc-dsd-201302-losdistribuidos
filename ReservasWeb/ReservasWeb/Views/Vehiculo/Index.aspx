@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Gestionar Vehículos</h2>
+    <h2>Gestionar Vehículos </h2>
 
     <table>
         <tr>
