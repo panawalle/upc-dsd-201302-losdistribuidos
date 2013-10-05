@@ -16,7 +16,7 @@ namespace RESTServices
         Dominio.Reserva fnObtenerReserva(string codReserva);
 
         [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "Reservas", ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "POST", UriTemplate = "Reserva", ResponseFormat = WebMessageFormat.Json)]
         Dominio.Reserva fnGuardarReserva(Dominio.Reserva objReserva);
 
         [OperationContract]
