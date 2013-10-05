@@ -16,21 +16,24 @@ namespace RESTServicesTEST
         [TestMethod]
         public void GuardarReservaTest_Ok()
         {
-            string postdata = "{\"codReserva\":10," +
+            string postdata = "{\"codReserva\":0," +
                 "\"nroReserva\":\"XDFECT09\"," +
                 "\"placa\":\"D3R400\"," +
                 "\"fecha\":\"\\/Date(1379460281000-0500)\\/\"," +
-                "\"numexpress\":\"1\"," +
-                "\"numCodigoAsesor\":\"16\"," +
+                "\"numExpress\":1," +
+                "\"numCodigoAsesor\":16," +
                 "\"estado\":\"0\"," +
                 "\"hora\":\"08:30\"," +
                     "\"reservaDetalle\":" +
-                    "{\"codDetalle\":\"1\"," +
+                    "[{\"codDetalle\":1," +
                     "\"codOper\":\"1X\"," +
                     "\"codOperSer\":\"1103H\"," +
-                    "\"codReserva\":\"10\"," +
+                    "\"codReserva\":10," +
                     "\"estado\":\"0\"" +
-                "}}";
+                "}]}";
+
+            //string postdata = "{\"Categoria\":{\"Categoria\":\"Sugerencia\",\"IdCategoria\":3},\"Celular\":\"12d2d23d\",\"Codigo\":55,\"Descripcion\":\"wedfewdewd\",\"Estado\":\"\",\"Foto\":\"mvcimagen.png\",\"Registro\":\"\\/Date(1379460281000-0500)\\/\",\"Titulo\":\"\"}";
+
             //Prueba de creación de reserva vía HTTP POST
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest
@@ -44,16 +47,38 @@ namespace RESTServicesTEST
             HttpWebResponse res = null;
             try
             {
-
+                int vCodReserva = 7;
                 res = (HttpWebResponse)req.GetResponse();
                 StreamReader reader = new StreamReader(res.GetResponseStream());
                 string unidadJson = reader.ReadToEnd();
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 Reserva reservaCreada = js.Deserialize<Reserva>(unidadJson);
-                Assert.AreEqual("XDFECT09", reservaCreada.nroReserva);
-                Assert.AreEqual(15, reservaCreada.codReserva);
-                Assert.AreEqual(16, reservaCreada.numCodigoAsesor);
-                Assert.AreEqual("0", reservaCreada.estado);
+
+                if (reservaCreada.blnResultado == true)
+                {
+                    Assert.AreEqual("XDFECT09", reservaCreada.nroReserva);
+                    Assert.AreEqual(vCodReserva, reservaCreada.codReserva); // cada vez que se pruebe se debe aumentar uno xq es identity
+                    Assert.AreEqual(16, reservaCreada.numCodigoAsesor);
+                    Assert.AreEqual("0", reservaCreada.estado);
+
+                    List<ReservaDetalle> objReservaDetalle = new List<ReservaDetalle>();
+                    objReservaDetalle = reservaCreada.reservaDetalle;
+
+                    if (objReservaDetalle != null)
+                    {
+                        Assert.AreEqual(1, objReservaDetalle[0].codDetalle);
+                        Assert.AreEqual("1X", objReservaDetalle[0].codOper);
+                        Assert.AreEqual("0", objReservaDetalle[0].estado);
+                        Assert.AreEqual("1103H", objReservaDetalle[0].codOperSer);
+                        Assert.AreEqual(vCodReserva, objReservaDetalle[0].codReserva);
+                    }
+                }
+                else {
+                    // Mostrar Error
+                    Assert.AreEqual("El vehículo no se encuentra registrado en el Sistema.", reservaCreada .strMensaje  );
+                
+                }
+                
 
             }
 
@@ -66,8 +91,8 @@ namespace RESTServicesTEST
                 StreamReader reader2 = new StreamReader(resError.GetResponseStream());
                 string error = reader2.ReadToEnd();
                 JavaScriptSerializer js = new JavaScriptSerializer();
-                //UnidadException exception = js.Deserialize<UnidadException>(error);
-                //Assert.AreEqual("El número de placa ingresado ya fue registrado para otra unidad", exception.Message);
+                Error exception = js.Deserialize<Error>(error);
+                Assert.AreEqual("El vehículo no se encuentra registrado en el Sistema", exception.strMensaje);
             }
 
         }
