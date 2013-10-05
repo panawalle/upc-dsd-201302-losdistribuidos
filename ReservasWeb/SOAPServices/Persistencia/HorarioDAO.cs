@@ -45,6 +45,7 @@ namespace SOAPServices.Persistencia
                         objHorario.dia4 = (string)dr["Dia4"].ToString();
                         objHorario.dia5 = (string)dr["Dia5"].ToString();
                         objHorario.dia6 = (string)dr["Dia6"].ToString();
+                        objHorario.blnResultado = true;
 
                         List<Dominio.HorarioBody> objListHorarioBody = new List<Dominio.HorarioBody>();
                         if (dtHorarioBody.Rows.Count > 0) {
@@ -68,14 +69,15 @@ namespace SOAPServices.Persistencia
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 if (objSqlCon.State == ConnectionState.Open)
                 {
                     objSqlCon.Close();
                 }
-                throw;
+                objHorario.blnResultado = false ;
+                objHorario.strMensaje = e.Message;
             }
             finally
             {
