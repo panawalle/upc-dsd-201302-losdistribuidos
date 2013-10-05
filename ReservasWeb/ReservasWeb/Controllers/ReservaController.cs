@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SOAPServices.Dominio;
+using System.ServiceModel.Web;
+using System.Net;
 
 namespace ReservasWeb.Controllers
 {
@@ -118,10 +120,10 @@ namespace ReservasWeb.Controllers
                     codigo = "0";
                 }
                 if (nroreserva == null) {
-                    nroreserva = "";
+                    nroreserva = "0";
                 }
                 if (placa == null) {
-                    placa = "";
+                    placa = "0";
                 }
 
                 Session["reservas"] = ListarReservas(Convert.ToInt32(codigo),nroreserva, placa);
@@ -206,6 +208,8 @@ namespace ReservasWeb.Controllers
         {
             try
             {
+                Reserva objReservaResult = new Reserva();
+
                 SOAPReservas.ReservaClient proxyReserva = new SOAPReservas.ReservaClient();
 
                 Reserva objReserva = new Reserva();
@@ -239,10 +243,22 @@ namespace ReservasWeb.Controllers
                 //ReservaDetalle objReservaDetalle = new ReservaDetalle();
 
 
-                proxyReserva.fnGuardarReserva(objReserva);
-                
+               objReservaResult = proxyReserva.fnGuardarReserva(objReserva);
 
-                return RedirectToAction("Index");
+               if (objReservaResult.blnResultado == true)
+               {
+                   return RedirectToAction("Index");
+               }
+               else {
+                   throw new WebFaultException<Error>(
+                   new Error()
+                   {
+                        MesError   = objReservaResult .strMensaje
+                   },
+                       HttpStatusCode.BadRequest);
+
+               }
+                
             }
             catch (Exception e)
             {
@@ -338,8 +354,12 @@ namespace ReservasWeb.Controllers
         }
 
         public ActionResult agregarServicio(string codOperSer) {
+            
+
             try
             {
+               
+
                 if (codOperSer != null && codOperSer != "")
                 {
 
