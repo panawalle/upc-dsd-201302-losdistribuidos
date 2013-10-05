@@ -47,6 +47,8 @@ namespace SOAPServices.Persistencia
                         objReserva.numCodigoAsesor = Convert.ToInt32(dr["numCodigoAsesor"]);
                         objReserva.estado = dr["estado"].ToString();
                         objReserva.hora = dr["hora"].ToString();
+                        objReserva.blnResultado = true;
+                        objReserva.strMensaje = "La operación se registró exitosamente";
                     }
 
                     if (dtDetalle.Rows.Count > 0)
@@ -66,14 +68,15 @@ namespace SOAPServices.Persistencia
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 if (objSqlCon.State == ConnectionState.Open)
                 {
                     objSqlCon.Close();
                 }
-                throw;
+                objReserva.blnResultado = false;
+                objReserva.strMensaje = e.Message;
             }
             finally
             {
@@ -167,10 +170,11 @@ namespace SOAPServices.Persistencia
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                objReservaEncontrada.blnResultado = false;
+                objReservaEncontrada.strMensaje = e.Message;
             }
 
             return objReservaEncontrada;
@@ -209,6 +213,7 @@ namespace SOAPServices.Persistencia
                     objReserva.numCodigoAsesor = (int)dr["numCodigoAsesor"];
                     objReserva.estado = (string)dr["estado"];
                     objReserva.hora = (string)dr["hora"];
+                    objReserva.blnResultado = true;
 
                     List<Dominio.ReservaDetalle> objListDetalleReserva = new List<Dominio.ReservaDetalle>();
 
