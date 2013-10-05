@@ -180,6 +180,7 @@ namespace ReservasWeb.Controllers
                 else
                 {
                     //Pintar el horario de la fecha seleccionada
+                    model.strMensaje = "";
                     Session["reserva"] = model;
                     
                 }
@@ -206,6 +207,7 @@ namespace ReservasWeb.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            Models.Reserva reservaSesion = (Models.Reserva)Session["reserva"];
             try
             {
                 Reserva objReservaResult = new Reserva();
@@ -222,10 +224,6 @@ namespace ReservasWeb.Controllers
                 objReserva.numCodigoAsesor = Convert.ToInt32(collection["asesor.codigo"]);
                 objReserva.hora = (string)collection["ddlHorarios"];
                 
-
-                Models.Reserva reservaSesion = (Models.Reserva)Session["reserva"];
-
-
                 List<ReservaDetalle> objListReservaDetalle = new List<ReservaDetalle>();
                 if (reservaSesion.reservaDetalle != null) {
                     foreach (Models.ReservaDetalle obj in reservaSesion.reservaDetalle)
@@ -244,6 +242,8 @@ namespace ReservasWeb.Controllers
 
 
                objReservaResult = proxyReserva.fnGuardarReserva(objReserva);
+               reservaSesion.blnResultado = objReservaResult.blnResultado;
+               reservaSesion.strMensaje = objReservaResult.strMensaje;
 
                if (objReservaResult.blnResultado == true)
                {
@@ -260,14 +260,13 @@ namespace ReservasWeb.Controllers
                }
                 
             }
-            catch (Exception e)
+            catch (Exception )
             {
-                if (e.Message == "Bad Request")
-                    ModelState.AddModelError(String.Empty, "Error: El campo DNI es obligatorio.");
-
-                if (e.Message == "Not Acceptable")
-                    ModelState.AddModelError(String.Empty, "Error: Ya existe un cliente con el mismo código");
-                return View();
+                //ModelState.AddModelError(String.Empty, errorMessage:e.Message );
+                reservaSesion = consultarHorario(DateTime.Now.Date);
+                FillDropDownList();
+                return View(reservaSesion);
+                //return RedirectToAction("Create");
             }
         }
 
@@ -278,7 +277,7 @@ namespace ReservasWeb.Controllers
             Horario objHorario = new Horario();
             objHorario = proxyHorario.fnObtenerHorario(fecha);
 
-            Models.Reserva model = new Models.Reserva();
+            Models.Reserva model = (Models.Reserva)Session["reserva"];
 
 
             Models.Horario modelHorario = new Models.Horario();
@@ -289,6 +288,8 @@ namespace ReservasWeb.Controllers
             modelHorario.dia4 = objHorario.dia4;
             modelHorario.dia5 = objHorario.dia5;
             modelHorario.dia6 = objHorario.dia6;
+            modelHorario.blnResultado = objHorario.blnResultado;
+            modelHorario.strMensaje = objHorario.strMensaje;
 
             List<Models.HorarioBody> objListHorarioBody = new List<Models.HorarioBody>();
             //HorarioBody
@@ -309,8 +310,15 @@ namespace ReservasWeb.Controllers
             }
             modelHorario.horarioBody = objListHorarioBody;
 
+            if (model == null)
+            {
+                model = new Models.Reserva();
+                model.blnResultado = modelHorario.blnResultado;
+                model.strMensaje = modelHorario.strMensaje;
+            }
+            
             model.horario = modelHorario;
-
+            
             return model;
 
         }
