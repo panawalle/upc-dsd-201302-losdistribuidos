@@ -7,6 +7,7 @@ using System.Text;
 using RESTServices.Dominio;
 using RESTServices.Persistencia;
 using System.ServiceModel.Web;
+using System.Net;
 
 namespace RESTServices
 {
@@ -39,6 +40,18 @@ namespace RESTServices
             try
             {
                 objReservaResult = objReservaDAO.fnGuardarReserva(objReserva);
+
+                //if (objReservaResult.blnResultado == false)
+               
+                //{
+                //    throw new WebFaultException<Error>(
+                //    new Error()
+                //    {
+                //        strMensaje  = objReservaResult.strMensaje
+                //    },
+                //        HttpStatusCode.BadRequest);
+
+                //}
 
             }
             catch (Exception)
