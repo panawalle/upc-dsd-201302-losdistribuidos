@@ -23,7 +23,7 @@ namespace RESTServices
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "VehiculosModificar", ResponseFormat = WebMessageFormat.Json)]
-        Vehiculo ModificarAlumno(Vehiculo alumnoAModificar);
+        Vehiculo ModificarVehiculo(Vehiculo vehiculoAModificar);
 
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "VehiculosListar", ResponseFormat = WebMessageFormat.Json)]

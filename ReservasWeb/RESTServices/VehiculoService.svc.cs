@@ -6,6 +6,8 @@ using System.ServiceModel;
 using System.Text;
 using RESTServices.Dominio;
 using RESTServices.Persistencia;
+using System.ServiceModel.Web;
+using System.Net;
 
 namespace RESTServices
 {
@@ -20,12 +22,33 @@ namespace RESTServices
 
         public Vehiculo CrearVehiculo(Vehiculo vehiculoACrear)
         {
-            return dao.Crear(vehiculoACrear);
+            Vehiculo beanVehiculo = null;
+            beanVehiculo = dao.Obtener(vehiculoACrear.placa);
+
+            if (beanVehiculo != null){
+                throw new WebFaultException<ExcepcionError>(new ExcepcionError() { msjValidacion = "El Vehiculo con la placa " + beanVehiculo.placa + " ya existe." }, HttpStatusCode.InternalServerError);
+            }else{
+                beanVehiculo = new Vehiculo();
+                beanVehiculo = dao.Crear(vehiculoACrear);
+            }
+            return beanVehiculo;
         }
 
-        public Vehiculo ModificarAlumno(Vehiculo alumnoAModificar)
+        public Vehiculo ModificarVehiculo(Vehiculo vehiculoAModificar)
         {
-            return dao.Modificar(alumnoAModificar);
+            Vehiculo beanVehiculo = null;
+            beanVehiculo = dao.Obtener(vehiculoAModificar.placa);
+
+            if (beanVehiculo == null)
+            {
+                throw new WebFaultException<ExcepcionError>(new ExcepcionError() { msjValidacion = "El Vehiculo con la placa " + vehiculoAModificar.placa + " no existe." }, HttpStatusCode.InternalServerError);
+            }
+            else
+            {
+                beanVehiculo = new Vehiculo();
+                beanVehiculo = dao.Modificar(vehiculoAModificar);
+            }
+            return beanVehiculo;
         }
 
         public Vehiculo EliminarAlumno(Vehiculo alumnoAEliminar)
