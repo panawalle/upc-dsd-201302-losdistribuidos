@@ -6,6 +6,7 @@ using System.Net;
 using System.IO;
 using System.Web.Script.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.ServiceModel;
 
 namespace TestProject
 {
@@ -21,12 +22,11 @@ namespace TestProject
         [TestMethod]
         public void CRUDTest_VehiculoObtener()
         {
-            string v_placa = "C5Y425"; // PONER UNA PLACA EXISTENTE
+            string v_placa = "C5Y425"; // PONER UNA PLACA EXISTENTE 
             HttpWebRequest req = (HttpWebRequest)WebRequest
             .Create("http://localhost:60712/VehiculoService.svc/VehiculosObtener/" + v_placa);
             req.Method = "GET";
             HttpWebResponse res = (HttpWebResponse)req.GetResponse();
-            //-------
             StreamReader reader = new StreamReader(res.GetResponseStream());
             string vehiculoJson = reader.ReadToEnd();
             JavaScriptSerializer js = new JavaScriptSerializer();
@@ -41,7 +41,7 @@ namespace TestProject
         [TestMethod]
         public void CRUDTest_VehiculoRegistrar()
         {
-            string v_placa = "AOM913";
+            string v_placa = "CGC861";
             string v_vin = "ABCDEFGHIJ";
             string v_motor = "YYYYYYYY";
             string v_anio = "2013";
@@ -68,16 +68,24 @@ namespace TestProject
                 string vehiculoJson = reader.ReadToEnd();
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 Vehiculo vehiculo = js.Deserialize<Vehiculo>(vehiculoJson);
-                Assert.AreEqual("AOM913", vehiculo.placa);
-                //Assert.AreEqual(v_vin, vehiculoCreado.vin);
-                Console.WriteLine("Placa: " + v_placa);
-            }catch(WebException e) {
+                Assert.AreEqual(v_placa, vehiculo.placa);
+                //Assert.AreEqual(v_vin, vehiculo.vin);
+                Console.WriteLine("Placa: " + vehiculo.placa);
+                Console.WriteLine("Vin: " + vehiculo.vin);
+                Console.WriteLine("Motor: " + vehiculo.motor);
+            }
+            catch (WebException e)
+            {
+            
                 HttpWebResponse resError = (HttpWebResponse)e.Response;
                 StreamReader reader2 = new StreamReader(resError.GetResponseStream());
                 string error = reader2.ReadToEnd();
                 JavaScriptSerializer js = new JavaScriptSerializer();
-                string errorMessage = js.Deserialize<string>(error);
-                Assert.AreEqual("Vehiculo Errado", errorMessage);
+                //string errorMessage = js.Deserialize<string>(error);
+                //Assert.AreEqual("Vehiculo Errado", errorMessage);
+                ExcepcionError BeanError = js.Deserialize<ExcepcionError>(error);
+                Console.WriteLine("Mensaje de Error: " + BeanError.msjValidacion);
+                //-------
             }
         }
 
@@ -85,9 +93,9 @@ namespace TestProject
         [TestMethod]
         public void CRUDTest_VehiculoModificar()
         {
-            string v_placa = "AOM913";
-            string v_vin = "XYZ1234545";
-            string v_motor = "ZGTERE34";
+            string v_placa = "CGC861";
+            string v_vin = "XYZ12345";
+            string v_motor = "ZGTER12345";
             string v_anio = "2013";
             string v_contacto = "Ana Vertiz";
             string v_usuario = "Roberto Gomez";
@@ -111,6 +119,8 @@ namespace TestProject
                 Assert.AreEqual(v_placa, vehiculo.placa);
                 //Assert.AreEqual(v_vin, vehiculoCreado.vin);
                 Console.WriteLine("Placa: " + v_placa);
+                Console.WriteLine("Vin: " + vehiculo.vin);
+                Console.WriteLine("Motor: " + vehiculo.motor);
             }
             catch (WebException e)
             {
@@ -118,8 +128,10 @@ namespace TestProject
                 StreamReader reader2 = new StreamReader(resError.GetResponseStream());
                 string error = reader2.ReadToEnd();
                 JavaScriptSerializer js = new JavaScriptSerializer();
-                string errorMessage = js.Deserialize<string>(error);
-                Assert.AreEqual("Vehiculo Errado", errorMessage);
+                //string errorMessage = js.Deserialize<string>(error);
+                //Assert.AreEqual("Vehiculo Errado", errorMessage);
+                ExcepcionError BeanError = js.Deserialize<ExcepcionError>(error);
+                Console.WriteLine("Mensaje de Error: " + BeanError.msjValidacion);
             }
         }
 
@@ -145,5 +157,11 @@ namespace TestProject
             }
             Console.WriteLine("---- Fin del Listado ---");
         }
+
+        public class ExcepcionError
+        {
+            public string msjValidacion { get; set; }
+        }
+
     }
 }
