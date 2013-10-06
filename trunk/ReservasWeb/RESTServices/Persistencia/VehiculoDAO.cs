@@ -12,7 +12,7 @@ namespace RESTServices.Persistencia
        
         public Vehiculo Obtener(string placa)
         {
-            Vehiculo vehiculoEncontrado = new Vehiculo();
+            Vehiculo vehiculoEncontrado = null;
             string sql = "SELECT V.PLACA AS PLACA, V.VIN AS VIN, V.MOTOR AS MOTOR, V.ANIO AS ANIO, V.CODCOLOR AS CODCOLOR,";
             sql += " V.CODMODELO AS CODMODELO, V.CONTACTO AS CONTACTO, V.USUARIO AS USUARIO, ";
             sql += " CL.NOMBRE AS NOMCLI, MO.DESCRIPCION DESCMODELO, CO.DESCRIPCION DESCCOLOR ";
