@@ -17,10 +17,10 @@ namespace SOAPServices.Dominio
         public string vin { get; set; }
 
         [DataMember]
-        public string codcolor { get; set; }
+        public string codColor { get; set; }
 
         [DataMember]
-        public string codmodelo { get; set; }
+        public string codModelo { get; set; }
 
         [DataMember]
         public string anio { get; set; }
@@ -39,6 +39,11 @@ namespace SOAPServices.Dominio
 
         [DataMember]
         public int codCliente { get; set; }
+
+        [DataMember]
+        public Boolean blnResultado { get; set; }
+        [DataMember]
+        public string strMensaje { get; set; }
 
     }
 }

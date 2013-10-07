@@ -18,6 +18,15 @@ namespace SOAPServices
 
             objVehiculo = objVehiculoBLL.fnObtenerVehiculo(placa);
 
+            if (objVehiculo.blnResultado == false)
+            {
+                throw new FaultException<Dominio.Error>(new Dominio.Error
+                {
+                    MesError = objVehiculo.strMensaje
+                }, new FaultReason(objVehiculo.strMensaje));
+
+            } 
+
             return objVehiculo;
         }
     }

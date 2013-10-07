@@ -18,6 +18,15 @@ namespace SOAPServices
 
             objServicio  = objServicioBLL.fnObtenerServicio(codOper, codOperSer );
 
+            if (objServicio.blnResultado == false)
+            {
+                throw new FaultException<Dominio.Error>(new Dominio.Error
+                {
+                    MesError = objServicio.strMensaje
+                }, new FaultReason(objServicio.strMensaje));
+
+            } 
+
             return objServicio;
 
         }

@@ -20,7 +20,8 @@ namespace SOAPServices.Persistencia
             objSqlCon = objConUtil.fnObtenerConexion();
             objSqlCon.Open();
             Dominio.Asesor objAsesor = new Dominio.Asesor();
-
+            objAsesor.blnResultado = false;
+            objAsesor.strMensaje = "";
             try
             {
                 DataSet ds = new DataSet();
@@ -39,18 +40,20 @@ namespace SOAPServices.Persistencia
                     {
                         objAsesor.numCodigoAsesor = Convert.ToInt32(dr["numCodigoAsesor"]);
                         objAsesor.nombre = dr["nombre"].ToString();
+                        objAsesor.blnResultado = true;
                     }
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 if (objSqlCon.State == ConnectionState.Open)
                 {
                     objSqlCon.Close();
                 }
-                throw;
+                objAsesor.blnResultado = false;
+                objAsesor.strMensaje = e.Message;
             }
             finally
             {

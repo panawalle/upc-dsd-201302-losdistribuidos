@@ -19,6 +19,8 @@ namespace SOAPServices.Persistencia
             objSqlCon = objConUtil.fnObtenerConexion();
             objSqlCon.Open();
             Dominio.Servicio objServicio = new Dominio.Servicio();
+            objServicio.blnResultado = false;
+            objServicio.strMensaje = "";
 
             try
             {
@@ -41,18 +43,20 @@ namespace SOAPServices.Persistencia
                         objServicio.codOperSer = (string)(dr["codOperSer"]);
                         objServicio.descripcion = (string)dr["descripcion"].ToString();
                         objServicio.precio = (Convert.ToDouble(dr["precio"].ToString()));
+                        objServicio.blnResultado = true;
                     }
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 if (objSqlCon.State == ConnectionState.Open)
                 {
                     objSqlCon.Close();
                 }
-                throw;
+                objServicio.blnResultado = false;
+                objServicio.strMensaje = e.Message;
             }
             finally
             {

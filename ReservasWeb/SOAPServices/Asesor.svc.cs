@@ -18,6 +18,15 @@ namespace SOAPServices
 
             objAsesor = objAsesorBLL.fnObtenerAsesor(numCodigoAsesor);
 
+            if (objAsesor.blnResultado == false)
+            {
+                throw new FaultException<Dominio.Error>(new Dominio.Error
+                {
+                    MesError = objAsesor.strMensaje
+                }, new FaultReason(objAsesor.strMensaje));
+
+            } 
+
             return objAsesor;
         }
     }

@@ -18,7 +18,8 @@ namespace SOAPServices.Persistencia
             objSqlCon = objConUtil.fnObtenerConexion();
             objSqlCon.Open();
             Dominio.Vehiculo objVehiculo = new Dominio.Vehiculo();
-
+            objVehiculo.blnResultado = false;
+            objVehiculo.strMensaje = "";
             try
             {
                 DataSet ds = new DataSet();
@@ -37,26 +38,28 @@ namespace SOAPServices.Persistencia
                     {
                         objVehiculo.placa = (string)(dr["placa"]);
                         objVehiculo.vin = (string)dr["vin"];
-                        objVehiculo .codcolor = (string)dr["codColor"];
-                        objVehiculo.codmodelo = (string)dr["codModelo"];
+                        objVehiculo.codColor = (string)dr["codColor"];
+                        objVehiculo.codModelo = (string)dr["codModelo"];
                         objVehiculo.anio = (string)dr["anio"];
                         objVehiculo.motor = (string)dr["motor"];
                         objVehiculo.contacto = (string)dr["contacto"];
                         objVehiculo.usuario = (string)dr["usuario"];
                         objVehiculo.fecha = (DateTime)dr["fecha"];
                         objVehiculo.codCliente = (int)dr["codcliente"];
+                        objVehiculo.blnResultado = true;
                     }
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 if (objSqlCon.State == ConnectionState.Open)
                 {
                     objSqlCon.Close();
                 }
-                throw;
+                objVehiculo.blnResultado = false;
+                objVehiculo.strMensaje = e.Message;
             }
             finally
             {
