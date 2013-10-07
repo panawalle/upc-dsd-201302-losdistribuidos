@@ -7,3 +7,12 @@ D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasW
 D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasWeb\ReservasWeb\bin\SOAPServices.pdb
 D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
 D:\EPE UPC\CICLO 6\SISTEMAS DISTRIBUIDOS\PROYECTODSD_01012013\Project1\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\Iesi.Collections.dll
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\NHibernate.dll
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\SOAPServices.dll
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\bin\SOAPServices.pdb
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.csprojResolveAssemblyReference.cache
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
+C:\Users\lormeno\Documents\Lesly\LDSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb

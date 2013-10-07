@@ -11,7 +11,7 @@ namespace SOAPServices.Persistencia
     {
         public static string ObtenerCadena()
         {
-            return "Data Source=localhost;Initial Catalog=AUTODROMO;Integrated Security= True;";
+            return "Data Source=(local);Initial Catalog=AUTODROMO;Integrated Security= True;";
         }
 
         private SqlConnection cnx;

@@ -13,6 +13,7 @@
     <RootNamespace>RESTServices</RootNamespace>
     <AssemblyName>RESTServices</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dominio\Error.cs" />
+    <Compile Include="Dominio\ExcepcionError.cs" />
     <Compile Include="Dominio\Reserva.cs" />
     <Compile Include="Dominio\ReservaCita.cs" />
     <Compile Include="Dominio\ReservaDetalle.cs" />

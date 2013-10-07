@@ -11,7 +11,7 @@ namespace RESTServices.Persistencia
     {
         public static string Cadena()
         {
-            return "Data Source=(local);Initial Catalog=AUTOMOTRIZ;Integrated Security=SSPI;";
+            return "Data Source=(local);Initial Catalog=AUTODROMO;Integrated Security=SSPI;";
         }
 
         private SqlConnection cnx;
