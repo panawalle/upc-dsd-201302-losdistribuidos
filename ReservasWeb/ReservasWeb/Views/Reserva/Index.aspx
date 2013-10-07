@@ -67,9 +67,9 @@
             <th style="width: 5%">
                 Estado
             </th>
-            <th style="width: 29%">
+            <%--<th style="width: 29%">
                 Opciones
-            </th>
+            </th>--%>
         </tr>
         <% if (Model != null )
            { %>
@@ -109,14 +109,14 @@
                 <td style="width: 5%">
                     <%: item.estado %>
                 </td>
-                <td style="width: 29%">
+<%--                <td style="width: 29%">
                     <%: Html.ActionLink("Ver Detalle", "Details", new { codigo=item.codigo }) %>
                     |
                     <%: Html.ActionLink("Orden de Servicio", "OrdenServicio", new { codigo=item.codigo }) %>
                     |
                     <%: Html.ActionLink("Cancelar", "Cancelar", new { codigo = item.codigo })%>
                 </td>
-            </tr>
+--%>            </tr>
             <% } %>
         <% } %>
         <% else { %>

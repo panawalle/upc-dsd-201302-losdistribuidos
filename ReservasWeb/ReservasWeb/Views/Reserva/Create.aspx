@@ -8,13 +8,50 @@
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <link rel="stylesheet" href="/resources/demos/style.css" />
     <script>
-
+        
         $(function () {
             $(function () {
-                $("#fecha1").datepicker({ dateFormat: 'dd/mm/yy', minDate: 0 }).val();
+                $("#fecha1").datepicker({
+                    dateFormat: 'dd/mm/yy', minDate: 0,
+                    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo',
+                    'Junio', 'Julio', 'Agosto', 'Septiembre',
+                    'Octubre', 'Noviembre', 'Diciembre'],
+                    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr',
+                    'May', 'Jun', 'Jul', 'Ago',
+                    'Sep', 'Oct', 'Nov', 'Dic'],
+                    firstDay: 1,  
+                    beforeShowDay: function (day) {
+                        var day = day.getDay();
+                        if (day == 0) {
+                            return [false, "somecssclass"]
+                        } else {
+                            return [true, "someothercssclass"]
+                        }
+                    }
+                }).val();
             });
+
             $(function () {
-                $("#fecha2").datepicker({ dateFormat: 'dd/mm/yy', minDate: 0 }).val();
+                $("#fecha2").datepicker({
+                    dateFormat: 'dd/mm/yy', minDate: 0,
+                    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo',
+                    'Junio', 'Julio', 'Agosto', 'Septiembre',
+                    'Octubre', 'Noviembre', 'Diciembre'],
+                    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr',
+                    'May', 'Jun', 'Jul', 'Ago',
+                    'Sep', 'Oct', 'Nov', 'Dic'],
+                    firstDay: 1,
+                    beforeShowDay: function (day) {
+                        var day = day.getDay();
+                        if (day == 0) {
+                            return [false, "somecssclass"]
+                        } else {
+                            return [true, "someothercssclass"]
+                        }
+                    }
+                }).val();
             });
         });
 
@@ -196,16 +233,27 @@
                                 <table width="100%">
                                     <% if (Model.reservaDetalle != null)
                                        { %>
+                                    <tr style="background-color: #CEE3F6; font-weight: bold">
+                                        <td width="20%" align="center">
+                                            Código
+                                        </td>
+                                        <td width="60%" align="center">
+                                            Servicio
+                                        </td>
+                                        <td width="20%" align="center">
+                                            Precio
+                                        </td>
+                                    </tr>
                                     <% foreach (var item4 in Model.reservaDetalle)
                                        { %>
                                     <tr>
-                                        <td style="width: 3%">
+                                        <td style="width: 20%">
                                             <%: item4.servicio.codOperSer %>
                                         </td>
-                                        <td style="width: 3%">
+                                        <td style="width: 60%">
                                             <%: item4.servicio.descripcion %>
                                         </td>
-                                        <td style="width: 3%">
+                                        <td style="width: 20%" align="right">
                                             <%: item4.servicio.precio %>
                                         </td>
                                     </tr>
@@ -232,7 +280,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan ="2" style="font-weight:bold; color:red; font-size:11px" align ="left">
+                <td colspan="2" style="font-weight: bold; color: red; font-size: 11px" align="left">
                     <%: Model.strMensaje %>
                 </td>
             </tr>

@@ -24,6 +24,7 @@ namespace ReservasWeb.Models
         public string hora { get; set; }
         public Horario horario { get; set; }
         public List<ReservaDetalle> reservaDetalle { get; set; }
-
+        public Boolean blnResultado { get; set; }        
+        public string strMensaje { get; set; }
     }
 }
