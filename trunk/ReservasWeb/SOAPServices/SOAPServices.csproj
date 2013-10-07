@@ -70,16 +70,113 @@
     <Content Include="Marca.svc" />
     <Content Include="Modelo.svc" />
     <Content Include="Reserva.svc" />
+    <None Include="Service References\SOAPAsesor\Asesor.wsdl" />
+    <None Include="Service References\SOAPAsesor\Asesor.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPAsesor\Asesor1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPAsesor\Asesor2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPAsesor\SOAPServices.SOAPAsesor.Asesor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SOAPColor\Color.wsdl" />
+    <None Include="Service References\SOAPColor\Color.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPColor\Color1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPColor\Color2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPColor\SOAPServices.SOAPColor.Color.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SOAPMarca\Marca.wsdl" />
+    <None Include="Service References\SOAPMarca\Marca.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPMarca\Marca1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPMarca\Marca2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPMarca\SOAPServices.SOAPMarca.Marca.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SOAPModelo\Modelo.wsdl" />
+    <None Include="Service References\SOAPModelo\Modelo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPModelo\Modelo1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPModelo\Modelo2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPModelo\SOAPServices.SOAPModelo.Modelo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SOAPColor\configuration91.svcinfo" />
+    <None Include="Service References\SOAPColor\configuration.svcinfo" />
+    <None Include="Service References\SOAPColor\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SOAPModelo\configuration91.svcinfo" />
+    <None Include="Service References\SOAPModelo\configuration.svcinfo" />
+    <None Include="Service References\SOAPModelo\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SOAPMarca\configuration91.svcinfo" />
+    <None Include="Service References\SOAPMarca\configuration.svcinfo" />
+    <None Include="Service References\SOAPMarca\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SOAPVehiculo\configuration91.svcinfo" />
+    <None Include="Service References\SOAPVehiculo\configuration.svcinfo" />
+    <None Include="Service References\SOAPVehiculo\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SOAPAsesor\configuration91.svcinfo" />
+    <None Include="Service References\SOAPAsesor\configuration.svcinfo" />
+    <None Include="Service References\SOAPAsesor\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service1.svc" />
     <Content Include="Servicio.svc" />
     <Content Include="Vehiculo.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <None Include="Service References\SOAPVehiculo\SOAPServices.SOAPVehiculo.Vehiculo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SOAPVehiculo\Vehiculo.wsdl" />
+    <None Include="Service References\SOAPVehiculo\Vehiculo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPVehiculo\Vehiculo1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPVehiculo\Vehiculo2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asesor.svc.cs">
@@ -145,6 +242,31 @@
     <Compile Include="Reserva.svc.cs">
       <DependentUpon>Reserva.svc</DependentUpon>
     </Compile>
+    <Compile Include="Service References\SOAPAsesor\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SOAPColor\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SOAPMarca\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SOAPModelo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SOAPVehiculo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
@@ -159,6 +281,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SOAPAsesor\" />
+    <WCFMetadataStorage Include="Service References\SOAPColor\" />
+    <WCFMetadataStorage Include="Service References\SOAPMarca\" />
+    <WCFMetadataStorage Include="Service References\SOAPModelo\" />
+    <WCFMetadataStorage Include="Service References\SOAPVehiculo\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

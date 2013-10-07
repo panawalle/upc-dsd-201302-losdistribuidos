@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="62748818-c8b3-4deb-9a21-5b86df70e8d3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1636/Color.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Color.wsdl" MetadataType="Wsdl" ID="0a124286-256c-4e6a-aafd-ed51aedde742" SourceId="1" SourceUrl="http://localhost:1636/Color.svc?wsdl" />
+    <MetadataFile FileName="Color.xsd" MetadataType="Schema" ID="9ec24d74-ebab-437e-b78e-3605e0eb44cd" SourceId="1" SourceUrl="http://localhost:1636/Color.svc?xsd=xsd2" />
+    <MetadataFile FileName="Color1.xsd" MetadataType="Schema" ID="950d5a21-7bab-45d3-95b4-36f03cdd3482" SourceId="1" SourceUrl="http://localhost:1636/Color.svc?xsd=xsd0" />
+    <MetadataFile FileName="Color2.xsd" MetadataType="Schema" ID="c8e0cdd6-4bfa-4669-a934-675b7fbb6b02" SourceId="1" SourceUrl="http://localhost:1636/Color.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

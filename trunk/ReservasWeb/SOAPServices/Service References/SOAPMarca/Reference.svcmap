@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="17e3c9dd-ae1b-4e5d-b3ee-35a41db90e3b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1636/Marca.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Marca.wsdl" MetadataType="Wsdl" ID="f99c78a4-126a-4e42-8cef-a573b3c9139f" SourceId="1" SourceUrl="http://localhost:1636/Marca.svc?wsdl" />
+    <MetadataFile FileName="Marca.xsd" MetadataType="Schema" ID="c8591c9c-0ecf-466f-b4b5-bff84bc7fa69" SourceId="1" SourceUrl="http://localhost:1636/Marca.svc?xsd=xsd1" />
+    <MetadataFile FileName="Marca1.xsd" MetadataType="Schema" ID="4cd2d9cd-004a-4159-9cf6-b7ad7f6b6e3e" SourceId="1" SourceUrl="http://localhost:1636/Marca.svc?xsd=xsd2" />
+    <MetadataFile FileName="Marca2.xsd" MetadataType="Schema" ID="62e5c47c-0cf2-41dd-a6e9-789dd687dafe" SourceId="1" SourceUrl="http://localhost:1636/Marca.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

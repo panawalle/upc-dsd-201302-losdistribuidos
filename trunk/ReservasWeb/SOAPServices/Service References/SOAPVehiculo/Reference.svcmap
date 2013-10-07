@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3ba8a85b-85fe-47a6-9ad9-24c7ffa676fe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1636/Vehiculo.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Vehiculo.xsd" MetadataType="Schema" ID="c18bfae0-c8dc-47b1-bcd7-bf2d1e219f5f" SourceId="1" SourceUrl="http://localhost:1636/Vehiculo.svc?xsd=xsd1" />
+    <MetadataFile FileName="Vehiculo1.xsd" MetadataType="Schema" ID="b635171f-9426-4d09-9559-372bb4260d55" SourceId="1" SourceUrl="http://localhost:1636/Vehiculo.svc?xsd=xsd2" />
+    <MetadataFile FileName="Vehiculo2.xsd" MetadataType="Schema" ID="b4028b0e-47ff-4540-98a6-2dc56feb9ee6" SourceId="1" SourceUrl="http://localhost:1636/Vehiculo.svc?xsd=xsd0" />
+    <MetadataFile FileName="Vehiculo.wsdl" MetadataType="Wsdl" ID="3e2c3c98-ef04-4234-b42b-60af6a81ad54" SourceId="1" SourceUrl="http://localhost:1636/Vehiculo.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
