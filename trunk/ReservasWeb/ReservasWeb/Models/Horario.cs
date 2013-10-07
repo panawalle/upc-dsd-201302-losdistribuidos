@@ -15,5 +15,8 @@ namespace ReservasWeb.Models
         public string dia5 { get; set; }
         public string dia6 { get; set; }
         public List<HorarioBody> horarioBody { get; set; }
+        public Boolean blnResultado { get; set; }
+
+        public string strMensaje { get; set; }
     }
 }

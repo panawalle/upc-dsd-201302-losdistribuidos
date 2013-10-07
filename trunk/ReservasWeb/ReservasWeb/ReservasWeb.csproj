@@ -119,6 +119,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\SOAPMarca\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\SOAPModelo\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -150,6 +155,7 @@
     <None Include="Properties\DataSources\SOAPServices.Dominio.Cliente.datasource" />
     <None Include="Properties\DataSources\SOAPServices.Dominio.Color.datasource" />
     <None Include="Properties\DataSources\SOAPServices.Dominio.Horario.datasource" />
+    <None Include="Properties\DataSources\SOAPServices.Dominio.Marca.datasource" />
     <None Include="Properties\DataSources\SOAPServices.Dominio.Modelo.datasource" />
     <None Include="Properties\DataSources\SOAPServices.Dominio.Reserva.datasource" />
     <None Include="Properties\DataSources\SOAPServices.Dominio.Servicio.datasource" />
@@ -186,11 +192,25 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\SOAPHorario\configuration91.svcinfo" />
-    <None Include="Service References\SOAPHorario\configuration.svcinfo" />
-    <None Include="Service References\SOAPHorario\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
+    <None Include="Service References\SOAPHorario\Horario.wsdl" />
+    <None Include="Service References\SOAPHorario\Horario.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPHorario\Horario1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPHorario\Horario2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPMarca\Marca.wsdl" />
+    <None Include="Service References\SOAPMarca\Marca.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPMarca\Marca1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SOAPMarca\Marca2.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SOAPModelo\configuration91.svcinfo" />
     <None Include="Service References\SOAPModelo\configuration.svcinfo" />
@@ -219,6 +239,18 @@
     <None Include="Service References\SOAPClientes\configuration91.svcinfo" />
     <None Include="Service References\SOAPClientes\configuration.svcinfo" />
     <None Include="Service References\SOAPClientes\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SOAPMarca\configuration91.svcinfo" />
+    <None Include="Service References\SOAPMarca\configuration.svcinfo" />
+    <None Include="Service References\SOAPMarca\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SOAPHorario\configuration91.svcinfo" />
+    <None Include="Service References\SOAPHorario\configuration.svcinfo" />
+    <None Include="Service References\SOAPHorario\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -279,16 +311,6 @@
     <None Include="Service References\SOAPColor\Color2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SOAPHorario\Horario.wsdl" />
-    <None Include="Service References\SOAPHorario\Horario.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\SOAPHorario\Horario1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\SOAPHorario\Horario2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\SOAPModelo\Modelo.wsdl" />
     <None Include="Service References\SOAPModelo\Modelo.xsd">
       <SubType>Designer</SubType>
@@ -341,6 +363,7 @@
     <WCFMetadataStorage Include="Service References\SOAPClientes\" />
     <WCFMetadataStorage Include="Service References\SOAPColor\" />
     <WCFMetadataStorage Include="Service References\SOAPHorario\" />
+    <WCFMetadataStorage Include="Service References\SOAPMarca\" />
     <WCFMetadataStorage Include="Service References\SOAPModelo\" />
     <WCFMetadataStorage Include="Service References\SOAPReservas\" />
     <WCFMetadataStorage Include="Service References\SOAPServicio\" />
