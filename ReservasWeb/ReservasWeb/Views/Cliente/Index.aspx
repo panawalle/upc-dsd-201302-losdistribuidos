@@ -82,7 +82,7 @@
             </table>
             <p>
                 <button type="submit" class="btn btn-success">
-                    <%: Html.ActionLink("Nuevo Cliente", "Create", new { @style = "color:red" })%></button></p>
+                    <%: Html.ActionLink("Nuevo Cliente", "Create", new { @style = "color:white" })%></button></p>
         </fieldset>
     </div>
 </asp:Content>

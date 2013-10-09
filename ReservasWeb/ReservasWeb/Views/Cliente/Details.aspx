@@ -90,18 +90,13 @@
                 </tr>
             </table>
         </fieldset>
-        <%--    <p>
-        <%: Html.ActionLink("Editar", "Edit", new { id = Model.codigocliente })%>
-        |
-        <%: Html.ActionLink("Regresar a la lista de Clientes", "Index") %>
-    </p>--%>
         <p>
         </p>
         <p>
             <button type="submit" class="btn btn-success">
                 <%: Html.ActionLink("Editar", "Edit", new { id = Model.codigocliente })%></button>
             <button type="submit" class="btn btn-success">
-                <%: Html.ActionLink("Regresar a la lista de Clientes", "Index", new { @style = "color:red" })%></button>
+                <%: Html.ActionLink("Regresar a la lista de Clientes", "Index", new { @style = "color:white" })%></button>
         </p>
     </div>
 </asp:Content>
