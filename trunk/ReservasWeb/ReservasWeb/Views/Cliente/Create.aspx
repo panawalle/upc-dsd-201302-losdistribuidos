@@ -8,10 +8,9 @@
         <% using (Html.BeginForm())
            {%>
         <%: Html.ValidationSummary(true) %>
-
         <fieldset>
             <legend>Nuevo Cliente</legend>
-            <table>
+            <table border="0">
                 <tr>
                     <td>
                         <div class="editor-label">

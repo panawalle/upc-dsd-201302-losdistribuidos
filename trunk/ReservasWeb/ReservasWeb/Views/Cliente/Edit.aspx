@@ -133,7 +133,7 @@
             <p>
                 <input type="submit" class="btn btn-success" value="Guardar" />
                 <button type="submit" class="btn btn-success">
-                    <%: Html.ActionLink("Regresar a la lista de Clientes", "Index", new { @style = "color:red" })%></button>
+                    <%: Html.ActionLink("Regresar a la lista de Clientes", "Index", new { @style = "color:white" })%></button>
             </p>
             <%--    <p>
                 <input type="submit" value="Guardar" />
