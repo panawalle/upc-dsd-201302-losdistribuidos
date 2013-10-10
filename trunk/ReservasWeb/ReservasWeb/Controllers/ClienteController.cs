@@ -8,6 +8,8 @@ using ReservasWeb.SOAPClientes;
 using System.Net;
 using SOAPServices.Dominio;
 using System.ServiceModel.Web;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace ReservasWeb.Controllers
 {
@@ -24,6 +26,21 @@ namespace ReservasWeb.Controllers
         SOAPServices.Dominio.Cliente clienteCreado = null;
         SOAPServices.Dominio.Cliente clienteBuscado = null;
 
+        public ICollection<Cliente> ListarClientes()
+        {
+
+            HttpWebRequest req = (HttpWebRequest)WebRequest.
+                Create("http://localhost:53786/Clientes.svc/Clientes");
+            req.Method = "GET";
+            HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+            StreamReader reader = new StreamReader(res.GetResponseStream());
+            string clienteJson = reader.ReadToEnd();
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            IList<Cliente> Lista = js.Deserialize<IList<Cliente>>(clienteJson);
+            ICollection<Cliente> modelo = Lista;
+            return modelo;
+
+        }
         public ActionResult Index()
         {
             SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
@@ -91,21 +108,6 @@ namespace ReservasWeb.Controllers
                 SOAPClientes.ClienteServiceClient asesoresWS = new SOAPClientes.ClienteServiceClient();
                 clienteBuscado = asesoresWS.ObtenerCliente(int.Parse(collection["codigocliente"]));
 
-                //if (clienteBuscado != null)
-                //{
-                //    throw new WebFaultException<Error>(
-                //    new Error() { CodError = "BP001", MesError = "Ya existe un cliente con el mismo codigo." },
-                //    HttpStatusCode.NotAcceptable);
-                //}
-                //else if
-                //((string)collection["dniCliente"] == string.Empty)
-                //{
-                //    throw new WebFaultException<Error>(
-                //    new Error() { CodError = "BP002", MesError = "El campo DNI es obligatorio." },
-                //    HttpStatusCode.BadRequest);
-                //}
-                //else
-                //{
                 clienteCreado = asesoresWS.RegistrarCliente(int.Parse(collection["codigocliente"]), (string)collection["dniCliente"], 1, (string)(collection["nombrecliente"]), (string)(collection["apellidopaterno"]), (string)(collection["apellidomaterno"]), (string)(collection["correo"]), (string)collection["direccioncliente"], (string)(collection["telefono"]), (string)(collection["celular"]));
                 //}
 

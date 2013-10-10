@@ -1767,6 +1767,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .form-control:-ms-input-placeholder {
   color: #999999;
+
 }
 
 .form-control::-webkit-input-placeholder {
