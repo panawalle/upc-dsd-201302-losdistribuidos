@@ -69,6 +69,7 @@
     <Content Include="Horario.svc" />
     <Content Include="Marca.svc" />
     <Content Include="Modelo.svc" />
+    <Content Include="OportunidadVentaService.svc" />
     <Content Include="Reserva.svc" />
     <None Include="Service References\SOAPAsesor\Asesor.wsdl" />
     <None Include="Service References\SOAPAsesor\Asesor.xsd">
@@ -197,6 +198,7 @@
     <Compile Include="Dominio\HorarioBody.cs" />
     <Compile Include="Dominio\Marca.cs" />
     <Compile Include="Dominio\Modelo.cs" />
+    <Compile Include="Dominio\OportunidadVenta.cs" />
     <Compile Include="Dominio\Reserva.cs" />
     <Compile Include="Dominio\ReservaDetalle.cs" />
     <Compile Include="Dominio\Servicio.cs" />
@@ -210,6 +212,7 @@
     <Compile Include="IHorario.cs" />
     <Compile Include="IMarca.cs" />
     <Compile Include="IModelo.cs" />
+    <Compile Include="IOportunidadVentaService.cs" />
     <Compile Include="IReserva.cs" />
     <Compile Include="IServicio.cs" />
     <Compile Include="IVehiculo.cs" />
@@ -227,6 +230,9 @@
     <Compile Include="Negocio\ReservaBLL.cs" />
     <Compile Include="Negocio\ServicioBLL.cs" />
     <Compile Include="Negocio\VehiculoBLL.cs" />
+    <Compile Include="OportunidadVentaService.svc.cs">
+      <DependentUpon>OportunidadVentaService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Persistencia\AsesorDAO.cs" />
     <Compile Include="Persistencia\BaseDAO.cs" />
     <Compile Include="Persistencia\ClienteDAO.cs" />
@@ -236,6 +242,7 @@
     <Compile Include="Persistencia\MarcaDAO.cs" />
     <Compile Include="Persistencia\ModeloDAO.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
+    <Compile Include="Persistencia\OportunidadVentaDAO.cs" />
     <Compile Include="Persistencia\ReservaDAO.cs" />
     <Compile Include="Persistencia\ServicioDAO.cs" />
     <Compile Include="Persistencia\VehiculoDAO.cs" />
