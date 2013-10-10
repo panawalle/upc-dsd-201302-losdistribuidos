@@ -23,7 +23,7 @@ namespace TestProject
         {
             string v_codReserva = "175";
 
-            string postdata = "{\"nroreserva\":\"" + v_codReserva + "\"}"; //JSON
+            string postdata = "{\"nroreserva\":\"" + v_codReserva + "\"}";  //nroreserva
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest
                 .Create("http://localhost:60712/ReservaCitaService.svc/ReservaAnular");
@@ -40,9 +40,12 @@ namespace TestProject
                 string vehiculoJson = reader.ReadToEnd();
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 ReservaCita reserva = js.Deserialize<ReservaCita>(vehiculoJson);
-                
-                Assert.AreEqual(v_codReserva, reserva.nroreserva);
-                Console.WriteLine("Nro.Reserva: " + v_codReserva);
+                //Assert.AreEqual(v_codReserva, reserva.nroreserva);
+                Console.WriteLine("Se Actualizo la Reserva:");
+                Console.WriteLine("Codigo : " + reserva.codigo);
+                Console.WriteLine("Nro.Reserva: " + reserva.nroreserva);
+                Console.WriteLine("Estado: " + reserva.estado );
+                Console.WriteLine("Placa: " + reserva.vehiculo.placa );
             }
             catch (WebException e)
             {
@@ -50,9 +53,16 @@ namespace TestProject
                 StreamReader reader2 = new StreamReader(resError.GetResponseStream());
                 string error = reader2.ReadToEnd();
                 JavaScriptSerializer js = new JavaScriptSerializer();
-                string errorMessage = js.Deserialize<string>(error);
-                Assert.AreEqual("Cita Error al Anular", errorMessage);
+                //string errorMessage = js.Deserialize<string>(error);
+                //Assert.AreEqual("Cita Error al Anular", errorMessage);
+                ExcepcionError BeanError = js.Deserialize<ExcepcionError>(error);
+                Console.WriteLine("Mensaje de Error: " + BeanError.msjValidacion);
             }
+        }
+
+        public class ExcepcionError
+        {
+            public string msjValidacion { get; set; }
         }
 
     }
