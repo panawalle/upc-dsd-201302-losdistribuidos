@@ -40,7 +40,7 @@ namespace SOAPServices
             {
                 if (ClienteDAO.Obtener(codigo) != null)
                 {
-                    throw new WebFaultException<Error>(new Error() { CodError = "US001", MesError = "DNI ya esta registrado." }, HttpStatusCode.NotAcceptable);
+                    throw new WebFaultException<Error>(new Error() { CodError = "US001", MesError = "Ya existe un código " }, HttpStatusCode.NotAcceptable);
                 }
                 else
                 {

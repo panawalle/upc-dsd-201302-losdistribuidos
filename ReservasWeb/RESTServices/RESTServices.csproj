@@ -53,6 +53,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Clientes.svc" />
     <Content Include="Reserva.svc" />
     <Content Include="ReservaCitaService.svc" />
     <Content Include="VehiculoService.svc" />
@@ -65,13 +66,19 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes.svc.cs">
+      <DependentUpon>Clientes.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Dominio\Cliente.cs" />
     <Compile Include="Dominio\Error.cs" />
     <Compile Include="Dominio\ExcepcionError.cs" />
     <Compile Include="Dominio\Reserva.cs" />
     <Compile Include="Dominio\ReservaCita.cs" />
     <Compile Include="Dominio\ReservaDetalle.cs" />
+    <Compile Include="ICliente.cs" />
     <Compile Include="IReserva.cs" />
     <Compile Include="IReservaCitaService.cs" />
+    <Compile Include="Persistencia\ClienteDAO.cs" />
     <Compile Include="Persistencia\ReservaCitaDAO.cs" />
     <Compile Include="Persistencia\ReservaDAO.cs" />
     <Compile Include="Reserva.svc.cs">

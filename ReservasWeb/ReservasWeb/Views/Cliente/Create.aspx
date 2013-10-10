@@ -19,7 +19,7 @@
                     </td>
                     <td>
                         <div class="editor-field">
-                            <%: Html.TextBoxFor(model => model.codigocliente) %>
+                            <%: Html.TextBoxFor(model => model.codigocliente, new { @placeholder = "Ingrese código", @class = "form-control input-sm" })%>
                             <%: Html.ValidationMessageFor(model => model.codigocliente) %></div>
                     </td>
                 </tr>
@@ -31,7 +31,7 @@
                     </td>
                     <td>
                         <div class="editor-field">
-                            <%: Html.TextBoxFor(model => model.dnicliente) %>
+                            <%: Html.TextBoxFor(model => model.dnicliente, new { @placeholder = "Ingrese el dni", @class = "form-control input-sm" })%>
                             <%: Html.ValidationMessageFor(model => model.dnicliente) %>
                         </div>
                     </td>
@@ -44,7 +44,7 @@
                     </td>
                     <td>
                         <div class="editor-field">
-                            <%: Html.TextBoxFor(model => model.nombrecliente) %>
+                            <%: Html.TextBoxFor(model => model.nombrecliente, new { @placeholder = "Ingrese nombres", @class = "form-control input-sm" })%>
                             <%: Html.ValidationMessageFor(model => model.nombrecliente) %>
                         </div>
                     </td>
@@ -57,7 +57,7 @@
                     </td>
                     <td>
                         <div class="editor-field">
-                            <%: Html.TextBoxFor(model => model.apellidopaterno) %>
+                            <%: Html.TextBoxFor(model => model.apellidopaterno, new { @placeholder = "Ingrese apellido", @class = "form-control input-sm" })%>
                             <%: Html.ValidationMessageFor(model => model.apellidopaterno) %>
                         </div>
                     </td>
@@ -70,7 +70,7 @@
                     </td>
                     <td>
                         <div class="editor-field">
-                            <%: Html.TextBoxFor(model => model.apellidomaterno) %>
+                            <%: Html.TextBoxFor(model => model.apellidomaterno, new {  @class = "form-control input-sm" })%>
                             <%: Html.ValidationMessageFor(model => model.apellidomaterno) %>
                         </div>
                     </td>
@@ -83,7 +83,7 @@
                     </td>
                     <td>
                         <div class="editor-field">
-                            <%: Html.TextBoxFor(model => model.direccioncliente) %>
+                            <%: Html.TextBoxFor(model => model.direccioncliente, new { @class = "form-control input-sm" })%>
                             <%: Html.ValidationMessageFor(model => model.direccioncliente) %>
                         </div>
                     </td>
@@ -96,7 +96,7 @@
                     </td>
                     <td>
                         <div class="editor-field">
-                            <%: Html.TextBoxFor(model => model.telefono) %>
+                            <%: Html.TextBoxFor(model => model.telefono, new {@class = "form-control input-sm" })%>
                             <%: Html.ValidationMessageFor(model => model.telefono) %>
                         </div>
                     </td>
@@ -109,7 +109,7 @@
                     </td>
                     <td>
                         <div class="editor-field">
-                            <%: Html.TextBoxFor(model => model.celular) %>
+                            <%: Html.TextBoxFor(model => model.celular, new { @class = "form-control input-sm" })%>
                             <%: Html.ValidationMessageFor(model => model.celular) %>
                         </div>
                     </td>
@@ -122,19 +122,16 @@
                     </td>
                     <td>
                         <div class="editor-field">
-                            <%: Html.TextBoxFor(model => model.correo) %>
+                            <%: Html.TextBoxFor(model => model.correo, new { @class = "form-control input-sm" })%>
                             <%: Html.ValidationMessageFor(model => model.correo) %>
                         </div>
                     </td>
                 </tr>
+                <tr></tr>
+                    <td><input type="submit" class="btn btn-success" value="Guardar" /></td>
+                    <td><button type="submit" class="btn btn-success">
+                        <%: Html.ActionLink("Regresar a la lista de Clientes", "Index", new { @style = "color:red" })%></button></td>
             </table>
-            <p>
-            </p>
-            <p>
-                <input type="submit" class="btn btn-success" value="Guardar" />
-                <button type="submit" class="btn btn-success">
-                    <%: Html.ActionLink("Regresar a la lista de Clientes", "Index", new { @style = "color:red" })%></button>
-            </p>
         </fieldset>
         <% } %>
     </div>

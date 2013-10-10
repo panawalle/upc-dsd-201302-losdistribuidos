@@ -45,7 +45,7 @@ namespace SOAPServices.Persistencia
                         objVehiculo.contacto = (string)dr["contacto"];
                         objVehiculo.usuario = (string)dr["usuario"];
                         objVehiculo.fecha = (DateTime)dr["fecha"];
-                        objVehiculo.codCliente = (int)dr["codcliente"];
+                        objVehiculo.codCliente = (int)dr["codCliente"];
                         objVehiculo.blnResultado = true;
                     }
                 }
