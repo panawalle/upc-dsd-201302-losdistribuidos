@@ -35,6 +35,7 @@ namespace RESTServices.Dominio
         public string descColor { get; set; }
         [DataMember]
         public string descModelo { get; set; }
-
+        [DataMember]
+        public Cliente cliente { get; set; }
     }
 }
