@@ -86,13 +86,14 @@ namespace SOAPServices
 
         }
 
-        public List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa)
+        public List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa, int codestado)
         {
             List<Dominio.Reserva> objListReserva = new List<Dominio.Reserva>();
 
-            objListReserva = objReservaBLL.fnListarReserva(codReserva, nroReserva, placa);
+            objListReserva = objReservaBLL.fnListarReserva(codReserva, nroReserva, placa, codestado);
 
             return objListReserva;
         }
+
     }
 }
