@@ -21,6 +21,26 @@ namespace TestProject
         public string nomCliente { get; set; }
         public string descColor { get; set; }
         public string descModelo { get; set; }
+        public Cliente cliente { get; set; }
+
+
+
+
+
+
+        public class Cliente
+        {
+            public int codigocliente { get; set; }
+            public string dnicliente { get; set; }
+            public int tipo { get; set; }
+            public string nombrecliente { get; set; }
+            public string apellidopaterno { get; set; }
+            public string apellidomaterno { get; set; }
+            public string direccioncliente { get; set; }
+            public string telefono { get; set; }
+            public string celular { get; set; }
+            public string correo { get; set; }
+        }
 
     }
 }
