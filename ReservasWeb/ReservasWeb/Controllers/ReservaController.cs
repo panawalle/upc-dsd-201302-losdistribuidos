@@ -6,6 +6,10 @@ using System.Web.Mvc;
 using SOAPServices.Dominio;
 using System.ServiceModel.Web;
 using System.Net;
+using System.Text;
+using System.IO;
+using System.Web.Script.Serialization;
+
 
 namespace ReservasWeb.Controllers
 {
@@ -18,12 +22,13 @@ namespace ReservasWeb.Controllers
         SOAPModelo.ModeloClient proxyModelo = new SOAPModelo.ModeloClient();
         SOAPMarca.MarcaClient proxyMarca = new SOAPMarca.MarcaClient();
         SOAPClientes.ClienteServiceClient proxyCliente = new SOAPClientes.ClienteServiceClient();
+        SOAPServicio.ServicioClient proxyServicio = new SOAPServicio.ServicioClient();
 
-        private List<Models.Reserva> ListarReservas(int codigo, string nroreserva, string placa)
+        private List<Models.Reserva> ListarReservas(int codigo, string nroreserva, string placa, int codestado)
         {
 
             List<Reserva> objListReservas = new List<Reserva>();
-            objListReservas = proxyReserva.fnListarReserva(codigo, nroreserva, placa).ToList();
+            objListReservas = proxyReserva.fnListarReserva(codigo, nroreserva, placa, codestado).ToList();
 
             List<Models.Reserva> listReservas = new List<Models.Reserva>();
 
@@ -108,10 +113,11 @@ namespace ReservasWeb.Controllers
 
         }
 
-        public ActionResult Index(string codigo, string nroreserva, string placa)
+        public ActionResult Index(string codigo, string nroreserva, string placa, string codestado)
         {
             try
             {
+                FillDropDownListEstado();
                 Session["reserva"] = null;
                 List<Models.Reserva> model = null;
 
@@ -128,7 +134,12 @@ namespace ReservasWeb.Controllers
                     placa = "0";
                 }
 
-                Session["reservas"] = ListarReservas(Convert.ToInt32(codigo), nroreserva, placa);
+                if (codestado == null || codestado.Equals("-"))
+                {
+                    codestado = "-1";
+                }
+
+                Session["reservas"] = ListarReservas(Convert.ToInt32(codigo), nroreserva, placa, Convert.ToInt32(codestado));
                 model = (List<Models.Reserva>)Session["reservas"];
 
                 if (model == null)
@@ -154,12 +165,121 @@ namespace ReservasWeb.Controllers
             Reserva objReserva = new Reserva();
             objReserva = proxy.fnObtenerReserva(Convert.ToInt16(codigo));
 
+
+
             if (objReserva != null)
             {
 
+                //Asesor
+                Asesor objAsesor = new Asesor();
+                objAsesor = proxyAsesor.fnObtenerAsesor(objReserva.numCodigoAsesor);
+
+                Models.Asesor objAsesorModel = new Models.Asesor();
+                objAsesorModel.codigo = objAsesor.numCodigoAsesor;
+                objAsesorModel.nombre = objAsesor.nombre;
+
+                //Vehiculo
+                Vehiculo objVehiculo = new Vehiculo();
+                objVehiculo = proxyVehiculo.fnObtenerVehiculo(objReserva.placa);
+
+                //Vehiculo - Color
+                Color objColor = new Color();
+                objColor = proxyColor.fnObtenerColor(objVehiculo.codColor);
+
+                Models.Color objColorModel = new Models.Color();
+                objColorModel.codigo = objColor.codColor;
+                objColorModel.descripcion = objColor.descripcion;
+                objColorModel.estado = objColor.estado;
+
+                // Vehiculo - Modelo
+                Modelo objModelo = new Modelo();
+                objModelo = proxyModelo.fnObtenerModelo(objVehiculo.codModelo);
+
+                //Modelo - Marca
+                Marca objMarca = new Marca();
+                objMarca = proxyMarca.fnObtenerMarca(objModelo.codMarca);
+
+                Models.Marca objMarcaModel = new Models.Marca();
+                objMarcaModel.codigo = objMarca.codMarca;
+                objMarcaModel.descripcion = objMarca.descripcion;
+                objMarcaModel.estado = objMarca.estado;
+
+                Models.Modelo objModeloModel = new Models.Modelo();
+                objModeloModel.codigo = objModelo.codModelo;
+                objModeloModel.marca = objMarcaModel;
+                objModeloModel.descripcion = objModelo.descripcion;
+                objModeloModel.estado = objModelo.estado;
+
+                //Vehiculo - Cliente
+                Cliente objCliente = new Cliente();
+                objCliente = proxyCliente.ObtenerCliente(objVehiculo.codCliente);
+
+                Models.Cliente objClienteModel = new Models.Cliente();
+                objClienteModel.codigocliente = objCliente.codigocliente;
+                objClienteModel.nombrecliente = objCliente.nombrecliente;
+                objClienteModel.apellidopaterno = objCliente.apellidopaterno;
+                objClienteModel.apellidomaterno = objCliente.apellidomaterno;
+
+                Models.Vehiculo objVehiculoModel = new Models.Vehiculo();
+                objVehiculoModel.placa = objVehiculo.placa;
+                objVehiculoModel.color = objColorModel;
+                objVehiculoModel.modelo = objModeloModel;
+                objVehiculoModel.vin = objVehiculo.vin;
+                objVehiculoModel.anio = objVehiculo.anio;
+                objVehiculoModel.motor = objVehiculo.motor;
+                objVehiculoModel.contacto = objVehiculo.contacto;
+                objVehiculoModel.usuario = objVehiculo.usuario;
+                objVehiculoModel.fecha = objVehiculo.fecha;
+                objVehiculoModel.cliente = objClienteModel;
+
+
+                Models.Reserva objReservaObtenida = new Models.Reserva();
+                objReservaObtenida.codigo = objReserva.codReserva;
+                objReservaObtenida.nroreserva = objReserva.nroReserva;
+                objReservaObtenida.vehiculo = objVehiculoModel;
+                objReservaObtenida.fecha = objReserva.fecha;
+                objReservaObtenida.numexpress = objReserva.numExpress;
+                objReservaObtenida.asesor = objAsesorModel;
+                objReservaObtenida.estado = objReserva.estado;
+
+                List<Models.ReservaDetalle> objListReservaDetalleModel = new List<Models.ReservaDetalle>();
+
+                if (objReserva.reservaDetalle != null)
+                {
+                    foreach (ReservaDetalle obj in objReserva.reservaDetalle)
+                    {
+                        Models.ReservaDetalle objReservaDetalle = new Models.ReservaDetalle();
+
+                        Servicio objServicio = new Servicio();
+                        objServicio = proxyServicio.fnObtenerServicio(obj.codOper, obj.codOperSer);
+
+                        if (objServicio.codOper != null)
+                        {
+                            Models.Servicio modelServicio = new Models.Servicio();
+                            modelServicio.codOper = objServicio.codOper;
+                            modelServicio.codOperSer = objServicio.codOperSer;
+                            modelServicio.descripcion = objServicio.descripcion;
+                            modelServicio.precio = objServicio.precio;
+
+                            objReservaDetalle.servicio = modelServicio;
+                            objReservaDetalle.estado = "0";
+                            objListReservaDetalleModel.Add(objReservaDetalle);
+                        }
+
+                    }
+                }
+
+                objReservaObtenida.reservaDetalle = objListReservaDetalleModel;
+
+
+
+                return View(objReservaObtenida);
+            }
+            else
+            {
+                return RedirectToAction("Index");
             }
 
-            return View();
         }
 
         public ActionResult Create()
@@ -181,7 +301,7 @@ namespace ReservasWeb.Controllers
 
                 return View(model);
             }
-            catch (Exception )
+            catch (Exception)
             {
                 return View();
             }
@@ -355,10 +475,10 @@ namespace ReservasWeb.Controllers
             {
                 if (codOperSer != null && codOperSer != "")
                 {
-                    SOAPServicio.ServicioClient proxy = new SOAPServicio.ServicioClient();
+
 
                     Servicio objServicio = new Servicio();
-                    objServicio = proxy.fnObtenerServicio("1X", codOperSer);
+                    objServicio = proxyServicio.fnObtenerServicio("1X", codOperSer);
 
                     if (objServicio.codOper != null)
                     {
@@ -399,7 +519,8 @@ namespace ReservasWeb.Controllers
                 model.strMensaje = e.Message;
                 FillDropDownList();
             }
-            finally {
+            finally
+            {
                 Session["reserva"] = model;
             }
 
@@ -427,9 +548,37 @@ namespace ReservasWeb.Controllers
         }
 
 
-        public ActionResult Delete(int id)
+        public ActionResult Cancelar(int codigo)
         {
-            return View();
+
+            HttpWebRequest req = (HttpWebRequest)WebRequest
+                .Create("http://localhost:60712/Reserva.svc/ReservasA/" + codigo.ToString());
+            req.Method = "PUT";
+            HttpWebResponse res = null;
+
+            try
+            {
+
+                res = (HttpWebResponse)req.GetResponse();
+                StreamReader reader = new StreamReader(res.GetResponseStream());
+                string reservaJson = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Reserva objReservaAnulado = js.Deserialize<Reserva>(reservaJson);
+
+            }
+            catch (WebException ex)
+            {
+                // Mostrar Error
+                HttpWebResponse resError = (HttpWebResponse)ex.Response;
+                StreamReader reader2 = new StreamReader(resError.GetResponseStream());
+                string error = reader2.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                //SOAPServices.Dominio.Error exception = js.Deserialize<SOAPServices.Dominio.Error>(error);
+                ViewData["Error"] = js.DeserializeObject(error);
+
+            }
+            return RedirectToAction("Index");
+            
         }
 
 
@@ -470,6 +619,17 @@ namespace ReservasWeb.Controllers
                     });
 
             ViewData["Horarios"] = ddlHorarios;
+
+        }
+
+        private void FillDropDownListEstado()
+        {
+            List<SelectListItem> ddlEstado = new List<SelectListItem>();
+            ddlEstado.Add(new SelectListItem() { Value = "-", Text = "-", Selected = false });
+            ddlEstado.Add(new SelectListItem() { Value = "0", Text = "Activa" });
+            ddlEstado.Add(new SelectListItem() { Value = "1", Text = "Cancelada" });
+
+            ViewData["Estados"] = ddlEstado;
 
         }
     }
