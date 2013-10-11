@@ -181,8 +181,7 @@ namespace SOAPServices.Persistencia
             return objReservaEncontrada;
         }
 
-
-        public List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa)
+        public List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa, int codestado)
         {
             SqlConnection objSqlCon = new SqlConnection();
             objSqlCon = objConUtil.fnObtenerConexion();
@@ -198,6 +197,7 @@ namespace SOAPServices.Persistencia
                 cmd.SelectCommand.Parameters.Add("@codReserva", SqlDbType.Int).Value = codReserva;
                 cmd.SelectCommand.Parameters.Add("@nroReserva", SqlDbType.VarChar, 20).Value = nroReserva;
                 cmd.SelectCommand.Parameters.Add("@placa", SqlDbType.VarChar, 10).Value = placa;
+                cmd.SelectCommand.Parameters.Add("@codestado", SqlDbType.Int).Value = codestado;
                 cmd.SelectCommand.ExecuteNonQuery();
                 cmd.Fill(ds);
                 objDtReservas = ds.Tables[0];
