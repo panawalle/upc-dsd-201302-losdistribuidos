@@ -61,14 +61,40 @@ namespace RESTServices
             return objReservaResult;
         }
 
-        public List<Dominio.Reserva> fnListarReserva(string codReserva="0", string nroReserva="0", string placa="0")
+        public List<Dominio.Reserva> fnListarReserva(string codReserva="0", string nroReserva="0", string placa="0", string codestado = "-1")
         {
             List<Dominio.Reserva> objReservaResult = new List<Dominio.Reserva>();
             int intCodReserva = Convert.ToInt32(codReserva);
+            int intCodEstado = Convert.ToInt32(codestado);
 
-            objReservaResult = objReservaDAO.fnListarReserva(intCodReserva, nroReserva, placa);
+            objReservaResult = objReservaDAO.fnListarReserva(intCodReserva, nroReserva, placa, intCodEstado);
             
             return objReservaResult;
+        }
+
+        public Dominio.Reserva AnularReserva(string codReserva)
+        {
+            Dominio.Reserva objReservaResult = new Dominio.Reserva();
+            try
+            {
+                int intCodReserva = Convert.ToInt32(codReserva);
+                objReservaResult = objReservaDAO.fnAnularReserva(intCodReserva);
+
+                if (objReservaResult.blnResultado == false)
+                {
+                    throw new WebFaultException<Error>(
+                    new Error()
+                    {
+                        strMensaje = objReservaResult.strMensaje
+                    },
+                        HttpStatusCode.BadRequest);
+                }
+            }
+            catch (Exception)
+            {
+                throw new WebFaultException<Error>(new Error() { strMensaje = objReservaResult.strMensaje }, System.Net.HttpStatusCode.BadRequest);
+            }
+            return objReservaResult;            
         }
     }
 }
