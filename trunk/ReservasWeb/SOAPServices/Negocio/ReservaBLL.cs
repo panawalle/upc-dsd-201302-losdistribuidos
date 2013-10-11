@@ -19,9 +19,9 @@ namespace SOAPServices.Negocio
             return objReservaDAO.fnGuardarReserva(objReserva);
         }
 
-       public List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa)
+       public List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa, int codestado)
        {
-            return objReservaDAO.fnListarReserva(codReserva,nroReserva,placa);
+            return objReservaDAO.fnListarReserva(codReserva,nroReserva,placa, codestado);
         }
 
 
