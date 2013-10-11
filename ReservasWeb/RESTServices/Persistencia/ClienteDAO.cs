@@ -9,34 +9,34 @@ namespace RESTServices.Persistencia
 {
     public class ClienteDAO
     {
-        public Cliente ConsultarCliente(string dni)
+        public List<Cliente> ListarTodos()
         {
             Cliente clienteEncontrado = null;
-            string sql = "SELECT * FROM cliente WHERE dni = @dni";
+            List<Cliente> Listado = new List<Cliente>();
+            string sql = "SELECT * FROM cliente";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena()))
             {
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
                 {
-                    com.Parameters.Add(new SqlParameter("@dni", dni));
+                    //com.Parameters.Add(new SqlParameter("@dni", dni));
                     using (SqlDataReader resultado = com.ExecuteReader())
                     {
-                        if (resultado.Read())
+                        while (resultado.Read())
                         {
                             clienteEncontrado = new Cliente()
                             {
-                                dnicliente = (string)resultado["dnicliente"],
-                                nombrecliente = (string)resultado["nombrecliente"],
+                              
                                 apellidopaterno = (string)resultado["apellidopaterno"],
                                 apellidomaterno = (string)resultado["apellidomaterno"],
-                                correo = (string)resultado["correo"],
-                                direccioncliente = (string)resultado["direccioncliente"]
+                                
                             };
+                            Listado.Add(clienteEncontrado);
                         }
                     }
                 }
 
-            } return clienteEncontrado;
+            } return Listado;
         }
 
         public Cliente ObtenerXCodigo(int p_codigo)

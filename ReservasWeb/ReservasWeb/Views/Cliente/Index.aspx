@@ -7,6 +7,7 @@
     <div class="container">
         <fieldset>
             <legend>Consultar Cliente</legend>
+
             <table class="table table-hover">
                 <tr>
                     <th>

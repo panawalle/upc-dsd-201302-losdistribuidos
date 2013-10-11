@@ -25,3 +25,12 @@ C:\Users\Cesar\Desktop\DSD\ReservasWeb\ReservasWeb\bin\SOAPServices.pdb
 C:\Users\Cesar\Desktop\DSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.csprojResolveAssemblyReference.cache
 C:\Users\Cesar\Desktop\DSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
 C:\Users\Cesar\Desktop\DSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
+C:\Users\lormeno\Documents\Lesly\DSD\ReservasWeb\ReservasWeb\bin\ReservasWeb.dll
+C:\Users\lormeno\Documents\Lesly\DSD\ReservasWeb\ReservasWeb\bin\ReservasWeb.pdb
+C:\Users\lormeno\Documents\Lesly\DSD\ReservasWeb\ReservasWeb\bin\Iesi.Collections.dll
+C:\Users\lormeno\Documents\Lesly\DSD\ReservasWeb\ReservasWeb\bin\NHibernate.dll
+C:\Users\lormeno\Documents\Lesly\DSD\ReservasWeb\ReservasWeb\bin\SOAPServices.dll
+C:\Users\lormeno\Documents\Lesly\DSD\ReservasWeb\ReservasWeb\bin\SOAPServices.pdb
+C:\Users\lormeno\Documents\Lesly\DSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.csprojResolveAssemblyReference.cache
+C:\Users\lormeno\Documents\Lesly\DSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.dll
+C:\Users\lormeno\Documents\Lesly\DSD\ReservasWeb\ReservasWeb\obj\Debug\ReservasWeb.pdb
