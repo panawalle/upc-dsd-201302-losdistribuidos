@@ -38,5 +38,42 @@ namespace RESTServices.Persistencia
 
             } return clienteEncontrado;
         }
+
+        public Cliente ObtenerXCodigo(int p_codigo)
+        {
+            Cliente clienteEncontrado = null;
+            string sql = "SELECT documento FROM cliente WHERE codCliente = @codigo";
+            using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena()))
+            {
+                con.Open();
+                using (SqlCommand com = new SqlCommand(sql, con))
+                {
+                    com.Parameters.Add(new SqlParameter("@codigo", p_codigo)); 
+                    using (SqlDataReader resultado = com.ExecuteReader())
+                    {
+                        if (resultado.Read())
+                        {
+                            clienteEncontrado = new Cliente()
+                            {
+                                dnicliente = (string)resultado["documento"]
+                                /*
+                                codigocliente = (int)resultado["codCliente"],
+                                dnicliente = (string)resultado["documento"],
+                                nombrecliente = (string)resultado["nombre"],
+                                apellidopaterno = (string)resultado["apellidopaterno"],
+                                apellidomaterno = (string)resultado["apellidomaterno"],
+                                correo = (string)resultado["email"],
+                                direccioncliente = (string)resultado["direccion"]
+                                */
+                            };
+                        }
+                    }
+                }
+
+            } 
+            return clienteEncontrado;
+        }
+
+
     }
 }
