@@ -20,7 +20,7 @@ namespace SOAPServices
         Dominio.Reserva fnGuardarReserva(Dominio.Reserva objReserva);
 
         [OperationContract]
-        List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa);
+        List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa, int codestado);
     }
 
 
