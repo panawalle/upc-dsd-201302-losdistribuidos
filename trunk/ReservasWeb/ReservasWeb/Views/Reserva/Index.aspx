@@ -8,11 +8,16 @@
         <table width="95%">
             <tr>
                 <td>
-                    <h2>
+                    <h2 style="text-align: left">
                         Consultar Reserva</h2>
                     <% using (Html.BeginForm("Index", "Reserva")) %>
                     <% { %>
                     <table style="font-family: Verdana; font-size: 9px">
+                        <tr >
+                           <td colspan="9" style="font-size: 10px; font-weight: bold; color: Red">
+                            <%= ViewData["Error"] %>
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 Código:
@@ -33,11 +38,21 @@
                                 <%= Html.TextBox("placa")%>
                             </td>
                             <td>
-                                <input type="submit" value="Buscar" style="font-family: Verdana; font-size: 10px; height:25px" />
+                                Estado:
+                            </td>
+                            <td>
+                                <%: Html.DropDownList("codestado", ViewData["Estados"] as List<SelectListItem>)%>
+                            </td>
+                            <td style="width: 10px">
+                            </td>
+                            <td>
+                                <input type="submit" value="Buscar" style="font-family: Verdana; font-size: 10px;
+                                    height: 25px" />
                             </td>
                         </tr>
                         <tr>
-                        <td colspan="7" height="20px"></td>
+                            <td colspan="9" height="20px">
+                            </td>
                         </tr>
                     </table>
                     <table width="100%" class="table table-hover">
@@ -66,9 +81,9 @@
                             <th style="width: 5%">
                                 Estado
                             </th>
-                            <%--<th style="width: 29%">
-                Opciones
-            </th>--%>
+                            <th style="width: 29%">
+                                Opciones
+                            </th>
                         </tr>
                         <% if (Model != null)
                            { %>
@@ -92,37 +107,34 @@
                                 -
                                 <%: item.asesor.nombre %>
                             </td>
-                            <td style="width: 20%">
+                            <td style="width: 24%">
                                 <%: item.vehiculo.placa %>
                                 -
                                 <%: item.vehiculo.cliente.nombrecliente %>
                                 <%: item.vehiculo.cliente.apellidopaterno %>
                             </td>
-                            <td style="width: 20%">
+                            <td style="width: 25%">
                                 <%: item.vehiculo.modelo.marca.descripcion %>
                                 -
                                 <%: item.vehiculo.modelo.descripcion%>
                                 -
                                 <%: item.vehiculo.color.descripcion %>
                             </td>
-                            <td style="width: 5%">
+                            <td style="width: 10%">
                                 <%: item.estado %>
                             </td>
-                            <%--                <td style="width: 29%">
-                    <%: Html.ActionLink("Ver Detalle", "Details", new { codigo=item.codigo }) %>
-                    |
-                    <%: Html.ActionLink("Orden de Servicio", "OrdenServicio", new { codigo=item.codigo }) %>
-                    |
-                    <%: Html.ActionLink("Cancelar", "Cancelar", new { codigo = item.codigo })%>
-                </td>
-                            --%>
+                            <td style="width: 15%; color: blue">
+                                <%: Html.ActionLink("Ver Detalle", "Details", new { codigo=item.codigo }) %>
+                                |
+                                <%: Html.ActionLink("Cancelar", "Cancelar", new { codigo = item.codigo })%>
+                            </td>
                         </tr>
                         <% } %>
                         <% } %>
                         <% else
-                            { %>
+                           { %>
                         <tr>
-                            <td colspan="8">
+                            <td colspan="9">
                                 <b>No existen reservas que coincidan con los parámetros enviados.</b>
                             </td>
                         </tr>
