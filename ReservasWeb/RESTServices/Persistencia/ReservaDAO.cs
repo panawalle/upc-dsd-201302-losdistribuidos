@@ -181,8 +181,7 @@ namespace RESTServices.Persistencia
             return objReservaEncontrada;
         }
 
-
-        public List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa)
+        public List<Dominio.Reserva> fnListarReserva(int codReserva, string nroReserva, string placa, int codestado)
         {
             SqlConnection objSqlCon = new SqlConnection();
             objSqlCon = objConUtil.fnObtenerConexion();
@@ -198,6 +197,7 @@ namespace RESTServices.Persistencia
                 cmd.SelectCommand.Parameters.Add("@codReserva", SqlDbType.Int).Value = codReserva;
                 cmd.SelectCommand.Parameters.Add("@nroReserva", SqlDbType.VarChar, 20).Value = nroReserva;
                 cmd.SelectCommand.Parameters.Add("@placa", SqlDbType.VarChar, 10).Value = placa;
+                cmd.SelectCommand.Parameters.Add("@codestado", SqlDbType.Int).Value = codestado;
                 cmd.SelectCommand.ExecuteNonQuery();
                 cmd.Fill(ds);
                 objDtReservas = ds.Tables[0];
@@ -257,6 +257,67 @@ namespace RESTServices.Persistencia
                 }
             }
             return objListReserva;
+        }
+
+        public Dominio.Reserva fnAnularReserva(int codReserva)
+        {
+            Dominio.Reserva objReservaAnulada = new Dominio.Reserva();
+
+            try
+            {
+                SqlConnection objSqlCon = new SqlConnection();
+                objSqlCon = objConUtil.fnObtenerConexion();
+                objSqlCon.Open();
+
+                objReservaAnulada.blnResultado = false;
+                objReservaAnulada.strMensaje = "";
+
+                try
+                {
+
+                    SqlCommand cmd;
+
+                    cmd = new SqlCommand("sp_AnularReserva", objSqlCon);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@codReserva", SqlDbType.Int).Value = codReserva;
+                    cmd.ExecuteNonQuery();
+
+                    cmd.Dispose();
+
+                    objReservaAnulada = (Dominio.Reserva)fnObtenerReserva(codReserva);
+
+                    objReservaAnulada.blnResultado = true;
+                    objReservaAnulada.strMensaje = "";
+
+                }
+                catch (Exception e)
+                {
+                    if (objSqlCon.State == ConnectionState.Open)
+                    {
+                        objSqlCon.Close();
+                    }
+
+
+                    objReservaAnulada.blnResultado = false;
+                    objReservaAnulada.strMensaje = e.Message;
+                }
+                finally
+                {
+
+                    if (objSqlCon.State == ConnectionState.Open)
+                    {
+                        objSqlCon.Close();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+                objReservaAnulada.blnResultado = false;
+                objReservaAnulada.strMensaje = e.Message;
+            }
+
+            return objReservaAnulada;
         }
     }
 }
