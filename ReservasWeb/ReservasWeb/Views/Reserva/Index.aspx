@@ -124,9 +124,9 @@
                                 <%: item.estado %>
                             </td>
                             <td style="width: 15%; color: blue">
-                                <%: Html.ActionLink("Ver Detalle", "Details", new { codigo=item.codigo }) %>
+                                <%: Html.ActionLink("Ver Detalle", "Details", new { codigo = item.codigo }, new { @style = "color:blue" })%>
                                 |
-                                <%: Html.ActionLink("Cancelar", "Cancelar", new { codigo = item.codigo })%>
+                                <%: Html.ActionLink("Cancelar", "Cancelar", new { codigo = item.codigo }, new { @style = "color:blue" })%>
                             </td>
                         </tr>
                         <% } %>
