@@ -20,7 +20,11 @@ namespace RESTServices
         Dominio.Reserva fnGuardarReserva(Dominio.Reserva objReserva);
 
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "ReservasList/{codReserva},{nroReserva},{placa}", ResponseFormat = WebMessageFormat.Json)]
-        List<Dominio.Reserva> fnListarReserva(string codReserva="0", string nroReserva="0", string placa="0");
+        [WebInvoke(Method = "PUT", UriTemplate = "ReservasA/{codReserva}", ResponseFormat = WebMessageFormat.Json)]
+        Dominio.Reserva AnularReserva(string codReserva);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "ReservasList/{codReserva},{nroReserva},{placa},{codestado}", ResponseFormat = WebMessageFormat.Json)]
+        List<Dominio.Reserva> fnListarReserva(string codReserva="0", string nroReserva="0", string placa="0", string codestado = "-1");
     }
 }
