@@ -33,15 +33,19 @@ namespace TestProject
             Vehiculo vehiculo = js.Deserialize<Vehiculo>(vehiculoJson);
             Assert.AreEqual(v_placa, vehiculo.placa);
             Console.WriteLine("placa : " + vehiculo.placa);
+            Console.WriteLine("Cliente : " + vehiculo.nomCliente);
             Console.WriteLine("Vin : " + vehiculo.vin);
             Console.WriteLine("Motor : " + vehiculo.motor);
+            Console.WriteLine("Anio : " + vehiculo.anio);
+            Console.WriteLine("Modelo : " + vehiculo.descModelo);
+            Console.WriteLine("Color : " + vehiculo.descColor);
         }
 
         //REGISTRAR DATOS VEHICULO
         [TestMethod]
         public void CRUDTest_VehiculoRegistrar()
         {
-            string v_placa = "CGC861";
+            string v_placa = "CGC861"; 
             string v_vin = "ABCDEFGHIJ";
             string v_motor = "YYYYYYYY";
             string v_anio = "2013";
@@ -49,7 +53,7 @@ namespace TestProject
             string v_usuario = "Luis Suarez";
             string v_codColor = "P118";
             string v_codModelo = "SUB125";
-            string v_codCliente = "15969";
+            string v_codCliente = "15969";  // -1
 
             string postdata = "{\"placa\":\"" + v_placa + "\",\"vin\":\"" + v_vin + "\",\"motor\":\"" + v_motor + "\",\"anio\":\"" + v_anio + "\",\"contacto\":\"" + v_contacto + "\",\"usuario\":\"" + v_usuario + "\",\"codColor\":\"" + v_codColor + "\",\"codModelo\":\"" + v_codModelo + "\",\"codCliente\":\"" + v_codCliente + "\"}"; //JSON
             byte[] data = Encoding.UTF8.GetBytes(postdata);
@@ -70,9 +74,13 @@ namespace TestProject
                 Vehiculo vehiculo = js.Deserialize<Vehiculo>(vehiculoJson);
                 Assert.AreEqual(v_placa, vehiculo.placa);
                 //Assert.AreEqual(v_vin, vehiculo.vin);
-                Console.WriteLine("Placa: " + vehiculo.placa);
-                Console.WriteLine("Vin: " + vehiculo.vin);
-                Console.WriteLine("Motor: " + vehiculo.motor);
+                Console.WriteLine("placa : " + vehiculo.placa);
+                Console.WriteLine("Cliente : " + vehiculo.nomCliente);
+                Console.WriteLine("Vin : " + vehiculo.vin);
+                Console.WriteLine("Motor : " + vehiculo.motor);
+                Console.WriteLine("Anio : " + vehiculo.anio);
+                Console.WriteLine("Modelo : " + vehiculo.descModelo);
+                Console.WriteLine("Color : " + vehiculo.descColor);
             }
             catch (WebException e)
             {
@@ -97,8 +105,8 @@ namespace TestProject
             string v_vin = "XYZ12345";
             string v_motor = "ZGTER12345";
             string v_anio = "2013";
-            string v_contacto = "Ana Vertiz";
-            string v_usuario = "Roberto Gomez";
+            string v_contacto = "Ana Vertiz Lopez";
+            string v_usuario = "Roberto Gomez Valverde";
             string postdata = "{\"placa\":\"" + v_placa + "\",\"vin\":\"" + v_vin + "\",\"motor\":\"" + v_motor + "\",\"anio\":\"" + v_anio + "\",\"contacto\":\"" + v_contacto + "\",\"usuario\":\"" + v_usuario + "\"}"; //JSON
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest
