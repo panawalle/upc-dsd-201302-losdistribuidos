@@ -22,7 +22,7 @@ namespace ReservasWeb.SOAPReservas {
         SOAPServices.Dominio.Reserva fnGuardarReserva(SOAPServices.Dominio.Reserva objReserva);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserva/fnListarReserva", ReplyAction="http://tempuri.org/IReserva/fnListarReservaResponse")]
-        SOAPServices.Dominio.Reserva[] fnListarReserva(int codReserva, string nroReserva, string placa);
+        SOAPServices.Dominio.Reserva[] fnListarReserva(int codReserva, string nroReserva, string placa, int codestado);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -60,8 +60,8 @@ namespace ReservasWeb.SOAPReservas {
             return base.Channel.fnGuardarReserva(objReserva);
         }
         
-        public SOAPServices.Dominio.Reserva[] fnListarReserva(int codReserva, string nroReserva, string placa) {
-            return base.Channel.fnListarReserva(codReserva, nroReserva, placa);
+        public SOAPServices.Dominio.Reserva[] fnListarReserva(int codReserva, string nroReserva, string placa, int codestado) {
+            return base.Channel.fnListarReserva(codReserva, nroReserva, placa, codestado);
         }
     }
 }
