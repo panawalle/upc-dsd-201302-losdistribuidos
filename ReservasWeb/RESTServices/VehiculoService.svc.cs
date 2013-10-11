@@ -14,6 +14,7 @@ namespace RESTServices
     public class VehiculoService : IVehiculo
     {
         private VehiculoDAO dao = new VehiculoDAO();
+        private ClienteDAO daoCliente = new ClienteDAO();
 
         public Vehiculo ObtenerVehiculo(string placa)
         {
@@ -25,11 +26,23 @@ namespace RESTServices
             Vehiculo beanVehiculo = null;
             beanVehiculo = dao.Obtener(vehiculoACrear.placa);
 
+            //Validando placa repetida
             if (beanVehiculo != null){
                 throw new WebFaultException<ExcepcionError>(new ExcepcionError() { msjValidacion = "El Vehiculo con la placa " + beanVehiculo.placa + " ya existe." }, HttpStatusCode.InternalServerError);
             }else{
-                beanVehiculo = new Vehiculo();
-                beanVehiculo = dao.Crear(vehiculoACrear);
+                //Validacion de cliente : Debe existir el cliente
+                
+                Cliente beanCliente = null;
+                int v_codCli = int.Parse(vehiculoACrear.codCliente);
+                beanCliente = daoCliente.ObtenerXCodigo(v_codCli);
+
+                if (beanCliente == null){
+                    throw new WebFaultException<ExcepcionError>(new ExcepcionError() { msjValidacion = "El Cliente no existe." }, HttpStatusCode.InternalServerError);
+                }else {
+                    //----- Solo si el cliente existe y la placa no se repite => Graba
+                    beanVehiculo = new Vehiculo();
+                    beanVehiculo = dao.Crear(vehiculoACrear);
+                }
             }
             return beanVehiculo;
         }
