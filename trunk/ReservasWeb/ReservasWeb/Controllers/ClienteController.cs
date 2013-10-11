@@ -26,11 +26,9 @@ namespace ReservasWeb.Controllers
         SOAPServices.Dominio.Cliente clienteCreado = null;
         SOAPServices.Dominio.Cliente clienteBuscado = null;
 
-        public ICollection<Cliente> ListarClientes()
+        private ICollection<Cliente> ObtenerCliente()
         {
-
-            HttpWebRequest req = (HttpWebRequest)WebRequest.
-                Create("http://localhost:53786/Clientes.svc/Clientes");
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:60712/Clientes.svc/Clientes");
             req.Method = "GET";
             HttpWebResponse res = (HttpWebResponse)req.GetResponse();
             StreamReader reader = new StreamReader(res.GetResponseStream());
@@ -39,10 +37,16 @@ namespace ReservasWeb.Controllers
             IList<Cliente> Lista = js.Deserialize<IList<Cliente>>(clienteJson);
             ICollection<Cliente> modelo = Lista;
             return modelo;
-
         }
+
         public ActionResult Index()
         {
+            //REST
+
+            //ICollection<Cliente> modelo = ObtenerCliente();
+            //return View(modelo);
+
+            //SOAP
             SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
             List<SOAPServices.Dominio.Cliente> proxyProductos = proxy.ListarCliente().ToList();
             List<Models.Cliente> listaProducto = new List<Models.Cliente>();
@@ -63,10 +67,6 @@ namespace ReservasWeb.Controllers
                 listaProducto.Add(item2);
             }
             return View(listaProducto);
-
-            //SOAPClientes.ClienteServiceClient proxy = new SOAPClientes.ClienteServiceClient();
-            //ICollection<Cliente> modelo = proxy.ListarCliente();
-            //return View(modelo);
         }
 
         private Cliente ObtenerCliente(int collection)

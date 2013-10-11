@@ -7,7 +7,7 @@
     <div class="container">
         <% using (Html.BeginForm())
            {%>
-        <%: Html.ValidationSummary(true) %>
+        
         <fieldset>
             <legend>Nuevo Cliente</legend>
             <table border="0">
@@ -133,6 +133,7 @@
                         <%: Html.ActionLink("Regresar a la lista de Clientes", "Index", new { @style = "color:red" })%></button></td>
             </table>
         </fieldset>
+        <%: Html.ValidationSummary(true) %>
         <% } %>
     </div>
 </asp:Content>
