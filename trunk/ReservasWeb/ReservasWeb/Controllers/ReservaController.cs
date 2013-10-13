@@ -9,6 +9,8 @@ using System.Net;
 using System.Text;
 using System.IO;
 using System.Web.Script.Serialization;
+using io.iron.ironmq;
+using io.iron.ironmq.Data;
 
 
 namespace ReservasWeb.Controllers
@@ -118,6 +120,20 @@ namespace ReservasWeb.Controllers
             try
             {
                 FillDropDownListEstado();
+
+                Client client = new Client("52589ce706a8ab0005000006", "jJiEhHgUd6uihtIpz4bWi1uU_Ys");   // defualt Host and Port
+                Queue queue = client.queue("ReservasCancel");
+                Message msg = queue.get();
+
+                if (msg.Body.Length > 0)
+                {
+                    Cancelar(Convert.ToInt32(msg.Body));
+                    
+                    queue.deleteMessage(msg);
+
+                }
+                
+
                 Session["reserva"] = null;
                 List<Models.Reserva> model = null;
 
@@ -628,6 +644,7 @@ namespace ReservasWeb.Controllers
             ddlEstado.Add(new SelectListItem() { Value = "-", Text = "-", Selected = false });
             ddlEstado.Add(new SelectListItem() { Value = "0", Text = "Activa" });
             ddlEstado.Add(new SelectListItem() { Value = "1", Text = "Cancelada" });
+            ddlEstado.Add(new SelectListItem() { Value = "2", Text = "Atendida" });
 
             ViewData["Estados"] = ddlEstado;
 
