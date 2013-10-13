@@ -15,7 +15,7 @@
                     <table style="font-family: Verdana; font-size: 9px">
                         <tr >
                            <td colspan="9" style="font-size: 10px; font-weight: bold; color: Red">
-                            <%= ViewData["Error"] %>
+                            <!--<%= ViewData["Error"] %>-->
                             </td>
                         </tr>
                         <tr>
